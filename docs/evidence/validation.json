@@ -1,0 +1,97 @@
+{
+  "version": "1.0.0",
+  "revision": "studio-refresh-2026-09-30",
+  "python_tests": {
+    "passed": 57,
+    "skipped": 4,
+    "total": 61
+  },
+  "javascript_tests": {
+    "passed": 18
+  },
+  "browser": {
+    "passed": true,
+    "engine": "Chromium 138.0.7204.0",
+    "desktop": [
+      1440,
+      1080
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "routes": 9,
+    "checks": [
+      "comparison import and source mismatch rejection",
+      "CSV export",
+      "review drafts across navigation",
+      "saved review persistence after reload",
+      "review JSON export",
+      "command search and keyboard navigation",
+      "threshold reset",
+      "model and split selection",
+      "escaped text",
+      "report export",
+      "review backup import and merge"
+    ]
+  },
+  "fixture_syntax": {
+    "originals": 48,
+    "renamed_views": 48
+  },
+  "reference_training": {
+    "executed_on": "2026-09-29",
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "retrained_for_studio_refresh": false
+  },
+  "neural_checks": {
+    "executed_on": "2026-09-29",
+    "repeated_for_studio_refresh": false,
+    "reason": "Optional PyTorch, Transformers and PEFT dependencies unavailable in this runtime",
+    "unchanged_files_sha256": {
+      "src/patchlens/hf_training.py": "aad92684244de78fedb3f7c3305e835e810e650b06aad255709030adb1aa4980",
+      "src/patchlens/generation.py": "0ff8e109e40f5229cb0fa8712e375d8c69457611e596f053996572e8d617dda0",
+      "src/patchlens/adapters.py": "53a94a059ff4f395f2105220fb3bf08c9c6c815fcbcc8759a1a3d8206c86265b",
+      "tests/test_hf.py": "2a03ea1bf1e976837f72a00cba14678ea281896687fb75b7738afcd096053470"
+    },
+    "log": "neural-reference-tests.txt",
+    "kind": "tiny locally initialized transformers; no pretrained-model efficacy study"
+  },
+  "semgrep": {
+    "executed_on": "2026-09-29",
+    "version": "1.137.0",
+    "scanned_files": 48,
+    "findings": 3,
+    "errors": 0,
+    "repeated_for_studio_refresh": false
+  },
+  "codeql": {
+    "orchestration_tests": true,
+    "real_engine_run": false
+  },
+  "wheel_install_and_audit": true,
+  "static_pages_preview": {
+    "version": "1.0.0",
+    "checked_on": "2026-09-30",
+    "local_http_project_path": "/PatchLens/",
+    "routes": [
+      "overview",
+      "pairs",
+      "experiments",
+      "compare",
+      "diagnostics",
+      "embeddings",
+      "tools",
+      "review",
+      "provenance"
+    ],
+    "deep_link_reload": true,
+    "javascript_errors": [],
+    "external_requests": [],
+    "github_deployment_verified": false
+  }
+}

@@ -1,0 +1,290 @@
+[
+  {
+    "id": "cwe79-message-vulnerable",
+    "pair_id": "cwe79-message",
+    "group_id": "cwe79-message",
+    "split": "train"
+  },
+  {
+    "id": "cwe79-message-corrected",
+    "pair_id": "cwe79-message",
+    "group_id": "cwe79-message",
+    "split": "train"
+  },
+  {
+    "id": "cwe79-greeting-vulnerable",
+    "pair_id": "cwe79-greeting",
+    "group_id": "cwe79-greeting",
+    "split": "train"
+  },
+  {
+    "id": "cwe79-greeting-corrected",
+    "pair_id": "cwe79-greeting",
+    "group_id": "cwe79-greeting",
+    "split": "train"
+  },
+  {
+    "id": "cwe79-caption-vulnerable",
+    "pair_id": "cwe79-caption",
+    "group_id": "cwe79-caption",
+    "split": "validation"
+  },
+  {
+    "id": "cwe79-caption-corrected",
+    "pair_id": "cwe79-caption",
+    "group_id": "cwe79-caption",
+    "split": "validation"
+  },
+  {
+    "id": "cwe79-document-vulnerable",
+    "pair_id": "cwe79-document",
+    "group_id": "cwe79-document",
+    "split": "test"
+  },
+  {
+    "id": "cwe79-document-corrected",
+    "pair_id": "cwe79-document",
+    "group_id": "cwe79-document",
+    "split": "test"
+  },
+  {
+    "id": "cwe89-lookup-vulnerable",
+    "pair_id": "cwe89-lookup",
+    "group_id": "cwe89-lookup",
+    "split": "train"
+  },
+  {
+    "id": "cwe89-lookup-corrected",
+    "pair_id": "cwe89-lookup",
+    "group_id": "cwe89-lookup",
+    "split": "train"
+  },
+  {
+    "id": "cwe89-search-vulnerable",
+    "pair_id": "cwe89-search",
+    "group_id": "cwe89-search",
+    "split": "train"
+  },
+  {
+    "id": "cwe89-search-corrected",
+    "pair_id": "cwe89-search",
+    "group_id": "cwe89-search",
+    "split": "train"
+  },
+  {
+    "id": "cwe89-delete-vulnerable",
+    "pair_id": "cwe89-delete",
+    "group_id": "cwe89-delete",
+    "split": "validation"
+  },
+  {
+    "id": "cwe89-delete-corrected",
+    "pair_id": "cwe89-delete",
+    "group_id": "cwe89-delete",
+    "split": "validation"
+  },
+  {
+    "id": "cwe89-sort-vulnerable",
+    "pair_id": "cwe89-sort",
+    "group_id": "cwe89-sort",
+    "split": "test"
+  },
+  {
+    "id": "cwe89-sort-corrected",
+    "pair_id": "cwe89-sort",
+    "group_id": "cwe89-sort",
+    "split": "test"
+  },
+  {
+    "id": "cwe78-checksum-vulnerable",
+    "pair_id": "cwe78-checksum",
+    "group_id": "cwe78-checksum",
+    "split": "train"
+  },
+  {
+    "id": "cwe78-checksum-corrected",
+    "pair_id": "cwe78-checksum",
+    "group_id": "cwe78-checksum",
+    "split": "train"
+  },
+  {
+    "id": "cwe78-metadata-vulnerable",
+    "pair_id": "cwe78-metadata",
+    "group_id": "cwe78-metadata",
+    "split": "train"
+  },
+  {
+    "id": "cwe78-metadata-corrected",
+    "pair_id": "cwe78-metadata",
+    "group_id": "cwe78-metadata",
+    "split": "train"
+  },
+  {
+    "id": "cwe78-hostname-vulnerable",
+    "pair_id": "cwe78-hostname",
+    "group_id": "cwe78-hostname",
+    "split": "validation"
+  },
+  {
+    "id": "cwe78-hostname-corrected",
+    "pair_id": "cwe78-hostname",
+    "group_id": "cwe78-hostname",
+    "split": "validation"
+  },
+  {
+    "id": "cwe78-listing-vulnerable",
+    "pair_id": "cwe78-listing",
+    "group_id": "cwe78-listing",
+    "split": "test"
+  },
+  {
+    "id": "cwe78-listing-corrected",
+    "pair_id": "cwe78-listing",
+    "group_id": "cwe78-listing",
+    "split": "test"
+  },
+  {
+    "id": "cwe22-document-vulnerable",
+    "pair_id": "cwe22-document",
+    "group_id": "cwe22-document",
+    "split": "train"
+  },
+  {
+    "id": "cwe22-document-corrected",
+    "pair_id": "cwe22-document",
+    "group_id": "cwe22-document",
+    "split": "train"
+  },
+  {
+    "id": "cwe22-template-vulnerable",
+    "pair_id": "cwe22-template",
+    "group_id": "cwe22-template",
+    "split": "train"
+  },
+  {
+    "id": "cwe22-template-corrected",
+    "pair_id": "cwe22-template",
+    "group_id": "cwe22-template",
+    "split": "train"
+  },
+  {
+    "id": "cwe22-avatar-vulnerable",
+    "pair_id": "cwe22-avatar",
+    "group_id": "cwe22-avatar",
+    "split": "validation"
+  },
+  {
+    "id": "cwe22-avatar-corrected",
+    "pair_id": "cwe22-avatar",
+    "group_id": "cwe22-avatar",
+    "split": "validation"
+  },
+  {
+    "id": "cwe22-archive-vulnerable",
+    "pair_id": "cwe22-archive",
+    "group_id": "cwe22-archive",
+    "split": "test"
+  },
+  {
+    "id": "cwe22-archive-corrected",
+    "pair_id": "cwe22-archive",
+    "group_id": "cwe22-archive",
+    "split": "test"
+  },
+  {
+    "id": "cwe1321-settings-vulnerable",
+    "pair_id": "cwe1321-settings",
+    "group_id": "cwe1321-settings",
+    "split": "train"
+  },
+  {
+    "id": "cwe1321-settings-corrected",
+    "pair_id": "cwe1321-settings",
+    "group_id": "cwe1321-settings",
+    "split": "train"
+  },
+  {
+    "id": "cwe1321-merge-vulnerable",
+    "pair_id": "cwe1321-merge",
+    "group_id": "cwe1321-merge",
+    "split": "train"
+  },
+  {
+    "id": "cwe1321-merge-corrected",
+    "pair_id": "cwe1321-merge",
+    "group_id": "cwe1321-merge",
+    "split": "train"
+  },
+  {
+    "id": "cwe1321-dictionary-vulnerable",
+    "pair_id": "cwe1321-dictionary",
+    "group_id": "cwe1321-dictionary",
+    "split": "validation"
+  },
+  {
+    "id": "cwe1321-dictionary-corrected",
+    "pair_id": "cwe1321-dictionary",
+    "group_id": "cwe1321-dictionary",
+    "split": "validation"
+  },
+  {
+    "id": "cwe1321-path-vulnerable",
+    "pair_id": "cwe1321-path",
+    "group_id": "cwe1321-path",
+    "split": "test"
+  },
+  {
+    "id": "cwe1321-path-corrected",
+    "pair_id": "cwe1321-path",
+    "group_id": "cwe1321-path",
+    "split": "test"
+  },
+  {
+    "id": "cwe95-json-vulnerable",
+    "pair_id": "cwe95-json",
+    "group_id": "cwe95-json",
+    "split": "train"
+  },
+  {
+    "id": "cwe95-json-corrected",
+    "pair_id": "cwe95-json",
+    "group_id": "cwe95-json",
+    "split": "train"
+  },
+  {
+    "id": "cwe95-formula-vulnerable",
+    "pair_id": "cwe95-formula",
+    "group_id": "cwe95-formula",
+    "split": "train"
+  },
+  {
+    "id": "cwe95-formula-corrected",
+    "pair_id": "cwe95-formula",
+    "group_id": "cwe95-formula",
+    "split": "train"
+  },
+  {
+    "id": "cwe95-timer-vulnerable",
+    "pair_id": "cwe95-timer",
+    "group_id": "cwe95-timer",
+    "split": "validation"
+  },
+  {
+    "id": "cwe95-timer-corrected",
+    "pair_id": "cwe95-timer",
+    "group_id": "cwe95-timer",
+    "split": "validation"
+  },
+  {
+    "id": "cwe95-dispatch-vulnerable",
+    "pair_id": "cwe95-dispatch",
+    "group_id": "cwe95-dispatch",
+    "split": "test"
+  },
+  {
+    "id": "cwe95-dispatch-corrected",
+    "pair_id": "cwe95-dispatch",
+    "group_id": "cwe95-dispatch",
+    "split": "test"
+  }
+]

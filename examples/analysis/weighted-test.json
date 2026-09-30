@@ -1,0 +1,340 @@
+{
+  "schema_version": "1.0",
+  "kind": "diagnostics",
+  "experiment_id": "bd01b8fdff834fc3",
+  "dataset_sha256": "fa73f60b92dd6f82f9c38e027fb64bf32a63946806f6ae250eed488e2c4a1439",
+  "run_id": "weighted",
+  "split": "test",
+  "threshold_source": "validation",
+  "metrics": {
+    "n": 12,
+    "tp": 5,
+    "tn": 6,
+    "fp": 0,
+    "fn": 1,
+    "threshold": 0.5,
+    "accuracy": 0.9166666666666666,
+    "precision": 1.0,
+    "recall": 0.8333333333333334,
+    "f1": 0.9090909090909091,
+    "fnr": 0.16666666666666666,
+    "fpr": 0.0,
+    "brier": 0.08017182489633527,
+    "average_precision": 0.9444444444444444,
+    "roc_auc": 0.9166666666666667,
+    "fnr_wilson_95": [
+      0.030053369748306635,
+      0.5635028221864702
+    ],
+    "fpr_wilson_95": [
+      0.0,
+      0.3903342879021653
+    ],
+    "mcc": 0.8451542547285166,
+    "balanced_accuracy": 0.9166666666666667
+  },
+  "calibration": {
+    "n": 12,
+    "bin_count": 10,
+    "ece": 0.07456828878990902,
+    "brier": 0.08017182489633527,
+    "log_loss": 0.3371944666096202,
+    "bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "n": 7,
+        "mean_score": 0.020637751794345852,
+        "observed_rate": 0.14285714285714285,
+        "observed_wilson_95": [
+          0.02567962434474355,
+          0.5131278292743189
+        ]
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "n": 0,
+        "mean_score": null,
+        "observed_rate": null,
+        "observed_wilson_95": null
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "n": 5,
+        "mean_score": 0.9921432543921341,
+        "observed_rate": 1.0,
+        "observed_wilson_95": [
+          0.5655175352168251,
+          1.0
+        ]
+      }
+    ],
+    "interpretation": "Descriptive only; bins on a small authored corpus do not establish calibrated probabilities"
+  },
+  "by_cwe": {
+    "CWE-1321": {
+      "n": 2,
+      "tp": 0,
+      "tn": 1,
+      "fp": 0,
+      "fn": 1,
+      "threshold": 0.5,
+      "accuracy": 0.5,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fnr": 1.0,
+      "fpr": 0.0,
+      "brier": 0.47981103509622636,
+      "average_precision": 0.5,
+      "roc_auc": 0.0,
+      "fnr_wilson_95": [
+        0.20654931437723745,
+        1.0
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "mcc": null,
+      "balanced_accuracy": 0.5
+    },
+    "CWE-22": {
+      "n": 2,
+      "tp": 1,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fnr": 0.0,
+      "fpr": 0.0,
+      "brier": 0.0002449673769606752,
+      "average_precision": 1.0,
+      "roc_auc": 1.0,
+      "fnr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "mcc": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "CWE-78": {
+      "n": 2,
+      "tp": 1,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fnr": 0.0,
+      "fpr": 0.0,
+      "brier": 0.00023970156445539555,
+      "average_precision": 1.0,
+      "roc_auc": 1.0,
+      "fnr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "mcc": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "CWE-79": {
+      "n": 2,
+      "tp": 1,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fnr": 0.0,
+      "fpr": 0.0,
+      "brier": 0.00024088496559325018,
+      "average_precision": 1.0,
+      "roc_auc": 1.0,
+      "fnr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "mcc": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "CWE-89": {
+      "n": 2,
+      "tp": 1,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fnr": 0.0,
+      "fpr": 0.0,
+      "brier": 0.00024535385619693244,
+      "average_precision": 1.0,
+      "roc_auc": 1.0,
+      "fnr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "mcc": 1.0,
+      "balanced_accuracy": 1.0
+    },
+    "CWE-95": {
+      "n": 2,
+      "tp": 1,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fnr": 0.0,
+      "fpr": 0.0,
+      "brier": 0.00024900651857907055,
+      "average_precision": 1.0,
+      "roc_auc": 1.0,
+      "fnr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "mcc": 1.0,
+      "balanced_accuracy": 1.0
+    }
+  },
+  "pair_margins": [
+    {
+      "pair_id": "cwe1321-path",
+      "title": "Updating a configuration branch",
+      "cwe": "CWE-1321",
+      "score_margin": -3.9590856236223354e-05,
+      "ordering": "reversed"
+    },
+    {
+      "pair_id": "cwe95-dispatch",
+      "title": "Dispatching a calculation",
+      "cwe": "CWE-95",
+      "score_margin": 0.9707851737064291,
+      "ordering": "expected"
+    },
+    {
+      "pair_id": "cwe22-archive",
+      "title": "Selecting an archived report",
+      "cwe": "CWE-22",
+      "score_margin": 0.9711929811666736,
+      "ordering": "expected"
+    },
+    {
+      "pair_id": "cwe89-sort",
+      "title": "Choosing a sort direction",
+      "cwe": "CWE-89",
+      "score_margin": 0.9716324916426758,
+      "ordering": "expected"
+    },
+    {
+      "pair_id": "cwe79-document",
+      "title": "Writing a document title",
+      "cwe": "CWE-79",
+      "score_margin": 0.9719122466443801,
+      "ordering": "expected"
+    },
+    {
+      "pair_id": "cwe78-listing",
+      "title": "Listing a selected directory",
+      "cwe": "CWE-78",
+      "score_margin": 0.9719982065970371,
+      "ordering": "expected"
+    }
+  ]
+}

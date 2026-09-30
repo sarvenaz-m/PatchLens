@@ -1,0 +1,3 @@
+# Reference environment used for the included experiment.
+# Python 3.12.14; alternate supported Python versions may have different wheels.
+numpy==2.3.5

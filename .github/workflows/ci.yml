@@ -1,0 +1,32 @@
+name: Research checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.12', '3.13']
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: python -m pip install .
+      - run: python -m unittest discover -s tests -v
+      - run: node --test tests/*.test.cjs
+      - run: node scripts/check-fixtures.cjs
+      - run: patchlens audit
+      - run: patchlens demo --epochs 30 --output runs/ci-smoke

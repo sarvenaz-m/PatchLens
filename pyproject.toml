@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patchlens-workbench"
+version = "1.0.0"
+description = "An inspectable workbench for code security experiments"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "PatchLens contributors"}]
+dependencies = ["numpy>=1.26,<3"]
+keywords = ["code-security", "contrastive-learning", "reproducibility", "javascript"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Scientific/Engineering :: Artificial Intelligence"]
+
+[project.optional-dependencies]
+hf = ["torch==2.8.0", "transformers==4.56.2", "safetensors>=0.4,<1"]
+train = ["torch==2.8.0", "transformers==4.56.2", "peft==0.17.1", "safetensors>=0.4,<1"]
+scan = ["semgrep==1.137.0"]
+
+[project.scripts]
+patchlens = "patchlens.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+patchlens = ["data/*.jsonl", "data/*.json", "web/*", "web/assets/*"]

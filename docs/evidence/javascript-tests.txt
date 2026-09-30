@@ -1,0 +1,26 @@
+✔ browser diagnostics agree with independent Python calculations (1.475882ms)
+✔ CWE slices and pair score margins match Python (0.647088ms)
+✔ paired outcomes match Python and remain independent of row order (1.738831ms)
+✔ comparison verifies source content beyond the asserted fingerprint (3.771235ms)
+✔ calibration handles 0, 1, empty bins and undefined MCC (0.265471ms)
+✔ review roundtrip preserves notes as data and rejects wrong dataset (0.351001ms)
+✔ review import rejects duplicate IDs, invalid states and oversized notes (0.234855ms)
+✔ CSV escapes quotes, line breaks and formula-like text (0.48932ms)
+✔ import refuses incompatible pair CWE metadata and malformed scanners (5.5924ms)
+✔ reference report satisfies the browser contract (1.92345ms)
+✔ all split metrics agree with the independent Python implementation (4.362445ms)
+✔ hostile strings are escaped as text (0.217749ms)
+✔ duplicate and missing predictions are refused (4.183129ms)
+✔ out of range, nonfinite and string scores are refused (9.701225ms)
+✔ cross-split group leakage is refused on import (1.285855ms)
+✔ PCA coordinates must be finite and uniquely cover the dataset (1.379657ms)
+✔ JS ROC curve matches stored Python curve including score ties (1.231292ms)
+✔ undefined precision is displayed as null (0.209317ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 137.370828

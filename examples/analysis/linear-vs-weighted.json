@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0",
+  "kind": "paired_comparison",
+  "dataset_sha256": "fa73f60b92dd6f82f9c38e027fb64bf32a63946806f6ae250eed488e2c4a1439",
+  "split": "test",
+  "n": 12,
+  "groups": 6,
+  "baseline": {
+    "experiment_id": "bd01b8fdff834fc3",
+    "run_id": "linear",
+    "metrics": {
+      "n": 12,
+      "tp": 4,
+      "tn": 6,
+      "fp": 0,
+      "fn": 2,
+      "threshold": 0.5,
+      "accuracy": 0.8333333333333334,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "fnr": 0.3333333333333333,
+      "fpr": 0.0,
+      "brier": 0.09836394378240805,
+      "average_precision": 1.0,
+      "roc_auc": 1.0,
+      "fnr_wilson_95": [
+        0.09677141110578041,
+        0.700006684861608
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.3903342879021653
+      ],
+      "mcc": 0.7071067811865476,
+      "balanced_accuracy": 0.8333333333333333
+    }
+  },
+  "candidate": {
+    "experiment_id": "bd01b8fdff834fc3",
+    "run_id": "weighted",
+    "metrics": {
+      "n": 12,
+      "tp": 5,
+      "tn": 6,
+      "fp": 0,
+      "fn": 1,
+      "threshold": 0.5,
+      "accuracy": 0.9166666666666666,
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "fnr": 0.16666666666666666,
+      "fpr": 0.0,
+      "brier": 0.08017182489633527,
+      "average_precision": 0.9444444444444444,
+      "roc_auc": 0.9166666666666667,
+      "fnr_wilson_95": [
+        0.030053369748306635,
+        0.5635028221864702
+      ],
+      "fpr_wilson_95": [
+        0.0,
+        0.3903342879021653
+      ],
+      "mcc": 0.8451542547285166,
+      "balanced_accuracy": 0.9166666666666667
+    }
+  },
+  "outcomes": {
+    "improved": 1,
+    "regressed": 0,
+    "both_correct": 10,
+    "both_wrong": 1
+  },
+  "accuracy_delta": 0.08333333333333326,
+  "bootstrap": {
+    "unit": "group_id",
+    "draws": 1000,
+    "seed": 17,
+    "accuracy_delta_percentile_95": [
+      0.0,
+      0.25
+    ],
+    "interpretation": "Exploratory paired group bootstrap on the same split; few groups and authored data limit generalization"
+  },
+  "changes": [
+    {
+      "id": "cwe79-document-vulnerable",
+      "pair_id": "cwe79-document",
+      "group_id": "cwe79-document",
+      "title": "Writing a document title",
+      "cwe": "CWE-79",
+      "label": 1,
+      "baseline_score": 0.9752903471693151,
+      "candidate_score": 0.9925632780389888,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe79-document-corrected",
+      "pair_id": "cwe79-document",
+      "group_id": "cwe79-document",
+      "title": "Writing a document title",
+      "cwe": "CWE-79",
+      "label": 0,
+      "baseline_score": 0.07247595595673738,
+      "candidate_score": 0.0206510313946087,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe89-sort-vulnerable",
+      "pair_id": "cwe89-sort",
+      "group_id": "cwe89-sort",
+      "title": "Choosing a sort direction",
+      "cwe": "CWE-89",
+      "label": 1,
+      "baseline_score": 0.8323845018574106,
+      "candidate_score": 0.9924626714469068,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe89-sort-corrected",
+      "pair_id": "cwe89-sort",
+      "group_id": "cwe89-sort",
+      "title": "Choosing a sort direction",
+      "cwe": "CWE-89",
+      "label": 0,
+      "baseline_score": 0.1873739876318744,
+      "candidate_score": 0.02083017980423095,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe78-listing-vulnerable",
+      "pair_id": "cwe78-listing",
+      "group_id": "cwe78-listing",
+      "title": "Listing a selected directory",
+      "cwe": "CWE-78",
+      "label": 1,
+      "baseline_score": 0.9610308786749301,
+      "candidate_score": 0.9926079198347708,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe78-listing-corrected",
+      "pair_id": "cwe78-listing",
+      "group_id": "cwe78-listing",
+      "title": "Listing a selected directory",
+      "cwe": "CWE-78",
+      "label": 0,
+      "baseline_score": 0.03921867300949809,
+      "candidate_score": 0.020609713237733716,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe22-archive-vulnerable",
+      "pair_id": "cwe22-archive",
+      "group_id": "cwe22-archive",
+      "title": "Selecting an archived report",
+      "cwe": "CWE-22",
+      "label": 1,
+      "baseline_score": 0.3107310903007062,
+      "candidate_score": 0.9917207287763506,
+      "baseline_correct": false,
+      "candidate_correct": true,
+      "outcome": "improved"
+    },
+    {
+      "id": "cwe22-archive-corrected",
+      "pair_id": "cwe22-archive",
+      "group_id": "cwe22-archive",
+      "title": "Selecting an archived report",
+      "cwe": "CWE-22",
+      "label": 0,
+      "baseline_score": 0.01636530116973989,
+      "candidate_score": 0.020527747609677058,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe1321-path-vulnerable",
+      "pair_id": "cwe1321-path",
+      "group_id": "cwe1321-path",
+      "title": "Updating a configuration branch",
+      "cwe": "CWE-1321",
+      "label": 1,
+      "baseline_score": 0.28216638010633044,
+      "candidate_score": 0.020614749750354995,
+      "baseline_correct": false,
+      "candidate_correct": false,
+      "outcome": "both_wrong"
+    },
+    {
+      "id": "cwe1321-path-corrected",
+      "pair_id": "cwe1321-path",
+      "group_id": "cwe1321-path",
+      "title": "Updating a configuration branch",
+      "cwe": "CWE-1321",
+      "label": 0,
+      "baseline_score": 0.10173261171282362,
+      "candidate_score": 0.02065434060659122,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe95-dispatch-vulnerable",
+      "pair_id": "cwe95-dispatch",
+      "group_id": "cwe95-dispatch",
+      "title": "Dispatching a calculation",
+      "cwe": "CWE-95",
+      "label": 1,
+      "baseline_score": 0.6759709285667556,
+      "candidate_score": 0.9913616738636535,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "cwe95-dispatch-corrected",
+      "pair_id": "cwe95-dispatch",
+      "group_id": "cwe95-dispatch",
+      "title": "Dispatching a calculation",
+      "cwe": "CWE-95",
+      "label": 0,
+      "baseline_score": 0.04748061537119228,
+      "candidate_score": 0.02057650015722435,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env
+.env.*
+!.env.example
+build/
+dist/
+*.egg-info/
+runs/
+coverage.xml
+.coverage
+node_modules/
+test-results/
+playwright-report/
+artifacts/

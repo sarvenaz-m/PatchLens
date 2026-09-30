@@ -1,0 +1,26 @@
+# Illustrative syntactic review rules, NOT a complete JavaScript vulnerability detector.
+rules:
+  - id: patchlens-dynamic-eval
+    languages: [javascript]
+    message: Review dynamic eval input and its trust boundary.
+    severity: WARNING
+    pattern: eval($VALUE)
+    metadata:
+      cwe: CWE-95
+      purpose: educational-review-signal
+  - id: patchlens-html-sink
+    languages: [javascript]
+    message: Review whether HTML assigned here includes untrusted content.
+    severity: WARNING
+    pattern: $NODE.innerHTML = $VALUE
+    metadata:
+      cwe: CWE-79
+      purpose: educational-review-signal
+  - id: patchlens-document-write
+    languages: [javascript]
+    message: Review document.write input and consider a text-only DOM API.
+    severity: WARNING
+    pattern: document.write(...)
+    metadata:
+      cwe: CWE-79
+      purpose: educational-review-signal
