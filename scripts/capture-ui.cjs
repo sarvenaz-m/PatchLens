@@ -8,7 +8,7 @@ const {pathToFileURL}=require('node:url');
     const page=await browser.newPage({viewport:{width:1440,height:1080}});
     await page.goto(pathToFileURL(path.resolve(__dirname,'../index.html')).href);
     await page.locator('#view-overview .studio-hero').waitFor();
-    for(const route of ['overview','pairs','tools','diagnostics','compare','review']){
+    for(const route of ['overview','benchmark','pairs','tools','diagnostics','compare','review']){
       await page.locator(`nav [data-route="${route}"]`).click();
       await page.locator(`#view-${route}`).waitFor();
       await page.screenshot({path:path.resolve(__dirname,`../docs/assets/workbench-${route}.png`),fullPage:true,animations:'disabled'});
@@ -17,7 +17,9 @@ const {pathToFileURL}=require('node:url');
     await page.locator('#theme-toggle').click();
     await page.screenshot({path:path.resolve(__dirname,'../docs/assets/workbench-dark.png'),fullPage:true,animations:'disabled'});
     await page.setViewportSize({width:390,height:844});
-    await page.screenshot({path:path.resolve(__dirname,'../docs/assets/workbench-mobile.png'),fullPage:true,animations:'disabled'});
-    console.log('Eight actual interface screenshots captured.');
+    await page.screenshot({path:path.resolve(__dirname,'../docs/assets/workbench-mobile.png'),fullPage:false,animations:'disabled'});
+    await page.locator('nav [data-route="benchmark"]').click();
+    await page.screenshot({path:path.resolve(__dirname,'../docs/assets/workbench-benchmark-mobile.png'),fullPage:false,animations:'disabled'});
+    console.log('Ten actual version-2 interface screenshots captured.');
   } finally {await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

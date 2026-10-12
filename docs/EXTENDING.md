@@ -35,7 +35,7 @@ The checkpoint must already be fine-tuned for binary sequence classification. A 
 5. Tune only on validation, repeat seeds, publish raw predictions and analyze grouped uncertainty.
 6. Run versioned static rules independently, then adjudicate model/scanner disagreements.
 
-The public-data study remains proposed. The optional training, LoRA, CodeQL orchestration and generation implementations are now available; see [Integrations](INTEGRATIONS.md) for exact commands and what was actually executed.
+Version 2.0.0 now includes a real Java patch-context study and frozen CodeBERT probe; see [Public benchmark](PUBLIC_BENCHMARK.md). The fine-tuning study described above remains a next experiment. The optional training, LoRA, CodeQL orchestration and generation implementations are now available; see [Integrations](INTEGRATIONS.md) for exact commands and what was actually executed.
 
 ## Workbench integration contract
 

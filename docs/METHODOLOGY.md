@@ -1,8 +1,14 @@
 # Methodology
 
+## Version 2 public study
+
+The public study follows [PUBLIC_BENCHMARK.md](PUBLIC_BENCHMARK.md): 62 real Java patch pairs, repository components, a frozen CodeBERT probe, a fixed reference split and five outer folds. All three percentage measures in the public results are repository macro averages. Whole components provide exploratory bootstrap intervals; OOF decisions use each fold's own validation threshold. No cross-fold score AUC is claimed.
+
+The equations below describe the unchanged lexical/MLP objective. Public contexts use identity positive views, with no augmentation robustness claim. The authored JavaScript reference retains parameter-renaming views. Settings for each execution are stored in its report.
+
 ## Task and unit of analysis
 
-The positive class (`label=1`) denotes a vulnerability under the example's stated assumptions. `label=0` denotes the corrected counterpart under those assumptions; it does not mean universally safe code. Each pair shares a group, split and CWE. The reference split is fixed before fitting: 12 training pairs, six validation pairs and six test pairs.
+The positive class (`label=1`) denotes a vulnerability under the example's stated assumptions. `label=0` denotes the corrected counterpart under those assumptions; it does not mean universally safe code. Each pair shares a group, split and CWE. The authored reference split is fixed before fitting: 12 training pairs, six validation pairs and six test pairs.
 
 No snippets are executed. This is classification and representation analysis, not dynamic exploit validation. Data audit checks exact identifiers, pair integrity, groups and whitespace-normalized duplicate strings. It does not detect semantic clones. Removing whitespace can also conflate literals that differ only in whitespace; this is a conservative heuristic, not a JavaScript equivalence test.
 
@@ -46,7 +52,7 @@ Classify as vulnerable when `score >= threshold`. On validation, choose the thre
 
 Report TP, TN, FP, FN, precision, recall, F1, FNR, FPR, accuracy, Brier score, average precision and ROC AUC. Precision and rates with zero denominators are `null`, not invented zeroes. Average precision is the step-weighted sum of precision over recall increments; ROC AUC uses trapezoids. Tied scores move together. The interface recomputes operating-point metrics from raw predictions and is tested against the Python implementation.
 
-The JSON report includes 95% Wilson intervals for FNR and FPR. Those simple binomial intervals do not account for scenario or stylistic dependence, and should not be read as population-level uncertainty on this fixture collection. A future public-patch benchmark should use appropriate grouping and resampling, multiple seeds and explicit calibration analysis.
+The JSON report includes 95% Wilson intervals for FNR and FPR. Those simple binomial intervals do not account for scenario or stylistic dependence, and should not be read as population-level uncertainty on this fixture collection. The public study adds repository grouping and resampling; its Wilson bands remain descriptive, and probability calibration is not established.
 
 The threshold slider is exploratory. It changes the current view only; exported JSON preserves the original validation-selected experiment. Selecting a favorable test threshold is not valid model selection.
 

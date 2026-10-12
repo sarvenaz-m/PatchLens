@@ -2,6 +2,10 @@
 
 The studio analyzes recorded scores. Opening these views does not retrain a model or change a dataset label. The selected evaluation split applies across the workspace; model comparison uses its own two selectors and each model's stored validation threshold.
 
+## Public-study aggregation
+
+Version 2.0.0 adds a separate Public benchmark workspace. It pools fold-specific classification decisions, then gives each repository component equal weight for macro balanced accuracy, pair ordering and complete-pair success. The 2,000-draw intervals resample whole components; overlapping fold training sets limit inference. Raw scores from different folds are not pooled into a common ROC/AUC or threshold. Per-report diagnostics below operate on the currently selected split. The historical six-group examples in the CLI walkthrough refer to the authored fixture report.
+
 ## Diagnostics
 
 | Measure | Meaning | Important limit |
@@ -69,4 +73,4 @@ Import accepts only matching dataset fingerprints, known unique sample IDs, vali
 | `tests/test_analysis.py` | Numerical cases, provenance checks and group resampling behavior |
 | `tests/analysis.test.cjs` | Independent Python/JavaScript agreement and import/export contracts |
 
-The original schema 1.0 report and all prior CLI commands remain supported. The package version remains **1.0.0**.
+The original schema 1.0 report and all prior CLI commands remain supported. The package version is **2.0.0**; schema 1.0 compatibility is retained.

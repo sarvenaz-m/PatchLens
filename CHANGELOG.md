@@ -1,3 +1,12 @@
+# Version 2.0.0 · 2026-10-04
+
+- Added 62 attributed Vul4J Java correction pairs with pinned sources, upstream licences and notices, QC/exclusion records and repository split ledgers.
+- Executed frozen pretrained CodeBERT inference, numeric head training, four controlled baselines and a constant control.
+- Published a three-seed reference split and all five repository folds, with one OOF decision per context, macro metrics and paired repository bootstrap intervals.
+- Added source reconstruction and 5,952 checkpoint-prediction replay checks, plus complete-report publication checks.
+- Added the public benchmark workspace, all fold reports, dataset selection and explicit identity-view status; retained the authored experiment.
+- Refreshed actual desktop/mobile captures, recorded walkthrough, measured-result graphics, cards, reproducibility instructions and CI checks.
+
 # Changelog
 
 ## 1.0.0 — 2026-09-30

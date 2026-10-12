@@ -43,8 +43,8 @@ class Example:
         for name in ("id", "pair_id", "group_id"):
             if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,95}", row[name]):
                 raise ValueError(f"{name} must start with a letter/number and use 1-96 letters, numbers, dots, underscores or hyphens")
-        if not re.fullmatch(r"CWE-\d+", row["cwe"]):
-            raise ValueError("cwe must have the form CWE-79")
+        if not re.fullmatch(r"CWE-(?:\d+|unknown)", row["cwe"]):
+            raise ValueError("cwe must have the form CWE-79 or CWE-unknown for an unmapped upstream category")
         if len(row["code"]) > 50000 or len(row["view_code"]) > 50000:
             raise ValueError("Code exceeds the per-example character limit")
         return cls(**row)

@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.gif binary
+*.webm binary
+*.npz binary
+datasets/vul4j/source/* -text -whitespace
+datasets/vul4j/licences/* -text -whitespace

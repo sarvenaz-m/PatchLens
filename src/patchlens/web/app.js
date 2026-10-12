@@ -35,7 +35,7 @@
       if (!s || !identifier(s.id) || ids.has(s.id) || !identifier(s.pair_id) || !identifier(s.group_id)) fail('invalid or duplicate sample identity.');
       if (![0,1].includes(s.label) || !['train','validation','test'].includes(s.split)) fail('invalid label or split.');
       for (const k of ['cwe','title','code','view_code','rationale','assumptions','source','licence','review_status']) if (!textField(s[k])) fail('missing sample field: '+k);
-      if(!/^CWE-\d{1,10}$/.test(s.cwe))fail('invalid weakness category.');
+      if(!/^CWE-(?:\d{1,10}|unknown)$/.test(s.cwe))fail('invalid weakness category.');
       ids.add(s.id);
       if (groups.has(s.group_id) && groups.get(s.group_id) !== s.split) fail('a group crosses splits.');
       groups.set(s.group_id,s.split);
@@ -68,6 +68,23 @@
       }
     }
     if (!r.dataset || !textField(r.dataset.fingerprint,100) || !r.config || !r.environment || !Array.isArray(r.limitations) || !r.limitations.every(x=>textField(x,1000))) fail('missing provenance.');
+    if(r.dataset.kind==='public_patch_context') {
+      const components=r.dataset.components;
+      if(!Array.isArray(components)||components.length!==groups.size||components.some(c=>!c||!groups.has(c.group_id)||groups.get(c.group_id)!==c.split||!Array.isArray(c.repositories)||!c.repositories.length||c.repositories.some(v=>!textField(v,300))))fail('invalid public repository ledger.');
+      const checkMacro=m=>{
+        if(!m||!['macro_balanced_accuracy','macro_pair_ordering','macro_pair_both_correct'].every(k=>score(m[k])))fail('invalid public macro metrics.');
+        if(m.bootstrap){for(const k of ['macro_balanced_accuracy','macro_pair_ordering','macro_pair_both_correct']) {const v=m.bootstrap.percentile_95?.[k];if(!Array.isArray(v)||v.length!==2||!v.every(score)||v[0]>v[1])fail('invalid public uncertainty interval.');}}
+      };
+      for(const run of r.runs){for(const split of ['train','validation','test'])checkMacro(run.repository_metrics?.[split]);
+        const m=run.splits?.test?.metrics;if(!m||!['tp','tn','fp','fn'].every(k=>Number.isInteger(m[k])&&m[k]>=0))fail('invalid public error counts.');
+        if(run.id==='codebert'&&(!run.provenance||!Number.isInteger(run.provenance.truncated_examples)||run.provenance.truncated_examples<0||run.provenance.truncated_examples>ids.size))fail('invalid encoder truncation record.');
+      }
+      if(r.cross_validation){const cv=r.cross_validation;
+        if(!Number.isInteger(cv.pairs)||cv.pairs*2!==ids.size||!Number.isInteger(cv.repositories)||cv.repositories<1||!cv.models||!Array.isArray(cv.folds)||cv.folds.length!==5)fail('invalid cross-validation coverage.');
+        for(const run of r.runs){const m=cv.models[run.id];checkMacro(m);if(!m.pooled_counts||!['tp','tn','fp','fn','n'].every(k=>Number.isInteger(m.pooled_counts[k])&&m.pooled_counts[k]>=0)||m.pooled_counts.n!==ids.size)fail('invalid out-of-fold error counts.');}
+        const delta=cv.codebert_minus_linear;if(!delta||!finite(delta.macro_balanced_accuracy_delta)||!Array.isArray(delta.paired_repository_percentile_95)||delta.paired_repository_percentile_95.length!==2||!delta.paired_repository_percentile_95.every(finite))fail('invalid paired repository interval.');
+      }
+    }
     if (r.static_analysis) {
       const scan=r.static_analysis;
       if (!['not_run','failed','completed_with_errors','completed'].includes(scan.status) || !Array.isArray(scan.findings) || scan.findings.length>100000) fail('invalid scanner state.');
@@ -98,8 +115,13 @@
   const $ = id => document.getElementById(id);
   const pct = x => x == null ? '—' : (x*100).toFixed(1)+'%';
   const dec = x => x == null ? '—' : x.toFixed(3);
+  const bundledReports={current:window.PATCHLENS_REPORT,...(window.PATCHLENS_EXTRA_REPORTS||{})};
+  const corpusSelect=document.getElementById('corpus-select');
+  corpusSelect.innerHTML=Object.entries(bundledReports).map(([id,r])=>`<option value="${esc(id)}">${esc(r.dataset.workbench_label||r.dataset.name||'Imported report')}</option>`).join('');
+  corpusSelect.hidden=Object.keys(bundledReports).length<2;
   const state = {report:null,route:'overview',runId:'weighted',split:'test',threshold:null,pairId:null,query:'',cwe:'all',pointId:null};
   const routes = {
+    benchmark:['Public benchmark','Test a real correction.','Inspect repository-disjoint Java contexts and the pretrained encoder study.'],
     overview:['Overview','Inspect every prediction.','Follow the evidence from a code change to a model decision.'],
     pairs:['Code pairs','Read the security boundary.','Compare the vulnerable example with its context-dependent correction.'],
     experiments:['Experiments','Compare the trade-offs.','Check misses and false alarms before choosing an operating point.'],
@@ -150,13 +172,13 @@
   function renderOverview() {
     const m=currentMetrics(),run=activeRun(),ps=predictions();
     const errors=rows().filter(s=>Number(ps.get(s.id).score>=threshold())!==s.label);
-    $('view-overview').innerHTML=workspace.overviewSignal()+`<div class="stats-grid">${stat('F1 score',dec(m.f1),`${m.n} ${state.split} examples`,true)}${stat('Vulnerabilities missed',`${m.fn} / ${m.tp+m.fn}`,`False-negative rate ${pct(m.fnr)}`)}${stat('False alarms',`${m.fp} / ${m.tn+m.fp}`,`False-positive rate ${pct(m.fpr)}`)}${stat('Rename consistency',pct(m.agreement),`${m.flips} prediction flips after renaming`)}</div>
+    $('view-overview').innerHTML=workspace.overviewSignal()+`<div class="stats-grid">${stat('F1 score',dec(m.f1),`${m.n} ${state.split} examples`,true)}${stat('Vulnerabilities missed',`${m.fn} / ${m.tp+m.fn}`,`False-negative rate ${pct(m.fnr)}`)}${stat('False alarms',`${m.fp} / ${m.tn+m.fp}`,`False-positive rate ${pct(m.fpr)}`)}${state.report.dataset.view_kind==='identity'?stat('Stored input views','Identity','Augmentation robustness was not measured'):stat('Rename consistency',pct(m.agreement),`${m.flips} prediction flips after renaming`)}</div>
       <div class="grid-main"><div class="panel">${panelHead('Ablation comparison',`One dataset. ${state.report.runs.length} recorded models.`,state.split.toUpperCase())}${comparisonTable()}</div><div class="panel">${panelHead('Where the model is wrong','Raw counts at the selected operating point.')}${matrix(m)}</div></div>
-      <div class="grid-main"><div class="panel">${panelHead('Training trace',run.name+(run.kind==='external'?' · imported training record':' · full-batch Adam'),'ACTUAL RUN')}<div class="chart">${lineChart(run.history.map(h=>({x:h.epoch,y:h.loss})),{xLabel:'Epoch',yLabel:'Total objective'})}</div><p class="metric-foot">Loss values come from the recorded training history. Different objectives have different scales.</p></div><div class="panel">${panelHead('Inspection queue',`${errors.length} misclassified examples in this split.`, 'OPEN A PAIR')}<div class="error-list">${errors.length?errors.slice(0,5).map(s=>`<button class="error-row" data-open-pair="${esc(s.pair_id)}"><span><strong>${esc(s.title)}</strong><small>${esc(s.cwe)} · score ${dec(ps.get(s.id).score)}</small></span>${pill(s.label?'Missed':'False alarm','risk')}</button>`).join(''):'<p class="empty">No errors at this operating point on these fixtures. This small result does not establish real-world reliability.</p>'}</div></div></div>`;
+      <div class="grid-main"><div class="panel">${panelHead('Training trace',run.name+(run.kind==='external'?' · imported training record':' · full-batch Adam'),'ACTUAL RUN')}<div class="chart">${lineChart(run.history.map(h=>({x:h.epoch,y:h.loss})),{xLabel:'Epoch',yLabel:'Total objective'})}</div><p class="metric-foot">Loss values come from the recorded training history. Different objectives have different scales.</p></div><div class="panel">${panelHead('Inspection queue',`${errors.length} misclassified examples in this split.`, 'OPEN A PAIR')}<div class="error-list">${errors.length?errors.slice(0,5).map(s=>`<button class="error-row" data-open-pair="${esc(s.pair_id)}"><span><strong>${esc(s.title)}</strong><small>${esc(s.cwe)} · score ${dec(ps.get(s.id).score)}</small></span>${pill(s.label?'Missed':'False alarm','risk')}</button>`).join(''):'<p class="empty">No errors at this operating point on these examples. This small result does not establish real-world reliability.</p>'}</div></div></div>`;
   }
 
   function highlight(line) {
-    const rx=/("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`)|\b(const|let|var|function|return|if|else|throw|new|typeof|async|await|true|false|null)\b|\b(\d+)\b/g;
+    const rx=/("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`)|\b(const|let|var|function|return|if|else|throw|new|typeof|async|await|true|false|null|public|private|protected|class|static|void|final|int|boolean|try|catch|throws|import|package)\b|\b(\d+)\b/g;
     let out='',last=0;
     for(const match of line.matchAll(rx)) {
       out+=esc(line.slice(last,match.index));
@@ -180,7 +202,7 @@
     const before=pairs.find(s=>s.pair_id===state.pairId);
     if(!before) { $('pair-detail').innerHTML='<div class="panel empty">Change the search, category or evaluation split to inspect a pair.</div>';return; }
     const after=state.report.samples.find(s=>s.pair_id===before.pair_id && !s.label);
-    $('pair-detail').innerHTML=`<div class="pair-heading"><div><h2>${esc(before.title)}</h2><p>${esc(before.pair_id)} · ${esc(before.group_id)}</p></div>${pill(before.cwe)}</div><div class="code-grid">${codePanel(before,after)}${codePanel(after,before)}</div><div class="panel rationale"><h3>Why the boundary changes</h3><p>${esc(after.rationale)}</p><h3>Assumptions that matter</h3><p>${esc(after.assumptions)}</p><h3>Label-preserving view</h3><p>The stored view renames the local input parameter. Stability is measured from its real prediction, not inferred from the code diff. Highlights mark lines absent from the counterpart; this is not a semantic diff.</p><div class="pair-meta">${pill(before.review_status,'neutral')}${pill(before.licence,'neutral')}</div></div>`;
+    $('pair-detail').innerHTML=`<div class="pair-heading"><div><h2>${esc(before.title)}</h2><p>${esc(before.pair_id)} · ${esc(before.group_id)}</p></div>${pill(before.cwe)}</div><div class="code-grid">${codePanel(before,after)}${codePanel(after,before)}</div><div class="panel rationale"><h3>Why the boundary changes</h3><p>${esc(after.rationale)}</p><h3>Assumptions that matter</h3><p>${esc(after.assumptions)}</p><h3>Stored view</h3><p>${state.report.dataset.view_kind==='identity'?'Public contexts use an identity view. No renaming or augmentation robustness was measured.':'The authored view renames the local input parameter; stability uses its actual prediction.'} Highlights mark lines absent from the counterpart; this is not a semantic diff.</p>${/^https:\/\/github\.com\//.test(before.source)?`<p><a class="source-link" href="${esc(before.source)}" target="_blank" rel="noopener noreferrer">Open the original correction on GitHub ↗</a></p>`:''}<div class="pair-meta">${pill(before.review_status,'neutral')}${pill(before.licence,'neutral')}</div></div>`;
   }
 
   function renderExperiments() {
@@ -188,7 +210,7 @@
     $('view-experiments').innerHTML=`<div class="panel threshold-panel"><div class="threshold-copy"><h2>Explore the operating point</h2><p>${state.threshold===null?'Using the stored validation-selected threshold.':'Exploratory threshold override. This does not change the saved experiment.'}</p></div><div class="threshold-control"><input id="threshold-slider" aria-label="Exploratory classification threshold" type="range" min="0" max="1" step="0.005" value="${threshold()}"><output class="threshold-value" for="threshold-slider">${dec(threshold())}</output></div><button class="small-button" data-reset-threshold>Reset</button></div>
       <div class="stats-grid">${stat('Precision',pct(m.precision),'Vulnerable among flagged',true)}${stat('Recall',pct(m.recall),'Flagged among vulnerable')}${stat('False-negative rate',pct(m.fnr),`${m.fn} missed / ${m.fn+m.tp} vulnerable`)}${stat('False-positive rate',pct(m.fpr),`${m.fp} alarms / ${m.fp+m.tn} corrected`)}</div>
       <div class="grid-equal"><div class="panel">${panelHead('Precision–recall curve','All observed score thresholds; tied scores move together.')}<div class="chart">${lineChart(rankingCurve(rows(),ps,'pr'),{xLabel:'Recall',yLabel:'Precision',unit:true})}</div></div><div class="panel">${panelHead('ROC curve','Ranking behavior on the selected split.')}<div class="chart">${lineChart(rankingCurve(rows(),ps,'roc'),{xLabel:'False-positive rate',yLabel:'True-positive rate',unit:true})}</div></div></div>
-      <div class="grid-main"><div class="panel">${panelHead('Controlled comparison','Stored validation operating points; unaffected by the slider.')}${comparisonTable()}</div><div class="panel">${panelHead('Renaming stability','Same code behavior under the authored assumptions.')}<div class="detail-figure">${pct(m.agreement)}</div><div class="detail-caption">Prediction agreement across original / renamed views</div><dl class="key-values"><div class="kv-row"><dt>Both correct</dt><dd>${pct(m.both_correct)}</dd></div><div class="kv-row"><dt>Mean score shift</dt><dd>${dec(m.mean_score_shift)}</dd></div><div class="kv-row"><dt>Validation FPR ceiling</dt><dd>${pct(run.operating_point.max_fpr)}</dd></div></dl><p class="note-line">Agreement can include two wrong predictions. The validation ceiling is not a guarantee on the test split.</p></div></div>`;
+      <div class="grid-main"><div class="panel">${panelHead('Controlled comparison','Stored validation operating points; unaffected by the slider.')}${comparisonTable()}</div><div class="panel">${panelHead(state.report.dataset.view_kind==='identity'?'Augmentation status':'Renaming stability',state.report.dataset.view_kind==='identity'?'Public contexts retain the original code as their stored view.':'Same code behavior under the authored assumptions.')}<div class="detail-figure">${state.report.dataset.view_kind==='identity'?'Not measured':pct(m.agreement)}</div><div class="detail-caption">${state.report.dataset.view_kind==='identity'?'Identity inputs · no augmentation experiment':'Prediction agreement across original / renamed views'}</div><dl class="key-values"><div class="kv-row"><dt>Both correct</dt><dd>${pct(m.both_correct)}</dd></div><div class="kv-row"><dt>Mean score shift</dt><dd>${dec(m.mean_score_shift)}</dd></div><div class="kv-row"><dt>Validation FPR ceiling</dt><dd>${pct(run.operating_point.max_fpr)}</dd></div></dl><p class="note-line">Agreement can include two wrong predictions. The validation ceiling is not a guarantee on the test split.</p></div></div>`;
   }
 
   function renderEmbeddings() {
@@ -215,7 +237,7 @@
   function renderProvenance() {
     const r=state.report,run=activeRun(),groups=new Set(r.samples.map(s=>s.group_id)),pairCount=new Set(r.samples.map(s=>s.pair_id)).size;
     const kv=(k,v,hash=false)=>`<div class="kv-row"><dt>${esc(k)}</dt><dd${hash?' class="hash"':''}>${esc(v)}</dd></div>`;
-    $('view-provenance').innerHTML=`<div class="stats-grid">${stat('Authored / supplied examples',r.samples.length,`${pairCount} vulnerable / corrected pairs`,true)}${stat('Independent groups',groups.size,'Split boundary checked by group ID')}${stat('Weakness categories',new Set(r.samples.map(s=>s.cwe)).size,'Context-dependent binary labels')}${stat('Training seed',r.config.seed,'Deterministic within the recorded environment')}</div>
+    $('view-provenance').innerHTML=`<div class="stats-grid">${stat('Source examples',r.samples.length,`${pairCount} vulnerable / corrected pairs`,true)}${stat('Independent groups',groups.size,'Split boundary checked by group ID')}${stat('Weakness categories',new Set(r.samples.map(s=>s.cwe)).size,'Context-dependent binary labels')}${stat('Training seed',r.config.seed,'Deterministic within the recorded environment')}</div>
       <div class="grid-equal"><div class="panel">${panelHead('Dataset identity','Review the source and assumptions before reusing labels.')}<dl class="key-values">${kv('Dataset',r.dataset.name||'User supplied')}${kv('Scope',r.dataset.scope||'User supplied')}${kv('Samples by split',['train','validation','test'].map(split=>split+': '+r.samples.filter(s=>s.split===split).length).join(' · '))}${kv('SHA-256',r.dataset.fingerprint,true)}${kv('Sources',[...new Set(r.samples.map(s=>s.source))].join(', '))}${kv('Label review',[...new Set(r.samples.map(s=>s.review_status))].join(', '))}</dl></div><div class="panel">${panelHead('Run identity','The report preserves predictions, scores and configuration.')}<dl class="key-values">${kv('Experiment',r.experiment_id,true)}${kv('Created',r.created_at||'Not recorded')}${kv('Python / NumPy',r.environment.python+' / '+r.environment.numpy)}${kv('Epochs / seed',r.config.epochs+' / '+r.config.seed)}${kv('Threshold source',run.operating_point.source_split)}${kv('Predictions SHA-256',run.predictions_sha256||'Not recorded',true)}${kv('Static analysis',r.static_analysis?.status==='not_run'?'Not run — no scanner findings are claimed':r.static_analysis?.status||'Not recorded')}</dl></div></div>
       <div class="grid-equal"><div class="panel">${panelHead('Audit contract','These checks belong to the Python data audit.')}<ul class="checklist"><li>Unique identifiers and complete binary pairs</li><li>Group-disjoint train, validation and test splits</li><li>Whitespace-normalized exact duplicate leakage checks</li><li>Vocabulary and IDF fitted on training data only</li><li>Threshold chosen on validation, then frozen for test</li></ul><p class="note-line">Report import validates structure and coverage. It does not independently rerun the Python audit or authenticate the supplied hashes.</p></div><div class="panel">${panelHead('Interpretation limits','Make uncertainty part of the result.')}<ul>${r.limitations.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="note-line">The snippets are displayed as text. This workbench makes no network requests and does not execute, upload or repair imported code.</p></div></div>`;
   }
@@ -231,7 +253,7 @@
     $('view-tools').innerHTML=`<div class="stats-grid">${stat('Scanner status',labels[scan.status]||'Not recorded',toolNames||'No completed scanner claimed',scan.status==='completed')}${stat('Reported findings',findings.length,'Selected evaluation split')}${stat('Examples with a finding',flagged.size,'A review signal, not a verdict')}${stat('Signal disagreements',scan.status==='completed'?disagreements.length:'—','Model decision versus reported finding')}</div>
       <div class="panel tool-explainer"><h2>Keep silence separate from evidence</h2><p>${scan.status==='not_run'?'No scanner has been run for this report. Import a report with an attached scan to inspect its findings.':scan.status==='failed'?'The scanner failed. Findings, if present, are partial and cannot establish absence of vulnerabilities.':'A reported finding and a model score answer different questions. Review the rule, source and assumptions before drawing a conclusion.'}</p><p class="note-line">${esc(scan.meaning||'No finding is not proof of secure code.')} ${esc(typeof scan.coverage==='string'?scan.coverage:'Coverage details are retained in the exported JSON.')}</p></div>
       <div class="grid-main"><div class="panel">${panelHead('Findings ledger','Open a finding to inspect its code pair.',state.split.toUpperCase())}<div class="tool-findings">${findings.length?findings.map(f=>{const s=selected.find(s=>s.id===f.example_id);return `<button class="finding-row" data-open-pair="${esc(s.pair_id)}"><span class="finding-marker">${esc(f.severity)}</span><span><strong>${esc(s.title)}</strong><small>${esc(f.rule)} · line ${f.line}</small><p>${esc(f.message)}</p><small>${s.label?'Label: vulnerable':'Label: corrected under assumptions'} · model score ${dec(ps.get(s.id).score)}</small></span><span aria-hidden="true">↗</span></button>`;}).join(''):'<p class="empty">No findings recorded for this split. Check scan status and coverage before interpreting this.</p>'}</div></div>
-      <div class="panel">${panelHead('Review queue','Examples where the two signals differ.')}<div class="error-list">${scan.status==='completed'?disagreements.slice(0,20).map(s=>`<button class="error-row" data-open-pair="${esc(s.pair_id)}"><span><strong>${esc(s.title)}</strong><small>${flagged.has(s.id)?'Scanner finding / model not flagged':'Model flagged / no scanner finding'}</small></span>↗</button>`).join('')||'<p class="empty">Signals agree on these fixtures. Agreement is not a correctness guarantee.</p>':'<p class="empty">Complete the scan before using this comparison.</p>'}</div><p class="note-line">Raw errors and unmapped locations, when present, remain in the JSON export for investigation.</p></div></div>`;
+      <div class="panel">${panelHead('Review queue','Examples where the two signals differ.')}<div class="error-list">${scan.status==='completed'?disagreements.slice(0,20).map(s=>`<button class="error-row" data-open-pair="${esc(s.pair_id)}"><span><strong>${esc(s.title)}</strong><small>${flagged.has(s.id)?'Scanner finding / model not flagged':'Model flagged / no scanner finding'}</small></span>↗</button>`).join('')||'<p class="empty">Signals agree on these examples. Agreement is not a correctness guarantee.</p>':'<p class="empty">Complete the scan before using this comparison.</p>'}</div><p class="note-line">Raw errors and unmapped locations, when present, remain in the JSON export for investigation.</p></div></div>`;
   }
 
   function render() {
@@ -244,15 +266,16 @@
     document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!=='view-'+state.route);
     const notice=$('notice');notice.hidden=state.threshold===null;
     notice.textContent=`Exploratory threshold ${dec(threshold())}. The saved experiment still uses validation threshold ${dec(run.threshold)}. Reset it in Experiments before interpreting the original operating point.`;
-    ({overview:renderOverview,pairs:renderPairs,experiments:renderExperiments,embeddings:renderEmbeddings,provenance:renderProvenance,tools:renderTools,...workspace.renderers}[state.route])();
+    ({benchmark:()=>{$('view-benchmark').innerHTML=window.PatchLensBenchmark.render(state.report,{esc,pct,dec,panelHead,stat});},overview:renderOverview,pairs:renderPairs,experiments:renderExperiments,embeddings:renderEmbeddings,provenance:renderProvenance,tools:renderTools,...workspace.renderers}[state.route])();
   }
   function setRoute(route) {state.route=routes[route]?route:'overview';render();}
   function load(report) {
-    state.report=validateReport(report);state.runId=report.runs.some(r=>r.id==='weighted')?'weighted':report.runs[0].id;
+    state.report=validateReport(report);state.runId=report.runs.some(r=>r.id==='codebert')?'codebert':report.runs.some(r=>r.id==='weighted')?'weighted':report.runs[0].id;
     state.threshold=null;state.pairId=null;state.pointId=null;state.cwe='all';state.query='';
     $('model-select').innerHTML=report.runs.map(r=>`<option value="${esc(r.id)}">${esc(r.name)}</option>`).join('');
     $('pair-count').textContent=new Set(report.samples.map(s=>s.pair_id)).size;
-    document.querySelector('.fixture-badge').textContent=report.samples.every(s=>s.source.startsWith('authored:'))?'Authored fixture experiment':'Imported research experiment';
+    document.querySelector('.fixture-badge').textContent=report.dataset.kind==='public_patch_context'?'Real Java corrections · Vul4J':report.samples.every(s=>s.source.startsWith('authored:'))?'Authored fixture experiment':'Imported research experiment';
+    $('dataset-footer').textContent=report.dataset.kind==='public_patch_context'?'Real patch contexts · repository-disjoint study':'Authored / imported examples · pipeline validation';
     workspace.onLoad();
     render();
   }
@@ -281,10 +304,11 @@
     if(event.target.id==='split-select'){state.split=event.target.value;state.pairId=null;state.pointId=null;render();}
     if(event.target.id==='cwe-filter'){state.cwe=event.target.value;renderPairs(false);}
   });
+  corpusSelect.addEventListener('change',()=>{load(bundledReports[corpusSelect.value]);try{localStorage.setItem('patchlens-corpus',corpusSelect.value);}catch{}});
   $('import-button').addEventListener('click',()=>$('import-file').click());
   $('import-file').addEventListener('change',async event=>{
     const file=event.target.files[0];if(!file)return;
-    try {if(file.size>20*1024*1024)throw new Error('Report limit is 20 MiB.');const report=JSON.parse(await file.text());validateReport(report);load(report);toast('Report loaded locally. No data was uploaded.');}
+    try {if(file.size>20*1024*1024)throw new Error('Report limit is 20 MiB.');const report=JSON.parse(await file.text());validateReport(report);bundledReports.imported=report;if(!corpusSelect.querySelector('[value="imported"]'))corpusSelect.add(new Option('Imported report','imported'));corpusSelect.hidden=false;corpusSelect.value='imported';load(report);toast('Report loaded locally. No data was uploaded.');}
     catch(error){toast(error.message);}finally{event.target.value='';}
   });
   $('export-button').addEventListener('click',()=>{
@@ -300,5 +324,7 @@
     if(state.report&&state.route!==next)setRoute(next);
   });
   state.route=routes[location.hash.slice(1)]?location.hash.slice(1):'overview';
-  try{load(window.PATCHLENS_REPORT);}catch(error){$('notice').hidden=false;$('notice').textContent=error.message+' Import a PatchLens report.json to begin.';$('experiment-id').textContent='No valid report loaded';}
+  let initialCorpus='current';try{const saved=localStorage.getItem('patchlens-corpus');if(bundledReports[saved])initialCorpus=saved;}catch{}
+  corpusSelect.value=initialCorpus;
+  try{load(bundledReports[initialCorpus]);}catch(error){$('notice').hidden=false;$('notice').textContent=error.message+' Import a PatchLens report.json to begin.';$('experiment-id').textContent='No valid report loaded';}
 })();

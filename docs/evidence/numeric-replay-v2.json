@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "pairs_reconstructed_from_raw_patches": 62,
+  "repository_disjoint_sources": 40,
+  "checkpoint_prediction_checks": 5952,
+  "split_metric_and_macro_checks": 144,
+  "training_seeds": [
+    17,
+    29,
+    43
+  ],
+  "repository_test_folds": 5,
+  "oof_originals_verified_per_model": 124,
+  "embedding_fingerprint_verified": true,
+  "thresholds_reselected_on_validation": true,
+  "scope": "Bundled numeric replay and source reconstruction; no upstream PoV or encoder forward pass is repeated by this check"
+}

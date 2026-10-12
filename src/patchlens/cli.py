@@ -16,6 +16,25 @@ def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="patchlens", description="Inspect code-security model experiments locally.")
     p.add_argument("--version", action="version", version=__version__)
     commands = p.add_subparsers(dest="command", required=True)
+    public = commands.add_parser("prepare-public", help="Prepare verified Vul4J patch contexts without executing their code")
+    public.add_argument("--cache", type=Path, required=True)
+    public.add_argument("--lock", type=Path, default=Path("datasets/vul4j/source-lock.json"))
+    public.add_argument("--output", type=Path, required=True)
+    benchmark = commands.add_parser("benchmark", help="Compare real repository-disjoint pairs with a pinned pretrained encoder")
+    benchmark.add_argument("--dataset", type=Path, default=Path("datasets/vul4j/dataset.jsonl"))
+    benchmark.add_argument("--cohort", type=Path, default=Path("datasets/vul4j/cohort-manifest.json"))
+    benchmark.add_argument("--protocol", type=Path, default=Path("configs/public-benchmark.json"))
+    benchmark.add_argument("--model-dir", type=Path)
+    benchmark.add_argument("--embedding-cache", type=Path)
+    benchmark.add_argument("--model-lock", type=Path, default=Path("configs/codebert-lock.json"))
+    benchmark.add_argument("--output", type=Path, required=True)
+    cv = commands.add_parser("cross-validate", help="Score every public example once in five repository-disjoint test folds")
+    cv.add_argument("--dataset", type=Path, default=Path("datasets/vul4j/dataset.jsonl"))
+    cv.add_argument("--cohort", type=Path, default=Path("datasets/vul4j/cohort-manifest.json"))
+    cv.add_argument("--protocol", type=Path, default=Path("configs/public-benchmark.json"))
+    cv.add_argument("--cv-protocol", type=Path, default=Path("configs/repository-cross-validation.json"))
+    cv.add_argument("--embedding-cache", type=Path, default=Path("examples/public-benchmark/encoder"))
+    cv.add_argument("--output", type=Path, required=True)
     demo = commands.add_parser("demo", help="Train four real CPU baselines and export a workbench")
     demo.add_argument("--dataset", type=Path, default=fixture_path())
     demo.add_argument("--output", type=Path, default=Path("runs/fixture-demo"))
@@ -166,6 +185,22 @@ def main(argv=None) -> int:
                                          args.baseline_run, args.candidate_run, args.split, args.draws, args.seed)
             write_json(args.output, result)
             print(args.output.resolve())
+            return 0
+        if args.command == "prepare-public":
+            from .public_data import prepare_vul4j
+            manifest = prepare_vul4j(args.cache, args.lock, args.output)
+            print(f"Prepared {manifest['retained_pairs']} real pairs across {manifest['repositories']} repositories")
+            return 0
+        if args.command == "benchmark":
+            from .benchmark import run_benchmark
+            run_benchmark(args.dataset, args.cohort, args.protocol, args.output, model_path=args.model_dir,
+                          embedding_cache=args.embedding_cache, model_lock_path=args.model_lock)
+            print(args.output.resolve() / "benchmark-summary.json")
+            return 0
+        if args.command == "cross-validate":
+            from .cross_validation import run_cross_validation
+            run_cross_validation(args.dataset, args.cohort, args.protocol, args.cv_protocol, args.embedding_cache, args.output)
+            print(args.output.resolve() / "cross-validation-summary.json")
             return 0
         if args.command in {"import-sarif", "scan-codeql", "attach-scan", "attach-predictions", "generate", "generation-summary"}:
             if args.command == "import-sarif":

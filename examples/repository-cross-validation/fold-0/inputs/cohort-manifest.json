@@ -1,0 +1,2827 @@
+{
+  "schema_version": "1.0",
+  "name": "Vul4J public Java patch contexts",
+  "dataset": {
+    "status": "passed",
+    "examples": 124,
+    "pairs": 62,
+    "groups": 40,
+    "splits": {
+      "test": 16,
+      "train": 74,
+      "validation": 34
+    },
+    "categories": {
+      "CWE-19": 2,
+      "CWE-20": 18,
+      "CWE-200": 2,
+      "CWE-22": 12,
+      "CWE-254": 2,
+      "CWE-264": 6,
+      "CWE-269": 2,
+      "CWE-284": 2,
+      "CWE-287": 2,
+      "CWE-310": 2,
+      "CWE-332": 2,
+      "CWE-345": 2,
+      "CWE-352": 2,
+      "CWE-502": 8,
+      "CWE-522": 2,
+      "CWE-611": 10,
+      "CWE-74": 2,
+      "CWE-77": 2,
+      "CWE-770": 2,
+      "CWE-78": 2,
+      "CWE-79": 6,
+      "CWE-835": 16,
+      "CWE-unknown": 18
+    },
+    "fingerprint": "ae24292791fe5b6d509cf362e490939a3b25cae76a585db868e752df5cb0d3b5",
+    "checks": [
+      "unique_ids",
+      "binary_labels",
+      "complete_pairs",
+      "group_disjoint_splits",
+      "whitespace_duplicate_leakage"
+    ],
+    "limitations": [
+      "No semantic or general near-duplicate detection",
+      "Labels and source licences require human verification"
+    ]
+  },
+  "source_revision": "376411da11fa705019f731404de1d0679fe73537",
+  "source_url": "https://github.com/tuhh-softsec/Vul4J",
+  "candidate_entries": 79,
+  "retained_pairs": 62,
+  "repositories": 40,
+  "components": [
+    {
+      "group_id": "repo-ccf86cc9970652fa",
+      "repositories": [
+        "apache/commons-configuration"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-d6ce0d430453dc95",
+      "repositories": [
+        "apache/cxf"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-839b401d10233aea",
+      "repositories": [
+        "esapi/esapi-java-legacy"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-55893f9dcb9d211f",
+      "repositories": [
+        "jhy/jsoup"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-fdb8bf2d19ba88a2",
+      "repositories": [
+        "apache/sling"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-4f6304d6c3baaee3",
+      "repositories": [
+        "codehaus-plexus/plexus-archiver"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-255b7689555d93c5",
+      "repositories": [
+        "apache/batik"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-7c9d2bd099cfe1bd",
+      "repositories": [
+        "square/retrofit"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-b463145e82f77edf",
+      "repositories": [
+        "apereo/java-cas-client"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-acd50d54119df1fc",
+      "repositories": [
+        "spring-projects/spring-security"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-f3c1d47381800d4e",
+      "repositories": [
+        "x-stream/xstream"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-233766b58a9ba146",
+      "repositories": [
+        "apache/santuario-java"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-182960fb93e995d6",
+      "repositories": [
+        "neo4j-contrib/neo4j-apoc-procedures"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-60b36f96fb73b992",
+      "repositories": [
+        "spring-projects/spring-framework"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-2ad081926821ec9a",
+      "repositories": [
+        "apache/commons-compress"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-ddcbcc44154a3965",
+      "repositories": [
+        "swagger-api/swagger-parser"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-7be3db0784e7bd14",
+      "repositories": [
+        "apache/sling-org-apache-sling-xss"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-ac7c592be90adf96",
+      "repositories": [
+        "apache/commons-io"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-620657d3c23d8060",
+      "repositories": [
+        "apache/tika"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-0311d4bd25fab45d",
+      "repositories": [
+        "apache/commons-fileupload"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-53a7094987ea4eec",
+      "repositories": [
+        "apache/tomee"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "repositories": [
+        "apache/struts"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-b009fbc9968d3e69",
+      "repositories": [
+        "jenkinsci/jenkins"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-c1e806d49e3b0f5f",
+      "repositories": [
+        "apache/jspwiki"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-a1a41452faf4d0a9",
+      "repositories": [
+        "opennetworkinglab/onos"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-d3925f77f32cc7b1",
+      "repositories": [
+        "spring-projects/spring-data-commons"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-3696d77d46d7f88b",
+      "repositories": [
+        "inversoft/prime-jwt"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-76f290fc24a72dcf",
+      "repositories": [
+        "apache/camel"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-6caaf4812e4d803d",
+      "repositories": [
+        "codehaus-plexus/plexus-utils"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-2d7d2435e64b6a78",
+      "repositories": [
+        "cloudfoundry/uaa"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-5e3eb39efdb5b4ba",
+      "repositories": [
+        "jenkinsci/groovy-sandbox"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-c5bbddd0599b0c26",
+      "repositories": [
+        "zeroturnaround/zt-zip"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-c6254f2367cb9e51",
+      "repositories": [
+        "apache/commons-imaging"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-477d2512137d0fbc",
+      "repositories": [
+        "openrefine/openrefine"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-6847137a5d6ddb81",
+      "repositories": [
+        "apache/shiro"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-ecebfe911530694e",
+      "repositories": [
+        "apache/pdfbox"
+      ],
+      "split": "test"
+    },
+    {
+      "group_id": "repo-bcb55cfa6ada3073",
+      "repositories": [
+        "resteasy/resteasy"
+      ],
+      "split": "validation"
+    },
+    {
+      "group_id": "repo-d75481843d718a0c",
+      "repositories": [
+        "alibaba/fastjson"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-ceb6d6554a77496e",
+      "repositories": [
+        "spring-projects/spring-security-oauth"
+      ],
+      "split": "train"
+    },
+    {
+      "group_id": "repo-05b0c225137ec314",
+      "repositories": [
+        "spring-projects/spring-data-rest"
+      ],
+      "split": "train"
+    }
+  ],
+  "connected_repository_links": [],
+  "split_rule": "Index modulo 5 in the cohort's fixed seed-17 SHA256-ranked repository-component ledger; test bucket 0, validation bucket 1",
+  "selection": "VUL4J-1 through VUL4J-79; retrievable single-commit patches, explicit permissive licences, nonempty changed production Java contexts; no performance-based filtering",
+  "exclusion_counts": {
+    "missing_cve_identifier": 3,
+    "source_unavailable_in_pinned_release": 1,
+    "multi_commit_patch": 3,
+    "upstream_licence_not_retrieved": 10
+  },
+  "exclusions": [
+    {
+      "id": "VUL4J-5",
+      "repository": "apache/commons-compress",
+      "reason": "missing_cve_identifier"
+    },
+    {
+      "id": "VUL4J-17",
+      "repository": "apache/httpcomponents-client",
+      "reason": "missing_cve_identifier"
+    },
+    {
+      "id": "VUL4J-19",
+      "repository": "apache/pdfbox",
+      "reason": "missing_cve_identifier"
+    },
+    {
+      "id": "VUL4J-23",
+      "repository": "apache/sling",
+      "reason": "source_unavailable_in_pinned_release"
+    },
+    {
+      "id": "VUL4J-27",
+      "repository": "apache/struts",
+      "reason": "multi_commit_patch"
+    },
+    {
+      "id": "VUL4J-28",
+      "repository": "apache/struts",
+      "reason": "multi_commit_patch"
+    },
+    {
+      "id": "VUL4J-43",
+      "repository": "eclipse/rdf4j",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-45",
+      "repository": "esigate/esigate",
+      "reason": "multi_commit_patch"
+    },
+    {
+      "id": "VUL4J-46",
+      "repository": "FasterXML/jackson-dataformat-xml",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-47",
+      "repository": "FasterXML/jackson-dataformat-xml",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-50",
+      "repository": "javamelody/javamelody",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-51",
+      "repository": "jenkinsci/ccm-plugin",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-56",
+      "repository": "jenkinsci/junit-plugin",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-57",
+      "repository": "jenkinsci/pipeline-build-step-plugin",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-58",
+      "repository": "jenkinsci/subversion-plugin",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-60",
+      "repository": "nahsra/antisamy",
+      "reason": "upstream_licence_not_retrieved"
+    },
+    {
+      "id": "VUL4J-62",
+      "repository": "neo4j/neo4j",
+      "reason": "upstream_licence_not_retrieved"
+    }
+  ],
+  "pairs": [
+    {
+      "id": "VUL4J-1",
+      "repository": "alibaba/fastjson",
+      "cve": "CVE-2017-18349",
+      "cwe": "CWE-20",
+      "files": [
+        "src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java",
+          "old_start": 174,
+          "old_count": 7,
+          "new_start": 174,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/alibaba/fastjson/commit/f5903fa56497c00ed0703ac875b511f9bd5f1d8e",
+      "licence": "Apache-2.0",
+      "patch_sha256": "2415bef5a9f6098ddb852bf90aabb51207319d609db0ead689fd9d7b822d989c",
+      "failing_tests": "com.alibaba.json.bvt.bug.Issue1005#test_for_issue",
+      "split": "train",
+      "group_id": "repo-d75481843d718a0c",
+      "before_sha256": "e1f9e54ab7aaaedfac9b0924e78b185bb14e573d07bdefb36f29c42a0db6a86f",
+      "after_sha256": "0d98596b5fbd3f8c0b50f096cc84bd6fea6fd307325160bce7d22add6872cbe1"
+    },
+    {
+      "id": "VUL4J-2",
+      "repository": "apache/batik",
+      "cve": "CVE-2017-5662",
+      "cwe": "CWE-611",
+      "files": [
+        "batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java"
+      ],
+      "hunks": [
+        {
+          "file": "batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java",
+          "old_start": 402,
+          "old_count": 6,
+          "new_start": 402,
+          "new_count": 7
+        },
+        {
+          "file": "batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java",
+          "old_start": 446,
+          "old_count": 6,
+          "new_start": 447,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/xmlgraphics-batik/commit/660ef628d637af636ea113243fe73f170ac43958",
+      "licence": "Apache-2.0",
+      "patch_sha256": "3ec75154936af75975edafd92a9402a89ce8bcc2b28d3aaa204326b8caf36c1a",
+      "failing_tests": "org.apache.batik.dom.util.TestCVE_2017_5662#testCVE_2017_5662",
+      "split": "validation",
+      "group_id": "repo-255b7689555d93c5",
+      "before_sha256": "670c784b105dadac6b154504702d2580e4eb3f3cd2cc17399aa929cfed7e7199",
+      "after_sha256": "91454dc234ea1f170750f3225385563177877214103ac00a9db40fe5df164302"
+    },
+    {
+      "id": "VUL4J-3",
+      "repository": "apache/camel",
+      "cve": "CVE-2015-0263",
+      "cwe": "CWE-unknown",
+      "files": [
+        "camel-core/src/main/java/org/apache/camel/converter/jaxp/XmlConverter.java"
+      ],
+      "hunks": [
+        {
+          "file": "camel-core/src/main/java/org/apache/camel/converter/jaxp/XmlConverter.java",
+          "old_start": 596,
+          "old_count": 6,
+          "new_start": 596,
+          "new_count": 12
+        }
+      ],
+      "commit_url": "https://github.com/apache/camel/commit/7d19340bcdb42f7aae584d9c5003ac4f7ddaee36",
+      "licence": "Apache-2.0",
+      "patch_sha256": "272c81d495c8f42b6c1933bd15df927bf2c3e5c21330e55ac6d3def68cfdb30c",
+      "failing_tests": "org.apache.camel.component.xslt.XsltDTDTest#testSendingStringMessage",
+      "split": "train",
+      "group_id": "repo-76f290fc24a72dcf",
+      "before_sha256": "7bbcf906a69a0b9c0c313169128b67dfe75069ee1f8419eca028a80724e0db05",
+      "after_sha256": "f429807c690821ce049ec99ca24e9b5e450e72f1f53cb9950c57cb3a29058865"
+    },
+    {
+      "id": "VUL4J-4",
+      "repository": "apache/camel",
+      "cve": "CVE-2015-0264",
+      "cwe": "CWE-unknown",
+      "files": [
+        "camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java"
+      ],
+      "hunks": [
+        {
+          "file": "camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java",
+          "old_start": 18,
+          "old_count": 7,
+          "new_start": 18,
+          "new_count": 6
+        },
+        {
+          "file": "camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java",
+          "old_start": 51,
+          "old_count": 7,
+          "new_start": 50,
+          "new_count": 6
+        },
+        {
+          "file": "camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java",
+          "old_start": 1113,
+          "old_count": 25,
+          "new_start": 1111,
+          "new_count": 6
+        }
+      ],
+      "commit_url": "https://github.com/apache/camel/commit/1df559649a96a1ca0368373387e542f46e4820da",
+      "licence": "Apache-2.0",
+      "patch_sha256": "521568e57be54441a0b7eb24d0ffdfabe7c445144b332e3548e0b5cc3c25cfcd",
+      "failing_tests": "org.apache.camel.builder.xml.XPathFeatureTest#testXPathNoTypeConverter,org.apache.camel.builder.xml.XPathFeatureTest#testXPath,org.apache.camel.builder.xml.XPathFeatureTest#testXPathResultOnInvalidData",
+      "split": "train",
+      "group_id": "repo-76f290fc24a72dcf",
+      "before_sha256": "159991441ba7ca4d594bec230d38c8e34d9c104e084fce82296fe844ce0165dc",
+      "after_sha256": "6a21beaa0ba9b79da426c936951611d7b4c43f4fad9c72bc3c9ec2dd5b1c769a"
+    },
+    {
+      "id": "VUL4J-6",
+      "repository": "apache/commons-compress",
+      "cve": "CVE-2018-1324",
+      "cwe": "CWE-835",
+      "files": [
+        "src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java",
+          "old_start": 310,
+          "old_count": 7,
+          "new_start": 310,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-compress/commit/2a2f1dc48e22a34ddb72321a4db211da91aa933b",
+      "licence": "Apache-2.0",
+      "patch_sha256": "9531f16b9b14a2092898a8311d8ff7b69bb818a5805d582d128ff61e4205e078",
+      "failing_tests": "org.apache.commons.compress.Test_CVE_2018_1324#testCVE_2018_1324",
+      "split": "train",
+      "group_id": "repo-2ad081926821ec9a",
+      "before_sha256": "1c64ee86937373189ddb5449c9284858b8957a4cd3d04f2f6f5b3dbcb6ac656f",
+      "after_sha256": "0ef692a178321bcdc09e82d7a260e1c4c85299db29bba151acbe9a9f51b599b6"
+    },
+    {
+      "id": "VUL4J-7",
+      "repository": "apache/commons-compress",
+      "cve": "CVE-2018-11771",
+      "cwe": "CWE-835",
+      "files": [
+        "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+          "old_start": 525,
+          "old_count": 7,
+          "new_start": 525,
+          "new_count": 8
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-compress/commit/a41ce6892cb0590b2e658704434ac0dbcb6834c8",
+      "licence": "Apache-2.0",
+      "patch_sha256": "05e425d48d7b0079fa0d4f3839414ec1fae075c38b421293cd8ec449acccc7b0",
+      "failing_tests": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#singleByteReadThrowsAtEofForCorruptedStoredEntry,org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#multiByteReadThrowsAtEofForCorruptedStoredEntry",
+      "split": "train",
+      "group_id": "repo-2ad081926821ec9a",
+      "before_sha256": "c797ab9642532d0215e7f6ee63db83e743d5247c8bef8a045297799e9a89717e",
+      "after_sha256": "6663d5ee201b1f203010e92035536d77a87607304a803cfabe768a80b8da55f5"
+    },
+    {
+      "id": "VUL4J-8",
+      "repository": "apache/commons-compress",
+      "cve": "CVE-2019-12402",
+      "cwe": "CWE-835",
+      "files": [
+        "src/main/java/org/apache/commons/compress/archivers/zip/NioZipEncoding.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/compress/archivers/zip/NioZipEncoding.java",
+          "old_start": 112,
+          "old_count": 6,
+          "new_start": 112,
+          "new_count": 9
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-compress/commit/4ad5d80a6272e007f64a6ac66829ca189a8093b9",
+      "licence": "Apache-2.0",
+      "patch_sha256": "419c1bb4f1a770442f84dcf597a9704bead089bbd4dedb026cb2154e2808dc28",
+      "failing_tests": "org.apache.commons.compress.archivers.zip.NioZipEncodingTest#partialSurrogatePair",
+      "split": "train",
+      "group_id": "repo-2ad081926821ec9a",
+      "before_sha256": "ee71fe5951f31b750ec1edd49367a690285b0572c6dde6bfe13e49478626bfd2",
+      "after_sha256": "ded0d31a69b7e5375df7e405d4579ff8d51a12dd464aa266592f56fec9f9c879"
+    },
+    {
+      "id": "VUL4J-9",
+      "repository": "apache/commons-configuration",
+      "cve": "CVE-2020-1953",
+      "cwe": "CWE-unknown",
+      "files": [
+        "src/main/java/org/apache/commons/configuration2/YAMLConfiguration.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/configuration2/YAMLConfiguration.java",
+          "old_start": 18,
+          "old_count": 11,
+          "new_start": 18,
+          "new_count": 14
+        },
+        {
+          "file": "src/main/java/org/apache/commons/configuration2/YAMLConfiguration.java",
+          "old_start": 65,
+          "old_count": 7,
+          "new_start": 68,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/commons/configuration2/YAMLConfiguration.java",
+          "old_start": 80,
+          "old_count": 7,
+          "new_start": 83,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/commons/configuration2/YAMLConfiguration.java",
+          "old_start": 117,
+          "old_count": 7,
+          "new_start": 120,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/commons/configuration2/YAMLConfiguration.java",
+          "old_start": 132,
+          "old_count": 7,
+          "new_start": 135,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/commons/configuration2/YAMLConfiguration.java",
+          "old_start": 142,
+          "old_count": 4,
+          "new_start": 145,
+          "new_count": 34
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-configuration/commit/add7375cf37fd316d4838c6c56b054fc293b4641",
+      "licence": "Apache-2.0",
+      "patch_sha256": "c45542205af4ae6e4d13fc732a579346be4aaac324e900189bfa60a28a1b285d",
+      "failing_tests": "org.apache.commons.configuration2.TestYAMLConfiguration#testObjectCreationFromStream,org.apache.commons.configuration2.TestYAMLConfiguration#testObjectCreationFromReader",
+      "split": "test",
+      "group_id": "repo-ccf86cc9970652fa",
+      "before_sha256": "06198b4bf06283a61cf81e2cf4dd2ce238f0e0fb1a462c82c02ddf3fc9f44188",
+      "after_sha256": "9d77aea2e19d064dcbc1e96f7c5ed78799952628d4b1c58f6747f02987cc0596"
+    },
+    {
+      "id": "VUL4J-10",
+      "repository": "apache/commons-fileupload",
+      "cve": "CVE-2013-2186",
+      "cwe": "CWE-20",
+      "files": [
+        "src/main/java/org/apache/commons/fileupload/disk/DiskFileItem.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/disk/DiskFileItem.java",
+          "old_start": 656,
+          "old_count": 6,
+          "new_start": 656,
+          "new_count": 26
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-fileupload/commit/163a6061fbc077d4b6e4787d26857c2baba495d1",
+      "licence": "Apache-2.0",
+      "patch_sha256": "a8fc65a439c4c15e6bf1fd1cc5817905b8d6f6dfc323e73590886d5f0da31c41",
+      "failing_tests": "org.apache.commons.fileupload.DiskFileItemSerializeTest#testInvalidRepositoryWithNullChar,org.apache.commons.fileupload.DiskFileItemSerializeTest#testInvalidRepository",
+      "split": "train",
+      "group_id": "repo-0311d4bd25fab45d",
+      "before_sha256": "724948b6bead49deb84b5792a89bdd0ae278ae1f75c8a91adca65750c897739a",
+      "after_sha256": "ec1253b82c0f624af2aa2b5ca107e6b10ca189a728957bb60ba7a8638250bf83"
+    },
+    {
+      "id": "VUL4J-11",
+      "repository": "apache/commons-fileupload",
+      "cve": "CVE-2014-0050",
+      "cwe": "CWE-264",
+      "files": [
+        "src/main/java/org/apache/commons/fileupload/FileUploadBase.java",
+        "src/main/java/org/apache/commons/fileupload/MultipartStream.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/FileUploadBase.java",
+          "old_start": 991,
+          "old_count": 7,
+          "new_start": 991,
+          "new_count": 12
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/FileUploadBase.java",
+          "old_start": 1183,
+          "old_count": 7,
+          "new_start": 1188,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/FileUploadBase.java",
+          "old_start": 1196,
+          "old_count": 6,
+          "new_start": 1201,
+          "new_count": 9
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/MultipartStream.java",
+          "old_start": 268,
+          "old_count": 10,
+          "new_start": 268,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/MultipartStream.java",
+          "old_start": 292,
+          "old_count": 10,
+          "new_start": 290,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/MultipartStream.java",
+          "old_start": 317,
+          "old_count": 8,
+          "new_start": 313,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/MultipartStream.java",
+          "old_start": 331,
+          "old_count": 9,
+          "new_start": 326,
+          "new_count": 14
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/MultipartStream.java",
+          "old_start": 352,
+          "old_count": 8,
+          "new_start": 352,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/commons/fileupload/MultipartStream.java",
+          "old_start": 368,
+          "old_count": 10,
+          "new_start": 367,
+          "new_count": 8
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-fileupload/commit/c61ff05b3241cb14d989b67209e57aa71540417a",
+      "licence": "Apache-2.0",
+      "patch_sha256": "b41b875e1cae9f1af24facb3b751cdd5c0c77692f976bd81fd615c2c07fe45f0",
+      "failing_tests": "org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer",
+      "split": "train",
+      "group_id": "repo-0311d4bd25fab45d",
+      "before_sha256": "0d304b9a5f3d2ae60058b3b3034d645a5397c706731e496b3331968f29ad0f28",
+      "after_sha256": "e40d40a5c5f036a1a30be698fd65bec0961cb46192569e051c1bd42f4dfff936"
+    },
+    {
+      "id": "VUL4J-12",
+      "repository": "apache/commons-imaging",
+      "cve": "CVE-2018-17202",
+      "cwe": "CWE-835",
+      "files": [
+        "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java",
+          "old_start": 400,
+          "old_count": 7,
+          "new_start": 400,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-imaging/commit/6a79d35d6654d895d0a4b73b3a9282ec9aaeeb06",
+      "licence": "Apache-2.0",
+      "patch_sha256": "12603b90c3d67731c5226c7249e64f951eae285307b22dbd845821511b8d3203",
+      "failing_tests": "org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile",
+      "split": "train",
+      "group_id": "repo-c6254f2367cb9e51",
+      "before_sha256": "843e0c56f970ada78e862f04aee1c6f42d9ae121355257d4f24fe0aedc6570fe",
+      "after_sha256": "2a348a57c04df5337d1e99db2fef57c094281f340da4e6639314d8213ca576d2"
+    },
+    {
+      "id": "VUL4J-13",
+      "repository": "apache/commons-imaging",
+      "cve": "CVE-2018-17201",
+      "cwe": "CWE-835",
+      "files": [
+        "src/main/java/org/apache/commons/imaging/formats/rgbe/RgbeInfo.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/imaging/formats/rgbe/RgbeInfo.java",
+          "old_start": 169,
+          "old_count": 13,
+          "new_start": 169,
+          "new_count": 17
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-imaging/commit/f5574bfe285edd79207fe8c30f53cb0af06e26bb",
+      "licence": "Apache-2.0",
+      "patch_sha256": "eb5a69a65174a85839af9e457275352955d314bd846c7cf750d5936aee29732b",
+      "failing_tests": "org.apache.commons.imaging.formats.rgbe.RgbeReadTest#testErrorDecompressingInvalidFile",
+      "split": "train",
+      "group_id": "repo-c6254f2367cb9e51",
+      "before_sha256": "df925a7fc813d423ce43315e59405b01217021166e9be0fff68e10df0609fa47",
+      "after_sha256": "c8b1b1c07fa000cbda1218ef0caee23175953c9d2e32aaa9662c6361046bf516"
+    },
+    {
+      "id": "VUL4J-14",
+      "repository": "apache/commons-io",
+      "cve": "CVE-2021-29425",
+      "cwe": "CWE-20",
+      "files": [
+        "src/main/java/org/apache/commons/io/FilenameUtils.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/commons/io/FilenameUtils.java",
+          "old_start": 19,
+          "old_count": 8,
+          "new_start": 19,
+          "new_count": 12
+        },
+        {
+          "file": "src/main/java/org/apache/commons/io/FilenameUtils.java",
+          "old_start": 676,
+          "old_count": 7,
+          "new_start": 680,
+          "new_count": 9
+        },
+        {
+          "file": "src/main/java/org/apache/commons/io/FilenameUtils.java",
+          "old_start": 1490,
+          "old_count": 4,
+          "new_start": 1496,
+          "new_count": 143
+        }
+      ],
+      "commit_url": "https://github.com/apache/commons-io/commit/2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "licence": "Apache-2.0",
+      "patch_sha256": "e5f442d0937dcb85469a9d0e27fa714db814a959b6c0519fa161d548ce9ba01d",
+      "failing_tests": "org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength,org.apache.commons.io.FilenameUtilsTestCase#testNormalize",
+      "split": "train",
+      "group_id": "repo-ac7c592be90adf96",
+      "before_sha256": "2a8c9c42397da20dacec859ba616505aee36be2662c32ca9c77258262186b0e7",
+      "after_sha256": "77378daf7cdb7e451c15cf2c4bb249fc9251c4cb7afae6474943cb0c04a2b14e"
+    },
+    {
+      "id": "VUL4J-15",
+      "repository": "apache/cxf",
+      "cve": "CVE-2016-8739",
+      "cwe": "CWE-611",
+      "files": [
+        "rt/rs/extensions/providers/src/main/java/org/apache/cxf/jaxrs/provider/atom/AbstractAtomProvider.java"
+      ],
+      "hunks": [
+        {
+          "file": "rt/rs/extensions/providers/src/main/java/org/apache/cxf/jaxrs/provider/atom/AbstractAtomProvider.java",
+          "old_start": 30,
+          "old_count": 6,
+          "new_start": 30,
+          "new_count": 7
+        },
+        {
+          "file": "rt/rs/extensions/providers/src/main/java/org/apache/cxf/jaxrs/provider/atom/AbstractAtomProvider.java",
+          "old_start": 39,
+          "old_count": 6,
+          "new_start": 40,
+          "new_count": 7
+        },
+        {
+          "file": "rt/rs/extensions/providers/src/main/java/org/apache/cxf/jaxrs/provider/atom/AbstractAtomProvider.java",
+          "old_start": 89,
+          "old_count": 10,
+          "new_start": 91,
+          "new_count": 10
+        }
+      ],
+      "commit_url": "https://github.com/apache/cxf/commit/d9e2a6e7",
+      "licence": "Apache-2.0",
+      "patch_sha256": "9f694fc8ca64dc9453cc6912790faa3863b3bf381ee0f6ef20ec7845ae3b0107",
+      "failing_tests": "org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadEntryNoBuilders2,org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadFeedWithoutBuilders2",
+      "split": "validation",
+      "group_id": "repo-d6ce0d430453dc95",
+      "before_sha256": "fa464ddc0e1a663c4c67ea2bac40e45aefed9f041a95864752ed2fafadd76b95",
+      "after_sha256": "7f3394b6116f0c3b91632006b07950bd2cea562f97d9cdbb1c69372c7e81c1e9"
+    },
+    {
+      "id": "VUL4J-16",
+      "repository": "apache/cxf",
+      "cve": "CVE-2015-5253",
+      "cwe": "CWE-264",
+      "files": [
+        "rt/rs/security/sso/saml/src/main/java/org/apache/cxf/rs/security/saml/sso/SAMLSSOResponseValidator.java"
+      ],
+      "hunks": [
+        {
+          "file": "rt/rs/security/sso/saml/src/main/java/org/apache/cxf/rs/security/saml/sso/SAMLSSOResponseValidator.java",
+          "old_start": 92,
+          "old_count": 7,
+          "new_start": 92,
+          "new_count": 7
+        },
+        {
+          "file": "rt/rs/security/sso/saml/src/main/java/org/apache/cxf/rs/security/saml/sso/SAMLSSOResponseValidator.java",
+          "old_start": 114,
+          "old_count": 7,
+          "new_start": 114,
+          "new_count": 7
+        },
+        {
+          "file": "rt/rs/security/sso/saml/src/main/java/org/apache/cxf/rs/security/saml/sso/SAMLSSOResponseValidator.java",
+          "old_start": 123,
+          "old_count": 10,
+          "new_start": 123,
+          "new_count": 9
+        },
+        {
+          "file": "rt/rs/security/sso/saml/src/main/java/org/apache/cxf/rs/security/saml/sso/SAMLSSOResponseValidator.java",
+          "old_start": 140,
+          "old_count": 7,
+          "new_start": 139,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/cxf/commit/845eccb6484b43ba02875c71e824db23ae4f20c0",
+      "licence": "Apache-2.0",
+      "patch_sha256": "289300a3570150bcb6f29f4b4195d542ae908a4631ac6b00e2387e6d52097bc2",
+      "failing_tests": "org.apache.cxf.rs.security.saml.sso.CombinedValidatorTest#testWrappingAttack3",
+      "split": "validation",
+      "group_id": "repo-d6ce0d430453dc95",
+      "before_sha256": "94b3548d3b3b5915e97a4a92e89e43edb5b036011970fb06876962a5a0207aa4",
+      "after_sha256": "53271ac7e4fea34b06dbeb5d308f8d3bb18ae0b356eab82ab47d62ecac1b06e4"
+    },
+    {
+      "id": "VUL4J-18",
+      "repository": "apache/jspwiki",
+      "cve": "CVE-2019-0225",
+      "cwe": "CWE-22",
+      "files": [
+        "jspwiki-main/src/main/java/org/apache/wiki/url/DefaultURLConstructor.java"
+      ],
+      "hunks": [
+        {
+          "file": "jspwiki-main/src/main/java/org/apache/wiki/url/DefaultURLConstructor.java",
+          "old_start": 277,
+          "old_count": 6,
+          "new_start": 277,
+          "new_count": 6
+        }
+      ],
+      "commit_url": "https://github.com/apache/jspwiki/commit/88d89d6523802c044cfcb7930cba40d8eeb21da2",
+      "licence": "Apache-2.0",
+      "patch_sha256": "02c59561d07b61cfed0ed128d91be58d47876962bb7518ac3b8a1c877a92eaf3",
+      "failing_tests": "org.apache.wiki.WikiServletTest#testNastyDoPost,org.apache.wiki.WikiServletTest#testDoGet",
+      "split": "train",
+      "group_id": "repo-c1e806d49e3b0f5f",
+      "before_sha256": "cd147852c36a866bda3798a71caae7703fc825bf38141d9e45f36569a30e7cd1",
+      "after_sha256": "151e2e6ffbbb42a300e946269224ff95a382f778c1b62aa522550547c0238327"
+    },
+    {
+      "id": "VUL4J-20",
+      "repository": "apache/pdfbox",
+      "cve": "CVE-2018-11797",
+      "cwe": "CWE-unknown",
+      "files": [
+        "pdfbox/src/main/java/org/apache/pdfbox/cos/COSArray.java"
+      ],
+      "hunks": [
+        {
+          "file": "pdfbox/src/main/java/org/apache/pdfbox/cos/COSArray.java",
+          "old_start": 534,
+          "old_count": 9,
+          "new_start": 534,
+          "new_count": 11
+        }
+      ],
+      "commit_url": "https://github.com/apache/pdfbox/commit/0e14d6a42cc965e23bb1b40f04b4c002dc173b88",
+      "licence": "Apache-2.0",
+      "patch_sha256": "248337675bd6c74be8a29c5f76f93ba45eaca4959daa09f77d53f13c50b61064",
+      "failing_tests": "org.apache.pdfbox.pdmodel.TestPDDocument#testCVE_2018_11797",
+      "split": "test",
+      "group_id": "repo-ecebfe911530694e",
+      "before_sha256": "ec3d6448e21e13e34d032bde5e3577ddd3ff57d9abde5bfc2ce75fbf9162ccbf",
+      "after_sha256": "c0b65aa0355f6e843019387e1fcf46a8a2aa96af081787055bcdfa5276815125"
+    },
+    {
+      "id": "VUL4J-21",
+      "repository": "apache/santuario-java",
+      "cve": "CVE-2014-8152",
+      "cwe": "CWE-254",
+      "files": [
+        "src/main/java/org/apache/xml/security/stax/ext/InputProcessorChain.java",
+        "src/main/java/org/apache/xml/security/stax/impl/InputProcessorChainImpl.java",
+        "src/main/java/org/apache/xml/security/stax/impl/processor/input/XMLSecurityInputProcessor.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/xml/security/stax/ext/InputProcessorChain.java",
+          "old_start": 72,
+          "old_count": 6,
+          "new_start": 72,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/apache/xml/security/stax/ext/InputProcessorChain.java",
+          "old_start": 80,
+          "old_count": 6,
+          "new_start": 81,
+          "new_count": 20
+        },
+        {
+          "file": "src/main/java/org/apache/xml/security/stax/impl/InputProcessorChainImpl.java",
+          "old_start": 200,
+          "old_count": 9,
+          "new_start": 200,
+          "new_count": 15
+        },
+        {
+          "file": "src/main/java/org/apache/xml/security/stax/impl/processor/input/XMLSecurityInputProcessor.java",
+          "old_start": 138,
+          "old_count": 11,
+          "new_start": 138,
+          "new_count": 15
+        }
+      ],
+      "commit_url": "https://github.com/apache/santuario-java/commit/e50488044121cf01ffbc235ca53b9562031d69c5",
+      "licence": "Apache-2.0",
+      "patch_sha256": "502c4b102bc01d8da8169e032c53264a04431a24c434a30dbeef1208c6f0843e",
+      "failing_tests": "org.apache.xml.security.test.stax.signature.SignatureVerificationTest#testEnvelopedSignatureTampered_ContentFirst,org.apache.xml.security.test.stax.signature.SignatureVerificationTest#testEnvelopedSignatureTampered_SignatureFirst",
+      "split": "validation",
+      "group_id": "repo-233766b58a9ba146",
+      "before_sha256": "064b17c25c7bcf89aefc3ebe40d0b1c3f8d35cecb7accae6680b17155c41715c",
+      "after_sha256": "c5f91e7b0a60268d3d4599a059bcd5c238493bbd1d58fbbd1f2672ad70783712"
+    },
+    {
+      "id": "VUL4J-22",
+      "repository": "apache/shiro",
+      "cve": "CVE-2016-6802",
+      "cwe": "CWE-284",
+      "files": [
+        "web/src/main/java/org/apache/shiro/web/util/WebUtils.java"
+      ],
+      "hunks": [
+        {
+          "file": "web/src/main/java/org/apache/shiro/web/util/WebUtils.java",
+          "old_start": 248,
+          "old_count": 11,
+          "new_start": 248,
+          "new_count": 12
+        }
+      ],
+      "commit_url": "https://github.com/apache/shiro/commit/b15ab927709ca18ea4a02538be01919a19ab65af",
+      "licence": "Apache-2.0",
+      "patch_sha256": "52422ffa2c0b7616096a710f2af6fde8d56b884a5c5f3bf4fdeb7f082884143a",
+      "failing_tests": "org.apache.shiro.web.util.WebUtilsTest#testGetContextPathIncludes,org.apache.shiro.web.util.WebUtilsTest#testGetContextPath,org.apache.shiro.web.util.WebUtilsTest#testGetPathWithinApplication",
+      "split": "train",
+      "group_id": "repo-6847137a5d6ddb81",
+      "before_sha256": "c9198b83d666e1dcaf3373753c31f71068b813772b7a4c22981181d2af287b98",
+      "after_sha256": "fe1e602fcc6c0f42ec1091e08d16198e9ba5795916431cede64350ff8a3b3821"
+    },
+    {
+      "id": "VUL4J-24",
+      "repository": "apache/sling",
+      "cve": "CVE-2016-6798",
+      "cwe": "CWE-611",
+      "files": [
+        "bundles/extensions/xss/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java"
+      ],
+      "hunks": [
+        {
+          "file": "bundles/extensions/xss/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java",
+          "old_start": 21,
+          "old_count": 6,
+          "new_start": 21,
+          "new_count": 7
+        },
+        {
+          "file": "bundles/extensions/xss/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java",
+          "old_start": 43,
+          "old_count": 6,
+          "new_start": 44,
+          "new_count": 8
+        },
+        {
+          "file": "bundles/extensions/xss/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java",
+          "old_start": 65,
+          "old_count": 6,
+          "new_start": 68,
+          "new_count": 13
+        }
+      ],
+      "commit_url": "https://github.com/tuhh-softsec/Vul4J/commit/fb2719e8299fadddae62245482de112052a0e08c",
+      "licence": "Apache-2.0",
+      "patch_sha256": "bb2f63b0577985cf4b9783de2f7546139d6788e2624030177134a2895c7e12f7",
+      "failing_tests": "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML",
+      "split": "train",
+      "group_id": "repo-fdb8bf2d19ba88a2",
+      "before_sha256": "42612db28ea55241dfa9948c98b8e16b965b45597071112243fef909e0b6c673",
+      "after_sha256": "ca50970217c2aeba10cfa5c0651b2aec582f6ee3280e41a4ce6e6d53e42af96f"
+    },
+    {
+      "id": "VUL4J-25",
+      "repository": "apache/sling-org-apache-sling-xss",
+      "cve": "CVE-2017-15717",
+      "cwe": "CWE-79",
+      "files": [
+        "src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java",
+          "old_start": 18,
+          "old_count": 9,
+          "new_start": 18,
+          "new_count": 6
+        },
+        {
+          "file": "src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java",
+          "old_start": 32,
+          "old_count": 7,
+          "new_start": 29,
+          "new_count": 6
+        },
+        {
+          "file": "src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java",
+          "old_start": 228,
+          "old_count": 33,
+          "new_start": 224,
+          "new_count": 22
+        }
+      ],
+      "commit_url": "https://github.com/apache/sling-org-apache-sling-xss/commit/ec6764d165abc4df8cffd8439761bb2228887db9",
+      "licence": "Apache-2.0",
+      "patch_sha256": "7a48eab38dd87757489c949bd31e0b82d5a89e2c82b33e5facad69394d386679",
+      "failing_tests": "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidHref,org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidHrefWithoutHrefConfig",
+      "split": "validation",
+      "group_id": "repo-7be3db0784e7bd14",
+      "before_sha256": "96e36dbee30c3ead218404564347fb5af8175654e1ec5e76ef6345e2db8a23a5",
+      "after_sha256": "4b3ab4615ba9486df8107b70cf2c79f7a05429f67e0d95bc978091bd011e02b0"
+    },
+    {
+      "id": "VUL4J-26",
+      "repository": "apache/struts",
+      "cve": "CVE-2016-4465",
+      "cwe": "CWE-20",
+      "files": [
+        "core/src/main/java/com/opensymphony/xwork2/validator/validators/URLValidator.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/com/opensymphony/xwork2/validator/validators/URLValidator.java",
+          "old_start": 81,
+          "old_count": 7,
+          "new_start": 81,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/struts/commit/a0fdca138feec2c2e94eb75ca1f8b76678b4d152",
+      "licence": "Apache-2.0",
+      "patch_sha256": "dc82dbb2f92dd350d6447eaf17abb237118925e57cdd9a1176d3370e36318e73",
+      "failing_tests": "com.opensymphony.xwork2.validator.URLValidatorTest#testValidUrlWithDefaultRegex",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "3271ae3f09306c44047f14b285dee54aae57d3c1fb56362cdc00a26e18cf7243",
+      "after_sha256": "dd5fb0410bc96ac3df100318821085a145bf22dd862ba5af6018237f8da760bf"
+    },
+    {
+      "id": "VUL4J-29",
+      "repository": "apache/struts",
+      "cve": "CVE-2014-0116",
+      "cwe": "CWE-264",
+      "files": [
+        "core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java",
+          "old_start": 33,
+          "old_count": 6,
+          "new_start": 33,
+          "new_count": 7
+        },
+        {
+          "file": "core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java",
+          "old_start": 175,
+          "old_count": 7,
+          "new_start": 176,
+          "new_count": 13
+        },
+        {
+          "file": "core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java",
+          "old_start": 253,
+          "old_count": 13,
+          "new_start": 260,
+          "new_count": 16
+        },
+        {
+          "file": "core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java",
+          "old_start": 293,
+          "old_count": 23,
+          "new_start": 303,
+          "new_count": 26
+        }
+      ],
+      "commit_url": "https://github.com/bqcuong/vul4j/commit/1a668af7f1ffccea4a3b46d8d8c1fe1c7331ff02",
+      "licence": "Apache-2.0",
+      "patch_sha256": "81cb4dfda2544486aed942799e1f2f9a59ddc885991864e2a6ce06b4492c698c",
+      "failing_tests": "org.apache.struts2.interceptor.CookieInterceptorTest#testCookiesWithStrutsInternalsAccess",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "c894a3d90f1f2f317cd15c683f00d9200b4fb6a76a647aeb87a0a362789bc114",
+      "after_sha256": "952906ec35d2bc34271ee144d3d276af5d95f2dbabae4bab9874ac86e7dfa6c9"
+    },
+    {
+      "id": "VUL4J-30",
+      "repository": "apache/struts",
+      "cve": "CVE-2016-8738",
+      "cwe": "CWE-20",
+      "files": [
+        "core/src/main/java/com/opensymphony/xwork2/validator/validators/URLValidator.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/com/opensymphony/xwork2/validator/validators/URLValidator.java",
+          "old_start": 55,
+          "old_count": 7,
+          "new_start": 55,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/struts/commit/554b9dddb0fbd1e581ef577dd62a7c22955ad0f6",
+      "licence": "Apache-2.0",
+      "patch_sha256": "7856a31dc23dee2b1a1ece884ea1b16ef32611d99771a2285f20b63b71cfd055",
+      "failing_tests": "com.opensymphony.xwork2.validator.URLValidatorTest#testValidUrl2",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "038980f2321dce53632cce3c6dd692bb79f0a1dcaa2495f647b53bf6956ecea3",
+      "after_sha256": "7bb29e57aadeab8606c366a8f66632175ed26efc103b8e3c69a9d5f4e035d9c1"
+    },
+    {
+      "id": "VUL4J-31",
+      "repository": "apache/struts",
+      "cve": "CVE-2016-4436",
+      "cwe": "CWE-unknown",
+      "files": [
+        "core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java",
+          "old_start": 33,
+          "old_count": 6,
+          "new_start": 33,
+          "new_count": 7
+        },
+        {
+          "file": "core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java",
+          "old_start": 384,
+          "old_count": 18,
+          "new_start": 385,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/struts/commit/237432512df0e27013f7c7b9ab59fdce44ca34a5",
+      "licence": "Apache-2.0",
+      "patch_sha256": "1bb9dfdb3bd51e24ff107eb4d3d485f4fce4dc1d27436dbb89cd91aab2374df9",
+      "failing_tests": "org.apache.struts2.dispatcher.mapper.DefaultActionMapperTest#testAllowedActionNames",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "322fdbcdff501f9c3acf1366a5042bce3695f281085d9bc06c1ac2d773417397",
+      "after_sha256": "21262859951e8fd372c10ba89e7273f4d2bf06c4bf92d11d93477ed3eaef4008"
+    },
+    {
+      "id": "VUL4J-32",
+      "repository": "apache/struts",
+      "cve": "CVE-2015-1831",
+      "cwe": "CWE-unknown",
+      "files": [
+        "xwork-core/src/main/java/com/opensymphony/xwork2/security/DefaultExcludedPatternsChecker.java"
+      ],
+      "hunks": [
+        {
+          "file": "xwork-core/src/main/java/com/opensymphony/xwork2/security/DefaultExcludedPatternsChecker.java",
+          "old_start": 16,
+          "old_count": 16,
+          "new_start": 16,
+          "new_count": 8
+        }
+      ],
+      "commit_url": "https://github.com/apache/struts/commit/d832747d647df343ed07a58b1b5e540a05a4d51b",
+      "licence": "Apache-2.0",
+      "patch_sha256": "2401d1de7eaaeb4114f856010522b51532ab61c411073ebb15b616b87386027b",
+      "failing_tests": "com.opensymphony.xwork2.security.DefaultExcludedPatternsCheckerTest#testParamWithClassInName",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "66e6b9a921f080ffcc59e7eb91940c8a5473ef344d45c28aab6639008259ef73",
+      "after_sha256": "f3536c6f832c4d7fd8603a07b045e8ee6f1b183c8140b9b7141207902b4d185e"
+    },
+    {
+      "id": "VUL4J-33",
+      "repository": "apache/struts",
+      "cve": "CVE-2016-3081",
+      "cwe": "CWE-77",
+      "files": [
+        "core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java",
+          "old_start": 287,
+          "old_count": 7,
+          "new_start": 287,
+          "new_count": 7
+        },
+        {
+          "file": "core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java",
+          "old_start": 303,
+          "old_count": 7,
+          "new_start": 303,
+          "new_count": 7
+        },
+        {
+          "file": "core/src/main/java/com/opensymphony/xwork2/ognl/OgnlUtil.java",
+          "old_start": 360,
+          "old_count": 7,
+          "new_start": 360,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/struts/commit/f238cf4f1091be19fbcfd086b042c86a1bcaa7fc",
+      "licence": "Apache-2.0",
+      "patch_sha256": "cc945c4d24196587abe265fe39cb82f804310759c46fa8865e2109ad4888356d",
+      "failing_tests": "com.opensymphony.xwork2.ognl.OgnlUtilTest#testBlockSequenceOfExpressions",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "618fb8ae49d8c18fe05533d8003de67f4301018fb73fb41e2d271a8f41089cd1",
+      "after_sha256": "9334ce57a8b99b4398707425522ea1fd8da776032231f53626f0800fac2997be"
+    },
+    {
+      "id": "VUL4J-34",
+      "repository": "apache/struts",
+      "cve": "CVE-2016-2162",
+      "cwe": "CWE-79",
+      "files": [
+        "core/src/main/java/com/opensymphony/xwork2/interceptor/I18nInterceptor.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/com/opensymphony/xwork2/interceptor/I18nInterceptor.java",
+          "old_start": 21,
+          "old_count": 6,
+          "new_start": 21,
+          "new_count": 7
+        },
+        {
+          "file": "core/src/main/java/com/opensymphony/xwork2/interceptor/I18nInterceptor.java",
+          "old_start": 218,
+          "old_count": 6,
+          "new_start": 219,
+          "new_count": 10
+        }
+      ],
+      "commit_url": "https://github.com/apache/struts/commit/fc2179cf1ac9fbfb61e3430fa88b641d87253327",
+      "licence": "Apache-2.0",
+      "patch_sha256": "bb36c29c46c522390c28b02604fbb02d45c94d156352a7315631d680d617ff63",
+      "failing_tests": "com.opensymphony.xwork2.interceptor.I18nInterceptorTest#testCVE_2016_2162",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "d770fc6287e38f6e105ec294507a5123f7ca17d044dd33d8f5012dcb2d3b4b35",
+      "after_sha256": "5ba10819aecda1bfe11fc58dff51db13b3deb40ac06992daf305183252e4e544"
+    },
+    {
+      "id": "VUL4J-35",
+      "repository": "apache/struts",
+      "cve": "CVE-2014-7809",
+      "cwe": "CWE-352",
+      "files": [
+        "core/src/main/java/org/apache/struts2/util/TokenHelper.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/org/apache/struts2/util/TokenHelper.java",
+          "old_start": 27,
+          "old_count": 6,
+          "new_start": 27,
+          "new_count": 7
+        },
+        {
+          "file": "core/src/main/java/org/apache/struts2/util/TokenHelper.java",
+          "old_start": 51,
+          "old_count": 7,
+          "new_start": 52,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apache/struts/commit/1f301038a751bf16e525607c3db513db835b2999",
+      "licence": "Apache-2.0",
+      "patch_sha256": "f43a05f40e2ee898a89cbd35b334f7532604b7d10afa4f8036c76ced1080daaa",
+      "failing_tests": "org.apache.struts2.util.TokenHelperTest#testCVE_2014_7809",
+      "split": "validation",
+      "group_id": "repo-ac1706f0c1f99c2f",
+      "before_sha256": "6c1610d34c62aa318e94b8f34107290f033bfad1a6f9074438a26b82f7753387",
+      "after_sha256": "ab098a673c864fead18d69230bf1ad6bfcd49eb1a17f70c894968c36598c8994"
+    },
+    {
+      "id": "VUL4J-36",
+      "repository": "apache/tika",
+      "cve": "CVE-2018-8017",
+      "cwe": "CWE-835",
+      "files": [
+        "tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java"
+      ],
+      "hunks": [
+        {
+          "file": "tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java",
+          "old_start": 463,
+          "old_count": 7,
+          "new_start": 463,
+          "new_count": 7
+        },
+        {
+          "file": "tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java",
+          "old_start": 508,
+          "old_count": 7,
+          "new_start": 508,
+          "new_count": 7
+        },
+        {
+          "file": "tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java",
+          "old_start": 575,
+          "old_count": 7,
+          "new_start": 575,
+          "new_count": 7
+        },
+        {
+          "file": "tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java",
+          "old_start": 674,
+          "old_count": 7,
+          "new_start": 674,
+          "new_count": 7
+        },
+        {
+          "file": "tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java",
+          "old_start": 713,
+          "old_count": 14,
+          "new_start": 713,
+          "new_count": 14
+        }
+      ],
+      "commit_url": "https://github.com/apache/tika/commit/8a6a9e1344f5b10ebfa1a189dc3c30d0da2b9d4",
+      "licence": "Apache-2.0",
+      "patch_sha256": "11986f30df3beac063c3ad889d69a46528521e4b1f101dcfa122740a5eac7707",
+      "failing_tests": "org.apache.tika.parser.iptc.IptcParserTest#testCVE_2018_8017",
+      "split": "train",
+      "group_id": "repo-620657d3c23d8060",
+      "before_sha256": "977e4d66bf45f4d8d27c248012db12799fdb9c6bc0e7eaed0390d83b1d041f45",
+      "after_sha256": "30c02927556d1c1171103ac7f62b941992f502dd4132bc35cdc6e5730ae605d1"
+    },
+    {
+      "id": "VUL4J-37",
+      "repository": "apache/tomee",
+      "cve": "CVE-2015-8581",
+      "cwe": "CWE-502",
+      "files": [
+        "arquillian/arquillian-tomee-common/src/main/java/org/apache/openejb/arquillian/common/Setup.java",
+        "arquillian/arquillian-tomee-common/src/main/java/org/apache/openejb/arquillian/common/TomEEConfiguration.java",
+        "arquillian/arquillian-tomee-embedded/src/main/java/org/apache/openejb/arquillian/embedded/EmbeddedTomEEConfiguration.java",
+        "container/openejb-core/src/main/java/org/apache/openejb/core/rmi/BlacklistClassResolver.java",
+        "server/openejb-client/src/main/java/org/apache/openejb/client/EjbObjectInputStream.java",
+        "tomee/tomee-common/src/main/java/org/apache/tomee/installer/Installer.java"
+      ],
+      "hunks": [
+        {
+          "file": "arquillian/arquillian-tomee-common/src/main/java/org/apache/openejb/arquillian/common/Setup.java",
+          "old_start": 303,
+          "old_count": 6,
+          "new_start": 303,
+          "new_count": 11
+        },
+        {
+          "file": "arquillian/arquillian-tomee-common/src/main/java/org/apache/openejb/arquillian/common/TomEEConfiguration.java",
+          "old_start": 45,
+          "old_count": 6,
+          "new_start": 45,
+          "new_count": 7
+        },
+        {
+          "file": "arquillian/arquillian-tomee-common/src/main/java/org/apache/openejb/arquillian/common/TomEEConfiguration.java",
+          "old_start": 53,
+          "old_count": 6,
+          "new_start": 54,
+          "new_count": 14
+        },
+        {
+          "file": "arquillian/arquillian-tomee-embedded/src/main/java/org/apache/openejb/arquillian/embedded/EmbeddedTomEEConfiguration.java",
+          "old_start": 172,
+          "old_count": 7,
+          "new_start": 172,
+          "new_count": 15
+        },
+        {
+          "file": "container/openejb-core/src/main/java/org/apache/openejb/core/rmi/BlacklistClassResolver.java",
+          "old_start": 56,
+          "old_count": 7,
+          "new_start": 56,
+          "new_count": 7
+        },
+        {
+          "file": "server/openejb-client/src/main/java/org/apache/openejb/client/EjbObjectInputStream.java",
+          "old_start": 123,
+          "old_count": 7,
+          "new_start": 123,
+          "new_count": 7
+        },
+        {
+          "file": "tomee/tomee-common/src/main/java/org/apache/tomee/installer/Installer.java",
+          "old_start": 703,
+          "old_count": 6,
+          "new_start": 703,
+          "new_count": 14
+        }
+      ],
+      "commit_url": "https://github.com/apache/tomee/commit/58cdbbef9c77ab2b44870f9d606593b49cde76d9",
+      "licence": "Apache-2.0",
+      "patch_sha256": "002c6aff5b2881c3d6231eeb5d690126e8270fd7bf4985fedf772d0132b8dd71",
+      "failing_tests": "org.apache.openejb.core.rmi.BlacklistClassResolverTest#wildcard",
+      "split": "test",
+      "group_id": "repo-53a7094987ea4eec",
+      "before_sha256": "1b49d93bed7687e3f609fbdd5f8da44d65193575392cb16579bedc92909c1f08",
+      "after_sha256": "9049715f914953ddb2ee7961deb1e5f704264876fe588362396b88b8542d79f2"
+    },
+    {
+      "id": "VUL4J-38",
+      "repository": "apereo/java-cas-client",
+      "cve": "CVE-2014-4172",
+      "cwe": "CWE-74",
+      "files": [
+        "cas-client-core/src/main/java/org/jasig/cas/client/validation/AbstractUrlBasedTicketValidator.java",
+        "cas-client-core/src/main/java/org/jasig/cas/client/validation/Cas20ServiceTicketValidator.java"
+      ],
+      "hunks": [
+        {
+          "file": "cas-client-core/src/main/java/org/jasig/cas/client/validation/AbstractUrlBasedTicketValidator.java",
+          "old_start": 110,
+          "old_count": 7,
+          "new_start": 110,
+          "new_count": 7
+        },
+        {
+          "file": "cas-client-core/src/main/java/org/jasig/cas/client/validation/AbstractUrlBasedTicketValidator.java",
+          "old_start": 144,
+          "old_count": 7,
+          "new_start": 144,
+          "new_count": 8
+        },
+        {
+          "file": "cas-client-core/src/main/java/org/jasig/cas/client/validation/Cas20ServiceTicketValidator.java",
+          "old_start": 70,
+          "old_count": 7,
+          "new_start": 70,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/apereo/java-cas-client/commit/ab6cbdc3daa451b4fef89c0bd0f4e6568f3aa9ef",
+      "licence": "Apache-2.0",
+      "patch_sha256": "af5e2da428bb22e01042d7beebda261bd076a80af0d31f6ba664d0d39c829c24",
+      "failing_tests": "org.jasig.cas.client.validation.Cas10TicketValidatorTests#urlEncodedValues",
+      "split": "train",
+      "group_id": "repo-b463145e82f77edf",
+      "before_sha256": "7681c601bf9f78e3b28778b62d2f87d2f0ce520513b98b69113c5d871a2739c5",
+      "after_sha256": "b49e9a7e14ee20b5fd859eefd84715a711fc970aa90c7d810502dfa66512d0e0"
+    },
+    {
+      "id": "VUL4J-39",
+      "repository": "cloudfoundry/uaa",
+      "cve": "CVE-2018-1192",
+      "cwe": "CWE-200",
+      "files": [
+        "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java"
+      ],
+      "hunks": [
+        {
+          "file": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java",
+          "old_start": 12,
+          "old_count": 14,
+          "new_start": 12,
+          "new_count": 14
+        },
+        {
+          "file": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java",
+          "old_start": 113,
+          "old_count": 12,
+          "new_start": 113,
+          "new_count": 6
+        }
+      ],
+      "commit_url": "https://github.com/cloudfoundry/uaa/commit/a61bfabbad22f646ecf1f00016b448b26a60daf",
+      "licence": "Apache-2.0",
+      "patch_sha256": "40032e5541eb8cddfe5591ad344a19f4e30a83cd30036725e148785932806a94",
+      "failing_tests": "org.cloudfoundry.identity.uaa.authentication.event.UserAuthenticationSuccessEventTests#get_origin_from_request",
+      "split": "train",
+      "group_id": "repo-2d7d2435e64b6a78",
+      "before_sha256": "9642fcd50e8a5e23aec55edd2f3d059e5073342d0f1922ead5ce8d3d4bcb1459",
+      "after_sha256": "f920c1e8417c41f2b41244101f74ca5118a006e5edfbb64aabdae32f36175a86"
+    },
+    {
+      "id": "VUL4J-40",
+      "repository": "cloudfoundry/uaa",
+      "cve": "CVE-2019-3775",
+      "cwe": "CWE-287",
+      "files": [
+        "server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java"
+      ],
+      "hunks": [
+        {
+          "file": "server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java",
+          "old_start": 38,
+          "old_count": 6,
+          "new_start": 38,
+          "new_count": 10
+        }
+      ],
+      "commit_url": "https://github.com/cloudfoundry/uaa/commit/daeedbe499453b06856556f5e9f7e80d2d1ceb03",
+      "licence": "Apache-2.0",
+      "patch_sha256": "730e55e9299bee2a2fc10a7bee4f6705d85509f1691b10ce0ea05b22c1857065",
+      "failing_tests": "org.cloudfoundry.identity.uaa.security.ScimUserSelfUpdateAllowedTest$WithInternalUserStoreEnabled$WhenAttemptingToUpdateAFieldThatIsNotAllowedToBeUpdated$WhenUpdatingTheEmailField#isNotAllowedToUpdateField",
+      "split": "train",
+      "group_id": "repo-2d7d2435e64b6a78",
+      "before_sha256": "691e50c2ab8a034fa7db5f74f82632ec33a3c18c82a05cd568e493447d589c57",
+      "after_sha256": "dea2ba3badffdd2c3a320844a7b64d273aded8b87b095b98b23655aab8ae0768"
+    },
+    {
+      "id": "VUL4J-41",
+      "repository": "codehaus-plexus/plexus-archiver",
+      "cve": "CVE-2018-1002200",
+      "cwe": "CWE-22",
+      "files": [
+        "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+          "old_start": 308,
+          "old_count": 6,
+          "new_start": 308,
+          "new_count": 15
+        }
+      ],
+      "commit_url": "https://github.com/codehaus-plexus/plexus-archiver/commit/58bc24e465c0842981692adbf6d75680298989de",
+      "licence": "Apache-2.0",
+      "patch_sha256": "dd9c38a202d8e5f89e4a407e328eda10dab56669c08e3e2a583224c2e40264b6",
+      "failing_tests": "org.codehaus.plexus.archiver.zip.ZipUnArchiverTest#testExtractingZipWithEntryOutsideDestDirThrowsException",
+      "split": "test",
+      "group_id": "repo-4f6304d6c3baaee3",
+      "before_sha256": "75ccf56e91342f34709c584d2207844c312a8f4c00c4829480ad5c044f69b515",
+      "after_sha256": "f7d9047da1fb97aa6789ab185521ad04462d0288180d3ed9408886ebb0e4e861"
+    },
+    {
+      "id": "VUL4J-42",
+      "repository": "codehaus-plexus/plexus-utils",
+      "cve": "CVE-2017-1000487",
+      "cwe": "CWE-78",
+      "files": [
+        "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 139,
+          "old_count": 6,
+          "new_start": 139,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 167,
+          "old_count": 6,
+          "new_start": 169,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 174,
+          "old_count": 8,
+          "new_start": 178,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 203,
+          "old_count": 7,
+          "new_start": 206,
+          "new_count": 6
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 253,
+          "old_count": 7,
+          "new_start": 255,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 404,
+          "old_count": 6,
+          "new_start": 406,
+          "new_count": 21
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 483,
+          "old_count": 7,
+          "new_start": 500,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 497,
+          "old_count": 6,
+          "new_start": 514,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 633,
+          "old_count": 7,
+          "new_start": 652,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 648,
+          "old_count": 7,
+          "new_start": 667,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 669,
+          "old_count": 7,
+          "new_start": 688,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 684,
+          "old_count": 6,
+          "new_start": 703,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "old_start": 695,
+          "old_count": 6,
+          "new_start": 716,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+          "old_start": 17,
+          "old_count": 7,
+          "new_start": 17,
+          "new_count": 6
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+          "old_start": 29,
+          "old_count": 34,
+          "new_start": 28,
+          "new_count": 18
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+          "old_start": 76,
+          "old_count": 7,
+          "new_start": 59,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+          "old_start": 126,
+          "old_count": 46,
+          "new_start": 109,
+          "new_count": 41
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+          "old_start": 48,
+          "old_count": 6,
+          "new_start": 48,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+          "old_start": 68,
+          "old_count": 6,
+          "new_start": 70,
+          "new_count": 16
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+          "old_start": 129,
+          "old_count": 6,
+          "new_start": 141,
+          "new_count": 19
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+          "old_start": 144,
+          "old_count": 9,
+          "new_start": 169,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+          "old_start": 162,
+          "old_count": 9,
+          "new_start": 185,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+          "old_start": 278,
+          "old_count": 7,
+          "new_start": 299,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/codehaus-plexus/plexus-utils/commit/b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "licence": "Apache-2.0",
+      "patch_sha256": "411a5cfedb770fa70a412d394cc437bfc8f7930ef34feeeaeef144c45924763d",
+      "failing_tests": "org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash,org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithWorkingDirectory,org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineNonWindows,org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithSingleQuotedArg,org.codehaus.plexus.util.cli.CommandlineTest#testPathWithShellExpansionStrings,org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable,org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes,org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes_BackslashFileSep,org.codehaus.plexus.util.cli.shell.BourneShellTest#testPreserveSingleQuotesOnArgument,org.codehaus.plexus.util.cli.shell.BourneShellTest#testEscapeSingleQuotesOnArgument,org.codehaus.plexus.util.cli.shell.BourneShellTest#testArgumentsWithsemicolon,org.codehaus.plexus.util.cli.shell.BourneShellTest#testBourneShellQuotingCharacters",
+      "split": "train",
+      "group_id": "repo-6caaf4812e4d803d",
+      "before_sha256": "6c2c70d97491ae15be5f951127179d1294a353c542b2906edbcb65846b8d319b",
+      "after_sha256": "24e29c01381f7dbfd098054d6c8ec6993cf525daabf712f2a95b2b63c9792cdb"
+    },
+    {
+      "id": "VUL4J-44",
+      "repository": "ESAPI/esapi-java-legacy",
+      "cve": "CVE-2013-5960",
+      "cwe": "CWE-310",
+      "files": [
+        "src/main/java/org/owasp/esapi/codecs/PercentCodec.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/owasp/esapi/codecs/PercentCodec.java",
+          "old_start": 89,
+          "old_count": 7,
+          "new_start": 89,
+          "new_count": 12
+        },
+        {
+          "file": "src/main/java/org/owasp/esapi/codecs/PercentCodec.java",
+          "old_start": 99,
+          "old_count": 6,
+          "new_start": 104,
+          "new_count": 11
+        }
+      ],
+      "commit_url": "https://github.com/ESAPI/esapi-java-legacy/commit/b7cbc53f9cc967cf1a5a9463d8c6fef9ed6ef4f7",
+      "licence": "BSD (see upstream text)",
+      "patch_sha256": "f70f00391681c13c376a0a48b678a9b15729082bba43c80a3a0a5c0cea7e6be8",
+      "failing_tests": "org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec %De],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec IMMUNE_PERCENT (%)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (!)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS ($)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (*)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (+)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (-)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (.)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (=)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (?)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (@)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (^)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (_)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (|)],org.OWASP.esapi.codecs.CodecImmunityTest#testImmuneEncode[PercentCodec Full_ALPHA_AND_SPECIALS (~)]",
+      "split": "train",
+      "group_id": "repo-839b401d10233aea",
+      "before_sha256": "3f6c6e49b630e72d803cfb7427a5018509fb1c54397b011acef3180525cf231e",
+      "after_sha256": "0654cef0925c347b3ad84085ac42dfe2f63be52b8574326a886a27ee646b62f4"
+    },
+    {
+      "id": "VUL4J-48",
+      "repository": "inversoft/prime-jwt",
+      "cve": "CVE-2018-1000531",
+      "cwe": "CWE-20",
+      "files": [
+        "src/main/java/org/primeframework/jwt/JWTDecoder.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/primeframework/jwt/JWTDecoder.java",
+          "old_start": 151,
+          "old_count": 9,
+          "new_start": 151,
+          "new_count": 11
+        },
+        {
+          "file": "src/main/java/org/primeframework/jwt/JWTDecoder.java",
+          "old_start": 165,
+          "old_count": 6,
+          "new_start": 167,
+          "new_count": 10
+        }
+      ],
+      "commit_url": "https://github.com/inversoft/prime-jwt/commit/abb0d479389a2509f939452a6767dc424bb5e6ba",
+      "licence": "Apache-2.0",
+      "patch_sha256": "d2eb4b9e0c9eefde30b62a180334d5180c38bd7be685f8205db111d8d496f639",
+      "failing_tests": "org.primeframework.jwt.VulnerabilityTest#test_unsecuredJWT_validation",
+      "split": "validation",
+      "group_id": "repo-3696d77d46d7f88b",
+      "before_sha256": "428eb5067dc833963e4dd085160207758ac58bc96caa594813701ed6ddcf2854",
+      "after_sha256": "7fd5b58b7bc610f72fb3b3a3227a37bebd6405a1e88e228d4044d658145cecb7"
+    },
+    {
+      "id": "VUL4J-49",
+      "repository": "inversoft/prime-jwt",
+      "cve": "CVE-2018-1000125",
+      "cwe": "CWE-20",
+      "files": [
+        "src/main/java/org/primeframework/jwt/JWTDecoder.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/primeframework/jwt/JWTDecoder.java",
+          "old_start": 19,
+          "old_count": 6,
+          "new_start": 19,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/primeframework/jwt/JWTDecoder.java",
+          "old_start": 65,
+          "old_count": 9,
+          "new_start": 66,
+          "new_count": 13
+        },
+        {
+          "file": "src/main/java/org/primeframework/jwt/JWTDecoder.java",
+          "old_start": 115,
+          "old_count": 9,
+          "new_start": 120,
+          "new_count": 13
+        },
+        {
+          "file": "src/main/java/org/primeframework/jwt/JWTDecoder.java",
+          "old_start": 150,
+          "old_count": 6,
+          "new_start": 159,
+          "new_count": 11
+        }
+      ],
+      "commit_url": "https://github.com/inversoft/prime-jwt/commit/0d94dcef0133d699f21d217e922564adbb83a227",
+      "licence": "Apache-2.0",
+      "patch_sha256": "20764c3de4dc10fd009883cdb386282ed5708422754faff228ab02c9b39bdbad",
+      "failing_tests": "org.primeframework.jwt.JWTTest#test_SingedWithoutSignature",
+      "split": "validation",
+      "group_id": "repo-3696d77d46d7f88b",
+      "before_sha256": "d8416445ab418cb32e8d3d7986e21a166a75e221de89f2e2ec1afb767dab6dde",
+      "after_sha256": "b97068f75f49f251df71421b04017ffb95558f0404aa8ba37ed038ac8775ba9b"
+    },
+    {
+      "id": "VUL4J-52",
+      "repository": "jenkinsci/groovy-sandbox",
+      "cve": "CVE-2018-1000865",
+      "cwe": "CWE-269",
+      "files": [
+        "src/main/java/org/kohsuke/groovy/sandbox/SandboxTransformer.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/kohsuke/groovy/sandbox/SandboxTransformer.java",
+          "old_start": 137,
+          "old_count": 6,
+          "new_start": 137,
+          "new_count": 7
+        },
+        {
+          "file": "src/main/java/org/kohsuke/groovy/sandbox/SandboxTransformer.java",
+          "old_start": 147,
+          "old_count": 6,
+          "new_start": 148,
+          "new_count": 26
+        }
+      ],
+      "commit_url": "https://github.com/jenkinsci/groovy-sandbox/commit/0cd7ec12b7c56cfa3167d99c5f43147ce05449d3",
+      "licence": "MIT",
+      "patch_sha256": "2042b4f3fb2608283a61b0ada7a169f7d1aa898cb78a1b0f6b704cfeb42cd6ff",
+      "failing_tests": "org.kohsuke.groovy.sandbox.FinalizerTest#testOverridingFinalizeForbidden",
+      "split": "test",
+      "group_id": "repo-5e3eb39efdb5b4ba",
+      "before_sha256": "89556d8f2a83a863e4b6743a8950df34c026f49c2c2f6e1c13d672cbc30eb920",
+      "after_sha256": "ad274d068747ace09fe49d94956040f9b03cfbfc3d7113e2335d1d730aac2d3c"
+    },
+    {
+      "id": "VUL4J-53",
+      "repository": "jenkinsci/jenkins",
+      "cve": "CVE-2018-1999044",
+      "cwe": "CWE-835",
+      "files": [
+        "core/src/main/java/hudson/scheduler/CronTab.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/hudson/scheduler/CronTab.java",
+          "old_start": 204,
+          "old_count": 7,
+          "new_start": 204,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/jenkinsci/jenkins/commit/e5046911c57e60a1d6d8aca9b21bd9093b0f3763",
+      "licence": "MIT",
+      "patch_sha256": "5086d59b67e83024aac1ab5330b6fe132338c3c5902c6d743395d578d1afa5fa",
+      "failing_tests": "hudson.scheduler.CronTabTest#testLongMonths",
+      "split": "train",
+      "group_id": "repo-b009fbc9968d3e69",
+      "before_sha256": "ec23b3f6f71441137e849cf30c13325f403988e0b6009b10717c43776aebd319",
+      "after_sha256": "883bdb5b656ed85ab16ca46651a634aeea50e39d6537fedd566243da173d690c"
+    },
+    {
+      "id": "VUL4J-54",
+      "repository": "jenkinsci/jenkins",
+      "cve": "CVE-2017-1000355",
+      "cwe": "CWE-502",
+      "files": [
+        "core/src/main/java/hudson/util/XStream2.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/hudson/util/XStream2.java",
+          "old_start": 145,
+          "old_count": 6,
+          "new_start": 145,
+          "new_count": 9
+        }
+      ],
+      "commit_url": "https://github.com/jenkinsci/jenkins/commit/701ea95a52afe53bee28f76a3f96eb0e578852e9",
+      "licence": "MIT",
+      "patch_sha256": "9bcc1985109cec3976b9ead79775a1ba92650ad114f065c9a661d12d213be875",
+      "failing_tests": "hudson.util.XStream2Test#crashXstream",
+      "split": "train",
+      "group_id": "repo-b009fbc9968d3e69",
+      "before_sha256": "317fcfa15bb25e85a4d748d5284203a9c1e7a6b8a81b581012e7c0126a4773cd",
+      "after_sha256": "0cfdf260a1c3fe2bb927a5f5503458831fa48ad2417fa15ac501346fdad5506b"
+    },
+    {
+      "id": "VUL4J-55",
+      "repository": "jenkinsci/jenkins",
+      "cve": "CVE-2018-1000864",
+      "cwe": "CWE-835",
+      "files": [
+        "core/src/main/java/hudson/scheduler/CronTab.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/hudson/scheduler/CronTab.java",
+          "old_start": 356,
+          "old_count": 6,
+          "new_start": 356,
+          "new_count": 14
+        }
+      ],
+      "commit_url": "https://github.com/jenkinsci/jenkins/commit/73afa0ca786a87f05b5433e2e38f863826fcad17",
+      "licence": "MIT",
+      "patch_sha256": "65b14dc144a115176d91d2b5195e387f8abc5f0e57af92cdd0ef9161269a1c7d",
+      "failing_tests": "hudson.scheduler.CronTabTest#testCeilLongMonths",
+      "split": "train",
+      "group_id": "repo-b009fbc9968d3e69",
+      "before_sha256": "4f78b3670436f2838fa6d0014948e3d61374de27ee04d9101f0ba14e87856a86",
+      "after_sha256": "5dd3a394ecbfe1adf5878b8c0a1b0c8faa797a01b332873ae0bce0066e845c81"
+    },
+    {
+      "id": "VUL4J-59",
+      "repository": "jhy/jsoup",
+      "cve": "CVE-2015-6748",
+      "cwe": "CWE-79",
+      "files": [
+        "src/main/java/org/jsoup/parser/TokeniserState.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/jsoup/parser/TokeniserState.java",
+          "old_start": 757,
+          "old_count": 6,
+          "new_start": 757,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/jhy/jsoup/commit/4edb78991f8d0bf87dafde5e01ccd8922065c9b2",
+      "licence": "MIT",
+      "patch_sha256": "3285d5a25fbbedd032c15ef689a52fe32f820ff07b20419dfd567a9cc6939e5c",
+      "failing_tests": "org.jsoup.parser.XmlTreeBuilderTest#testDoesHandleEOFInTag",
+      "split": "train",
+      "group_id": "repo-55893f9dcb9d211f",
+      "before_sha256": "95748cfc32025a0a151ac758b30e61bc40d3ca721e9935037e4f26be7f133a55",
+      "after_sha256": "649a1f0bea72140ea0ccfc608f2afb40cc3820c81ad405aafb5bcb44e1a7175c"
+    },
+    {
+      "id": "VUL4J-61",
+      "repository": "neo4j-contrib/neo4j-apoc-procedures",
+      "cve": "CVE-2018-1000820",
+      "cwe": "CWE-611",
+      "files": [
+        "src/main/java/apoc/load/Xml.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/apoc/load/Xml.java",
+          "old_start": 65,
+          "old_count": 6,
+          "new_start": 65,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/neo4j-contrib/neo4j-apoc-procedures/commit/45bc09c8bd7f17283e2a7e85ce3f02cb4be4fd1a",
+      "licence": "Apache-2.0",
+      "patch_sha256": "0f04fc30c6acb2f034bf9a6d48861fc19952de2ec56029fb05a271ee9a775123",
+      "failing_tests": "apoc.load.XmlTest#testLoadXmlPreventXXEVulnerabilityThrowsQueryExecutionException",
+      "split": "train",
+      "group_id": "repo-182960fb93e995d6",
+      "before_sha256": "90c66728cca7f7bbfb158f00b0a3641fc65a1201c5e77ec6e281592f3cd3bda9",
+      "after_sha256": "fe3185b09a6b45bc98c7f97a4760c9905434001e217ffe0b6e0a8f9a09f51f8f"
+    },
+    {
+      "id": "VUL4J-63",
+      "repository": "opennetworkinglab/onos",
+      "cve": "CVE-2018-1000615",
+      "cwe": "CWE-unknown",
+      "files": [
+        "protocols/ovsdb/rfc/src/main/java/org/onosproject/ovsdb/rfc/utils/VersionUtil.java"
+      ],
+      "hunks": [
+        {
+          "file": "protocols/ovsdb/rfc/src/main/java/org/onosproject/ovsdb/rfc/utils/VersionUtil.java",
+          "old_start": 50,
+          "old_count": 20,
+          "new_start": 50,
+          "new_count": 30
+        }
+      ],
+      "commit_url": "https://github.com/opennetworkinglab/onos/commit/1a783729a1d7e0cd59d59a8dd3a73cdd6ac0f30d",
+      "licence": "Apache-2.0",
+      "patch_sha256": "961b6ddcb43e0032e807989c5b614abe3456b1c39fac1bc3d60375203c31e9b1",
+      "failing_tests": "org.onosproject.ovsdb.rfc.utils.VersionUtilTest#testVersionCompare",
+      "split": "train",
+      "group_id": "repo-a1a41452faf4d0a9",
+      "before_sha256": "ee1f090dff0318d84170f9b5335127d82404dd54a0b640d8b68ecd45989252c1",
+      "after_sha256": "69ff48c9abfdf4ea2d07cc2b7e1615c10f9085fed4069ab10e58ea41a8eba76a"
+    },
+    {
+      "id": "VUL4J-64",
+      "repository": "OpenRefine/OpenRefine",
+      "cve": "CVE-2018-20157",
+      "cwe": "CWE-611",
+      "files": [
+        "main/src/com/google/refine/importers/XmlImporter.java"
+      ],
+      "hunks": [
+        {
+          "file": "main/src/com/google/refine/importers/XmlImporter.java",
+          "old_start": 321,
+          "old_count": 6,
+          "new_start": 321,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/OpenRefine/OpenRefine/commit/6a0d7d56e4ffb420316ce7849fde881344fbf881",
+      "licence": "BSD (see upstream text)",
+      "patch_sha256": "8640a24a6249e53a581c18c25f5a5fdd61b6057f10cbdd12177d0e46ab813916",
+      "failing_tests": "com.google.refine.tests.importers.XmlImporterTests#ignoresDtds",
+      "split": "train",
+      "group_id": "repo-477d2512137d0fbc",
+      "before_sha256": "184ee3fde4d5c21c1594f985bf8b8eb332fb2b44b32d84b92ea4e57410222745",
+      "after_sha256": "76814731f3b917ffd42cb234ed7046678ee885b71ea9cb94af44d8bfa03d09ff"
+    },
+    {
+      "id": "VUL4J-65",
+      "repository": "OpenRefine/OpenRefine",
+      "cve": "CVE-2018-19859",
+      "cwe": "CWE-22",
+      "files": [
+        "main/src/com/google/refine/importing/ImportingUtilities.java"
+      ],
+      "hunks": [
+        {
+          "file": "main/src/com/google/refine/importing/ImportingUtilities.java",
+          "old_start": 440,
+          "old_count": 7,
+          "new_start": 440,
+          "new_count": 11
+        }
+      ],
+      "commit_url": "https://github.com/OpenRefine/OpenRefine/commit/e243e73e4064de87a913946bd320fbbe246da656",
+      "licence": "BSD (see upstream text)",
+      "patch_sha256": "e1e3145ebd0b1003cc19e393b8c6e566b99e4f4a686da66ba483216619df5c72",
+      "failing_tests": "com.google.refine.tests.importing.ImportingUtilitiesTests#testZipSlip",
+      "split": "train",
+      "group_id": "repo-477d2512137d0fbc",
+      "before_sha256": "b907b5d4f487a006b46579a2b56b21ac79de54c992dc9d7a29378937333804ef",
+      "after_sha256": "146d30c89bb9c8d9f8bc41f00d9e0e63cff278c04b52dd4c742f47939973c8d4"
+    },
+    {
+      "id": "VUL4J-66",
+      "repository": "resteasy/Resteasy",
+      "cve": "CVE-2020-1695",
+      "cwe": "CWE-20",
+      "files": [
+        "resteasy-core/src/main/java/org/jboss/resteasy/plugins/delegates/MediaTypeHeaderDelegate.java"
+      ],
+      "hunks": [
+        {
+          "file": "resteasy-core/src/main/java/org/jboss/resteasy/plugins/delegates/MediaTypeHeaderDelegate.java",
+          "old_start": 49,
+          "old_count": 6,
+          "new_start": 49,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/resteasy/Resteasy/commit/acf15f2a8067f7e4cf5838342cecfa0b78a174fb",
+      "licence": "Apache-2.0",
+      "patch_sha256": "0fbdffdc9f4a647ac79e243e40678df3fa37dea766638ef952a8f3ec5bc0092f",
+      "failing_tests": "org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected",
+      "split": "validation",
+      "group_id": "repo-bcb55cfa6ada3073",
+      "before_sha256": "8d4636c287a18bdb66eef8189a0e33aaf22f82850db8b020e0985b97dc503af1",
+      "after_sha256": "e5af069c0f4d824ce24e6e9620ea2715ce0e15706b76ca8e794a41f2a2600a57"
+    },
+    {
+      "id": "VUL4J-67",
+      "repository": "spring-projects/spring-data-commons",
+      "cve": "CVE-2018-1274",
+      "cwe": "CWE-770",
+      "files": [
+        "src/main/java/org/springframework/data/mapping/PropertyPath.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/springframework/data/mapping/PropertyPath.java",
+          "old_start": 36,
+          "old_count": 6,
+          "new_start": 36,
+          "new_count": 8
+        },
+        {
+          "file": "src/main/java/org/springframework/data/mapping/PropertyPath.java",
+          "old_start": 321,
+          "old_count": 6,
+          "new_start": 323,
+          "new_count": 10
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-data-commons/commit/371f6590c509c72f8e600f3d05e110941607fba",
+      "licence": "Apache-2.0",
+      "patch_sha256": "9bd249bfe510e3b31989f583f9966808aff9ff7408d6e5a1926f374dfbd6e808",
+      "failing_tests": "org.springframework.data.mapping.PropertyPathUnitTests#rejectsTooLongPath",
+      "split": "test",
+      "group_id": "repo-d3925f77f32cc7b1",
+      "before_sha256": "749dccd0b2032633ee4717daf3453d844b6f8ceef69558dacb4e54245a4ba9fe",
+      "after_sha256": "e3210e9b19122b22bc640e5200b540b99d25db195f1a38690cb5546b6c8397a6"
+    },
+    {
+      "id": "VUL4J-68",
+      "repository": "spring-projects/spring-data-rest",
+      "cve": "CVE-2017-8046",
+      "cwe": "CWE-20",
+      "files": [
+        "spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/json/patch/AddOperation.java",
+        "spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/json/patch/PatchOperation.java"
+      ],
+      "hunks": [
+        {
+          "file": "spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/json/patch/AddOperation.java",
+          "old_start": 15,
+          "old_count": 11,
+          "new_start": 15,
+          "new_count": 6
+        },
+        {
+          "file": "spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/json/patch/AddOperation.java",
+          "old_start": 59,
+          "old_count": 15,
+          "new_start": 54,
+          "new_count": 6
+        },
+        {
+          "file": "spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/json/patch/PatchOperation.java",
+          "old_start": 17,
+          "old_count": 11,
+          "new_start": 17,
+          "new_count": 16
+        },
+        {
+          "file": "spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/json/patch/PatchOperation.java",
+          "old_start": 35,
+          "old_count": 6,
+          "new_start": 40,
+          "new_count": 8
+        },
+        {
+          "file": "spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/json/patch/PatchOperation.java",
+          "old_start": 191,
+          "old_count": 8,
+          "new_start": 198,
+          "new_count": 39
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-data-rest/commit/8f269e28fe8038a6c60f31a1c36cfda04795ab45",
+      "licence": "Apache-2.0",
+      "patch_sha256": "7f0083895782878ad64663c38ad6d16442dba65e596d748be282fd08764a1891",
+      "failing_tests": "org.springframework.data.rest.webmvc.json.patch.JsonPatchTests#rejectsInvalidPaths",
+      "split": "train",
+      "group_id": "repo-05b0c225137ec314",
+      "before_sha256": "c4855c54785f4fca7a46dedf1879be828f0f74ac98b0594b1c8c1fe92a8936f4",
+      "after_sha256": "604f5ab192d711818a81b025d6c0fbb3be7afdce4e4f6f505858979778526b08"
+    },
+    {
+      "id": "VUL4J-69",
+      "repository": "spring-projects/spring-framework",
+      "cve": "CVE-2016-9878",
+      "cwe": "CWE-22",
+      "files": [
+        "spring-webmvc/src/main/java/org/springframework/web/servlet/ResourceServlet.java"
+      ],
+      "hunks": [
+        {
+          "file": "spring-webmvc/src/main/java/org/springframework/web/servlet/ResourceServlet.java",
+          "old_start": 273,
+          "old_count": 18,
+          "new_start": 273,
+          "new_count": 18
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-framework/commit/e2d6e709c3c65a4951eb096843ee75d5200cfcad",
+      "licence": "Apache-2.0",
+      "patch_sha256": "bddcdae578f64c955a7b689b82e94d51cc2ccfdd3502d0013c681e65b1b997ac",
+      "failing_tests": "org.springframework.web.servlet.ResourceServletTests#example1,org.springframework.web.servlet.ResourceServletTests#example2,org.springframework.web.servlet.ResourceServletTests#example3",
+      "split": "train",
+      "group_id": "repo-60b36f96fb73b992",
+      "before_sha256": "7dc2e5deab66e756e6c22a06eb5663ea0761d443b2a0c20c507bd96ced974621",
+      "after_sha256": "404a87dee5b687072d2df57a3f5b98835460ee897c2fe29d0b93bf4ffccacaa2"
+    },
+    {
+      "id": "VUL4J-70",
+      "repository": "spring-projects/spring-framework",
+      "cve": "CVE-2018-15756",
+      "cwe": "CWE-unknown",
+      "files": [
+        "spring-web/src/main/java/org/springframework/http/HttpRange.java"
+      ],
+      "hunks": [
+        {
+          "file": "spring-web/src/main/java/org/springframework/http/HttpRange.java",
+          "old_start": 1,
+          "old_count": 5,
+          "new_start": 1,
+          "new_count": 5
+        },
+        {
+          "file": "spring-web/src/main/java/org/springframework/http/HttpRange.java",
+          "old_start": 44,
+          "old_count": 6,
+          "new_start": 44,
+          "new_count": 9
+        },
+        {
+          "file": "spring-web/src/main/java/org/springframework/http/HttpRange.java",
+          "old_start": 59,
+          "old_count": 16,
+          "new_start": 62,
+          "new_count": 22
+        },
+        {
+          "file": "spring-web/src/main/java/org/springframework/http/HttpRange.java",
+          "old_start": 122,
+          "old_count": 7,
+          "new_start": 131,
+          "new_count": 8
+        },
+        {
+          "file": "spring-web/src/main/java/org/springframework/http/HttpRange.java",
+          "old_start": 134,
+          "old_count": 6,
+          "new_start": 144,
+          "new_count": 7
+        },
+        {
+          "file": "spring-web/src/main/java/org/springframework/http/HttpRange.java",
+          "old_start": 169,
+          "old_count": 6,
+          "new_start": 180,
+          "new_count": 8
+        },
+        {
+          "file": "spring-web/src/main/java/org/springframework/http/HttpRange.java",
+          "old_start": 179,
+          "old_count": 6,
+          "new_start": 192,
+          "new_count": 13
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-framework/commit/423aa28ed584b4ff6e5bad218c09beef5e91951",
+      "licence": "Apache-2.0",
+      "patch_sha256": "02a1ce4c056ac13fcb0036b4be1e36c52da8ee418608af0a5ff1882d12428d2f",
+      "failing_tests": "org.springframework.http.HttpRangeTests#parseRangesValidations,org.springframework.http.HttpRangeTests#toResourceRegionsValidations",
+      "split": "train",
+      "group_id": "repo-60b36f96fb73b992",
+      "before_sha256": "45d883342d8538b63ed20f0df276c83b0501863a4c1a188ceae7c68206bc031d",
+      "after_sha256": "9083602244a05101504fbc7954d5ecb8e4cf839c3a8a28c3a6efe2d51517b57f"
+    },
+    {
+      "id": "VUL4J-71",
+      "repository": "spring-projects/spring-framework",
+      "cve": "CVE-2018-1272",
+      "cwe": "CWE-unknown",
+      "files": [
+        "spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java"
+      ],
+      "hunks": [
+        {
+          "file": "spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java",
+          "old_start": 1,
+          "old_count": 5,
+          "new_start": 1,
+          "new_count": 5
+        },
+        {
+          "file": "spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java",
+          "old_start": 18,
+          "old_count": 6,
+          "new_start": 18,
+          "new_count": 7
+        },
+        {
+          "file": "spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java",
+          "old_start": 46,
+          "old_count": 7,
+          "new_start": 47,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-framework/commit/e02ff3a0da50744b0980d5d665fd242eedea767",
+      "licence": "Apache-2.0",
+      "patch_sha256": "3f9766addffdc16abf8bce5cbcb678a98da88532c93953e72d8f8d7e1c381c56",
+      "failing_tests": "org.springframework.util.MimeTypeTests#testCVE_2018_1272",
+      "split": "train",
+      "group_id": "repo-60b36f96fb73b992",
+      "before_sha256": "2872b2662fb5f05d2c147af2ef7d0eabbf76ac67271a42c27bcc183d22765da3",
+      "after_sha256": "7a22c2a1eee6fcaa4853963870d82b3a98d5a7ccfba95b1a0773e8c369016005"
+    },
+    {
+      "id": "VUL4J-72",
+      "repository": "spring-projects/spring-security",
+      "cve": "CVE-2018-15801",
+      "cwe": "CWE-345",
+      "files": [
+        "oauth2/oauth2-jose/src/main/java/org/springframework/security/oauth2/jwt/JwtIssuerValidator.java"
+      ],
+      "hunks": [
+        {
+          "file": "oauth2/oauth2-jose/src/main/java/org/springframework/security/oauth2/jwt/JwtIssuerValidator.java",
+          "old_start": 37,
+          "old_count": 7,
+          "new_start": 37,
+          "new_count": 7
+        },
+        {
+          "file": "oauth2/oauth2-jose/src/main/java/org/springframework/security/oauth2/jwt/JwtIssuerValidator.java",
+          "old_start": 48,
+          "old_count": 7,
+          "new_start": 48,
+          "new_count": 7
+        },
+        {
+          "file": "oauth2/oauth2-jose/src/main/java/org/springframework/security/oauth2/jwt/JwtIssuerValidator.java",
+          "old_start": 63,
+          "old_count": 7,
+          "new_start": 63,
+          "new_count": 8
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-security/commit/c70b65c5df0e170a2d34d812b83db0b7bc71ea25",
+      "licence": "Apache-2.0",
+      "patch_sha256": "afcc821d08703892aa4f4f991d3e0c4163f5ae786689478f0ac620026f036e5c",
+      "failing_tests": "org.springframework.security.oauth2.jwt.JwtIssuerValidatorTests#testCVE_2018_15801",
+      "split": "train",
+      "group_id": "repo-acd50d54119df1fc",
+      "before_sha256": "d461794661af178cfbec565a9da06443bf423e82e5df8164e222d387031574f3",
+      "after_sha256": "9c703b5df1a94e45f08ddb235df7b8421d1fb26b6491d36b438d1aedfe6f4e22"
+    },
+    {
+      "id": "VUL4J-73",
+      "repository": "spring-projects/spring-security",
+      "cve": "CVE-2019-11272",
+      "cwe": "CWE-522",
+      "files": [
+        "core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java",
+          "old_start": 51,
+          "old_count": 6,
+          "new_start": 51,
+          "new_count": 9
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-security/commit/b2d4fec3617c497c5a8eb9c7e5270e0c7db293ee",
+      "licence": "Apache-2.0",
+      "patch_sha256": "a1a3b29839e5f49c3dca3b436407e548d7ab77813535484c8731b1b42d312cb4",
+      "failing_tests": "org.springframework.security.authentication.encoding.PlaintextPasswordEncoderTests#testNull",
+      "split": "train",
+      "group_id": "repo-acd50d54119df1fc",
+      "before_sha256": "c3788e731d3d179a190a946cb5ae2168be08b78b56341ef10943165f0d59c61f",
+      "after_sha256": "f82f8e295064ace3cce2e143b6119b87d7e63f4c30ab8f73b16d567a99c9dddb"
+    },
+    {
+      "id": "VUL4J-74",
+      "repository": "spring-projects/spring-security",
+      "cve": "CVE-2019-3795",
+      "cwe": "CWE-332",
+      "files": [
+        "core/src/main/java/org/springframework/security/core/token/SecureRandomFactoryBean.java"
+      ],
+      "hunks": [
+        {
+          "file": "core/src/main/java/org/springframework/security/core/token/SecureRandomFactoryBean.java",
+          "old_start": 1,
+          "old_count": 5,
+          "new_start": 1,
+          "new_count": 5
+        },
+        {
+          "file": "core/src/main/java/org/springframework/security/core/token/SecureRandomFactoryBean.java",
+          "old_start": 37,
+          "old_count": 16,
+          "new_start": 37,
+          "new_count": 15
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-security/commit/1304c958bf9c38940082f3ad1558d413ed82f2b",
+      "licence": "Apache-2.0",
+      "patch_sha256": "4990e34d3ddaa530bb89735440987785d7197fdf2b7523da5a20002666714859",
+      "failing_tests": "org.springframework.security.core.token.SecureRandomFactoryBeanTests#testCreatesUsingSeed",
+      "split": "train",
+      "group_id": "repo-acd50d54119df1fc",
+      "before_sha256": "726b8786d7bfbfb65f88b79ff7b1cac65300fd38391b528c5975cdb94bce4e61",
+      "after_sha256": "4fe00554afe0c88ee9a21efd68bba797843e46fd7bc73fac46ef885c111b6999"
+    },
+    {
+      "id": "VUL4J-75",
+      "repository": "spring-projects/spring-security-oauth",
+      "cve": "CVE-2016-4977",
+      "cwe": "CWE-19",
+      "files": [
+        "spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/endpoint/SpelView.java"
+      ],
+      "hunks": [
+        {
+          "file": "spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/endpoint/SpelView.java",
+          "old_start": 23,
+          "old_count": 6,
+          "new_start": 23,
+          "new_count": 7
+        },
+        {
+          "file": "spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/endpoint/SpelView.java",
+          "old_start": 35,
+          "old_count": 19,
+          "new_start": 36,
+          "new_count": 19
+        },
+        {
+          "file": "spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/endpoint/SpelView.java",
+          "old_start": 68,
+          "old_count": 7,
+          "new_start": 69,
+          "new_count": 10
+        }
+      ],
+      "commit_url": "https://github.com/spring-projects/spring-security-oauth/commit/fff77d3fea477b566bcacfbfc95f85821a2bdc2d",
+      "licence": "Apache-2.0",
+      "patch_sha256": "a9cb6693d4fcbdf45183e1d7f7a7d4344f7e760ac3d43a6b828fd3bdb6d1b376",
+      "failing_tests": "org.springframework.security.oauth2.provider.endpoint.SpelViewTests#nonRecursive,org.springframework.security.oauth2.provider.endpoint.SpelViewTests#recursive",
+      "split": "train",
+      "group_id": "repo-ceb6d6554a77496e",
+      "before_sha256": "227fc42e578dd659dc55a7c1d5985735d200528b984ae9cae8df52af7a1b2897",
+      "after_sha256": "f1c30af1dbbbb82ef8e6a4cecfd7c3eb3ff77a272e9faae43c8dfe68c5e6b222"
+    },
+    {
+      "id": "VUL4J-76",
+      "repository": "square/retrofit",
+      "cve": "CVE-2018-1000850",
+      "cwe": "CWE-22",
+      "files": [
+        "retrofit/src/main/java/retrofit2/RequestBuilder.java"
+      ],
+      "hunks": [
+        {
+          "file": "retrofit/src/main/java/retrofit2/RequestBuilder.java",
+          "old_start": 16,
+          "old_count": 6,
+          "new_start": 16,
+          "new_count": 7
+        },
+        {
+          "file": "retrofit/src/main/java/retrofit2/RequestBuilder.java",
+          "old_start": 32,
+          "old_count": 6,
+          "new_start": 33,
+          "new_count": 21
+        },
+        {
+          "file": "retrofit/src/main/java/retrofit2/RequestBuilder.java",
+          "old_start": 91,
+          "old_count": 7,
+          "new_start": 107,
+          "new_count": 13
+        }
+      ],
+      "commit_url": "https://github.com/square/retrofit/commit/b9a7f6ad72073ddd40254c0058710e87a073047d",
+      "licence": "Apache-2.0",
+      "patch_sha256": "19670055db4e4697e75fe244fda009ff2dd1e29af494e2013413d0fbe2ee84de",
+      "failing_tests": "retrofit2.RequestFactoryTest#pathParametersAndPathTraversal,retrofit2.RequestFactoryTest#encodedPathParametersAndPathTraversal,retrofit2.RequestFactoryTest#dotDotsOkayWhenNotFullPathSegment",
+      "split": "train",
+      "group_id": "repo-7c9d2bd099cfe1bd",
+      "before_sha256": "c8c46e618e6ee6c353f935dd88815350e90356a27ba1bf6ad197da4e6a6118d2",
+      "after_sha256": "45fc347c7d267f2367f68d9f6579159fbad43c4d5c6a389ae39e3239f5c97518"
+    },
+    {
+      "id": "VUL4J-77",
+      "repository": "swagger-api/swagger-parser",
+      "cve": "CVE-2017-1000207",
+      "cwe": "CWE-502",
+      "files": [
+        "modules/swagger-parser/src/main/java/io/swagger/parser/util/DeserializationUtils.java"
+      ],
+      "hunks": [
+        {
+          "file": "modules/swagger-parser/src/main/java/io/swagger/parser/util/DeserializationUtils.java",
+          "old_start": 3,
+          "old_count": 6,
+          "new_start": 3,
+          "new_count": 7
+        },
+        {
+          "file": "modules/swagger-parser/src/main/java/io/swagger/parser/util/DeserializationUtils.java",
+          "old_start": 57,
+          "old_count": 12,
+          "new_start": 58,
+          "new_count": 12
+        }
+      ],
+      "commit_url": "https://github.com/swagger-api/swagger-parser/commit/4c6584306b40de9b2dfa9065c3a438cd918534af",
+      "licence": "Apache-2.0",
+      "patch_sha256": "0bc7d3c44aa852b78bb8463f261ace4d93bac6ab434594184ee7394922c34a1c",
+      "failing_tests": "io.swagger.parser.util.SwaggerDeserializerTest#testCVE_2017_1000207",
+      "split": "test",
+      "group_id": "repo-ddcbcc44154a3965",
+      "before_sha256": "e2e3db27be12384a1caa64f9a7c74aa8d8b451f8e1d2ce99eecef3311fe44dc0",
+      "after_sha256": "0ca4bdf9b159adfe3f457b062beb5a3811f7cf98aa02918f5d6e69311fcf88f2"
+    },
+    {
+      "id": "VUL4J-78",
+      "repository": "x-stream/xstream",
+      "cve": "CVE-2019-10173",
+      "cwe": "CWE-502",
+      "files": [
+        "xstream/src/java/com/thoughtworks/xstream/XStream.java"
+      ],
+      "hunks": [
+        {
+          "file": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+          "old_start": 338,
+          "old_count": 7,
+          "new_start": 338,
+          "new_count": 8
+        },
+        {
+          "file": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+          "old_start": 696,
+          "old_count": 7,
+          "new_start": 697,
+          "new_count": 7
+        },
+        {
+          "file": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+          "old_start": 711,
+          "old_count": 7,
+          "new_start": 712,
+          "new_count": 7
+        },
+        {
+          "file": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+          "old_start": 1479,
+          "old_count": 8,
+          "new_start": 1480,
+          "new_count": 8
+        },
+        {
+          "file": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+          "old_start": 2359,
+          "old_count": 7,
+          "new_start": 2360,
+          "new_count": 12
+        },
+        {
+          "file": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+          "old_start": 2510,
+          "old_count": 6,
+          "new_start": 2516,
+          "new_count": 11
+        },
+        {
+          "file": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+          "old_start": 2538,
+          "old_count": 7,
+          "new_start": 2549,
+          "new_count": 7
+        }
+      ],
+      "commit_url": "https://github.com/x-stream/xstream/commit/f38a1da3ae9491930c2067c12cd2506738b21dab",
+      "licence": "BSD (see upstream text)",
+      "patch_sha256": "0e4485e507190f3c5ebb8a670a1efffb5c73ad19492439d699a574a464f997e3",
+      "failing_tests": "com.thoughtworks.acceptance.SecurityVulnerabilityTest#testCannotInjectEventHandlerWithUnconfiguredSecurityFramework",
+      "split": "test",
+      "group_id": "repo-f3c1d47381800d4e",
+      "before_sha256": "2da258e6eff9d7347bc61a4a2fd30e1bc7c2baa2a8588ef37ba0437782e408dd",
+      "after_sha256": "77761466d9c7431cb2d4e112b5b75e08c2bffad546f391d00f0391c755c380d7"
+    },
+    {
+      "id": "VUL4J-79",
+      "repository": "zeroturnaround/zt-zip",
+      "cve": "CVE-2018-1002201",
+      "cwe": "CWE-22",
+      "files": [
+        "src/main/java/org/zeroturnaround/zip/ZipUtil.java"
+      ],
+      "hunks": [
+        {
+          "file": "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+          "old_start": 1150,
+          "old_count": 6,
+          "new_start": 1150,
+          "new_count": 15
+        },
+        {
+          "file": "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+          "old_start": 1218,
+          "old_count": 11,
+          "new_start": 1227,
+          "new_count": 29
+        },
+        {
+          "file": "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+          "old_start": 1258,
+          "old_count": 6,
+          "new_start": 1285,
+          "new_count": 15
+        }
+      ],
+      "commit_url": "https://github.com/zeroturnaround/zt-zip/commit/759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "licence": "Apache-2.0",
+      "patch_sha256": "9c8a6e905737bbb10558256f6e34f2f04beb171bc3d05886ed880c6246f5818b",
+      "failing_tests": "org.zeroturnaround.zip.DirectoryTraversalMaliciousTest#testUnwrapDoesntLeaveTarget,org.zeroturnaround.zip.DirectoryTraversalMaliciousTest#testUnpackDoesntLeaveTarget",
+      "split": "validation",
+      "group_id": "repo-c5bbddd0599b0c26",
+      "before_sha256": "b6d5021e0eed6bac89e6eedbbb8b06b568051b03e8abf2db883380e3fc013d42",
+      "after_sha256": "4dde6f4936d6541912962d1399a148b2b33719cb21c1b80b52d3c2d103d25106"
+    }
+  ],
+  "view_kind": "identity",
+  "view_meaning": "No source transformation or augmentation robustness experiment was performed",
+  "labels": "1=before documented correction, 0=after correction for the listed CVE; patch context rather than complete-program ground truth",
+  "near_duplicate_rule": "Join repositories for shared CVE, identical comment/whitespace-free lexical context, or >=0.90 Jaccard overlap of token 5-grams (minimum 25 unique grams)",
+  "limits": [
+    "Heuristic near-duplicate checks do not prove semantic independence",
+    "Original upstream PoVs were not re-executed",
+    "Balanced patch pairs do not represent vulnerability prevalence",
+    "Repository separation does not establish separation from CodeBERT pretraining"
+  ]
+}

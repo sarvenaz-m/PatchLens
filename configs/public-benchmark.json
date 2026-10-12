@@ -1,0 +1,31 @@
+{
+  "protocol_version": "vul4j-context-v1",
+  "dataset": "datasets/vul4j/dataset.jsonl",
+  "cohort_manifest": "datasets/vul4j/cohort-manifest.json",
+  "training_seeds": [17, 29, 43],
+  "split_seed": 17,
+  "epochs": 240,
+  "max_validation_fpr": 0.2,
+  "encoder": {
+    "model_id": "microsoft/codebert-base",
+    "revision": "3b0952feddeffad0063f274080e3c23d75e7eb39",
+    "max_length": 512,
+    "truncation": "head_tail_equal",
+    "pooling": "mean_non_special_tokens",
+    "normalization": "row_l2",
+    "fine_tuning": false,
+    "batch_size": 4,
+    "threads": 4
+  },
+  "probe": {
+    "kind": "linear",
+    "optimizer": "full_batch_Adam",
+    "learning_rate": 0.012,
+    "l2": 0.0001,
+    "epochs": 240,
+    "feature_fit": "none; row normalization only",
+    "positive_weight": 1
+  },
+  "bootstrap": {"draws": 2000, "seed": 17, "unit": "repository_component", "confidence": 0.95},
+  "selection_policy": "Use every eligible source pair before model evaluation. Keep all failures and truncations in the report. Do not tune protocol from test results."
+}

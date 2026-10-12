@@ -1,0 +1,30 @@
+From 1f301038a751bf16e525607c3db513db835b2999 Mon Sep 17 00:00:00 2001
+From: Lukasz Lenart <lukaszlenart@apache.org>
+Date: Fri, 21 Nov 2014 19:21:35 +0100
+Subject: [PATCH] Uses better random generator
+
+---
+ core/src/main/java/org/apache/struts2/util/TokenHelper.java | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/core/src/main/java/org/apache/struts2/util/TokenHelper.java b/core/src/main/java/org/apache/struts2/util/TokenHelper.java
+index 9d72ac7811..2e103da624 100644
+--- a/core/src/main/java/org/apache/struts2/util/TokenHelper.java
++++ b/core/src/main/java/org/apache/struts2/util/TokenHelper.java
+@@ -27,6 +27,7 @@
+ import com.opensymphony.xwork2.util.logging.LoggerFactory;
+ 
+ import java.math.BigInteger;
++import java.security.SecureRandom;
+ import java.util.Map;
+ import java.util.Random;
+ 
+@@ -51,7 +52,7 @@ public class TokenHelper {
+      */
+     public static final String TOKEN_NAME_FIELD = "struts.token.name";
+     private static final Logger LOG = LoggerFactory.getLogger(TokenHelper.class);
+-    private static final Random RANDOM = new Random();
++    private static final Random RANDOM = new SecureRandom();
+ 
+ 
+     /**

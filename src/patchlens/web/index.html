@@ -13,6 +13,7 @@
   <script src="report-data.js" defer></script>
   <script src="analysis.js" defer></script>
   <script src="workspace.js" defer></script>
+  <script src="benchmark.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -24,6 +25,7 @@
       <div class="nav-label">WORKSPACE</div>
       <nav aria-label="Main navigation">
         <button class="nav-item active" data-route="overview" aria-current="page"><span class="nav-symbol">◈</span>Overview</button>
+        <button class="nav-item" data-route="benchmark"><span class="nav-symbol">◫</span>Public benchmark</button>
         <button class="nav-item" data-route="pairs"><span class="nav-symbol">⌘</span>Code pairs<span id="pair-count" class="nav-count">24</span></button>
         <button class="nav-item" data-route="experiments"><span class="nav-symbol">↗</span>Experiments</button>
         <button class="nav-item" data-route="compare"><span class="nav-symbol">⇄</span>Model comparison</button>
@@ -45,12 +47,14 @@
       <main id="main-content">
         <div class="page-intro"><div><div class="eyebrow" id="eyebrow">CODE SECURITY · EXPERIMENT EXPLORER</div><h1 id="page-title">Inspect every prediction.</h1><p id="page-description">Follow the evidence from a code change to a model decision.</p></div><div class="fixture-badge"><span></span>Authored fixture experiment</div></div>
         <div class="contextbar">
+          <div class="select-group corpus-control"><label for="corpus-select">Dataset</label><select id="corpus-select"></select></div>
           <div class="context-name"><span class="micro-label">ACTIVE EXPERIMENT</span><strong id="experiment-id">Loading local report…</strong></div>
           <div class="select-group"><label for="model-select">Model</label><select id="model-select"></select></div>
           <div class="select-group"><label for="split-select">Evaluation split</label><select id="split-select"><option value="test">Held-out test</option><option value="validation">Validation</option><option value="train">Training</option></select></div>
         </div>
         <div id="notice" class="notice" role="status" hidden></div>
         <section id="view-overview" class="view" aria-label="Experiment overview"></section>
+        <section id="view-benchmark" class="view" aria-label="Public benchmark evidence" hidden></section>
         <section id="view-pairs" class="view" aria-label="Code pair explorer" hidden></section>
         <section id="view-experiments" class="view" aria-label="Experiment comparison" hidden></section>
         <section id="view-compare" class="view" aria-label="Paired model comparison" hidden></section>
@@ -59,7 +63,7 @@
         <section id="view-embeddings" class="view" aria-label="Embedding atlas" hidden></section>
         <section id="view-tools" class="view" aria-label="Static analysis findings" hidden></section>
         <section id="view-provenance" class="view" aria-label="Dataset provenance" hidden></section>
-        <footer class="page-footer"><span>Inspect the result. Keep the evidence.</span><span>Small authored fixtures · research baselines · not a security certification</span></footer>
+        <footer class="page-footer"><span>Inspect the result. Keep the evidence.</span><span id="dataset-footer">Research models · context-dependent labels</span></footer>
       </main>
     </div>
   </div>

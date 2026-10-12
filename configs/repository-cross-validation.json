@@ -1,0 +1,17 @@
+{
+  "protocol_version": "vul4j-repository-oof-v1",
+  "folds": 5,
+  "assignment": "Index modulo 5 in the cohort's fixed seed-17 SHA256-ranked repository-component ledger",
+  "test_component_rule": "component_index % 5 == fold",
+  "validation_component_rule": "component_index % 5 == (fold + 1) % 5",
+  "train_component_rule": "remaining three component buckets",
+  "training_seed": 17,
+  "base_protocol": "configs/public-benchmark.json",
+  "encoder": "Reuse the frozen, label-independent CodeBERT vectors on identical original code; refit every classifier and lexical vocabulary within each fold",
+  "threshold": "Select separately on each fold's validation repositories; never on that fold's test repositories",
+  "primary_measure": "Mean balanced accuracy across all 40 out-of-fold repository components",
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 17,
+  "pooling_rule": "Pool fold-specific decisions, not classification thresholds or cross-fold ranking scores",
+  "selection_policy": "No fold, data source or model is selected by test performance. Publish all five folds, all six models and one held-out prediction per original example."
+}

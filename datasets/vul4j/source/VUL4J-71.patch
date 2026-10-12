@@ -1,0 +1,45 @@
+From e02ff3a0da50744b0980d5d665fd242eedea7675 Mon Sep 17 00:00:00 2001
+From: Rossen Stoyanchev <rstoyanchev@pivotal.io>
+Date: Fri, 23 Mar 2018 21:52:30 -0400
+Subject: [PATCH] MimeTypeUtils uses SecureRandom
+
+The prevailing current wisdom is to use the default constructor for
+secure and let it pick the best algorithm for the OS.
+
+On Java 8 (Oracle), Linux this results in "NativePRNG" which uses
+/dev/random (potentially blocking) for the initial seed, and
+/dev/urandom (non-blocking) for subsequent calls to nextInt.
+
+Issue: SPR-16635
+---
+ .../main/java/org/springframework/util/MimeTypeUtils.java    | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java b/spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java
+index 5b3a7a0f2bb0..6cf7e0010793 100644
+--- a/spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java
++++ b/spring-core/src/main/java/org/springframework/util/MimeTypeUtils.java
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright 2002-2017 the original author or authors.
++ * Copyright 2002-2018 the original author or authors.
+  *
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+@@ -18,6 +18,7 @@
+ 
+ import java.nio.charset.Charset;
+ import java.nio.charset.UnsupportedCharsetException;
++import java.security.SecureRandom;
+ import java.util.ArrayList;
+ import java.util.Collection;
+ import java.util.Collections;
+@@ -46,7 +47,7 @@ public abstract class MimeTypeUtils {
+ 					'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+ 					'V', 'W', 'X', 'Y', 'Z'};
+ 
+-	private static final Random RND = new Random();
++	private static final Random RND = new SecureRandom();
+ 
+ 	private static Charset US_ASCII = Charset.forName("US-ASCII");
+ 

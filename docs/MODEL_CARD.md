@@ -1,19 +1,34 @@
-# Model card · CPU reference baselines
+# Model card · version 2.0.0
 
-**Version:** 1.0.0 · **Task:** binary vulnerability classification under fixture assumptions.
+**Task:** distinguish before/after contexts of documented public Java security corrections. **Primary study:** five repository-disjoint folds on 62 Vul4J pairs, one training seed. **Additional study:** one fixed reference split across three MLP seeds.
 
-Four independently fitted models are supplied as numeric JSON weights. One is logistic regression over lexical TF-IDF features; three use a small MLP encoder with supervised, contrastive or security-weighted contrastive training. None is a pretrained LLM, a generative model, a static analyzer or a verified remediation system.
+| Model | Representation and fitted objective |
+|---|---|
+| Token baseline | Train-fitted lexical TF-IDF, numeric logistic head |
+| Supervised encoder | Same lexical features, 48-unit tanh MLP, 16-dimensional normalized representation, BCE |
+| Contrastive encoder | Same MLP, BCE + 0.3 masked contrastive term |
+| Security-weighted encoder | Same contrastive model, positive-class weight 3 |
+| CodeBERT frozen probe | Real pretrained CodeBERT, mean-pooled 768-dimensional normalized vector, train-only logistic head |
+| Constant 0.5 | No training; control at its validation-selected threshold |
 
-Training data consists of 24 authored originals and 24 derived renamed views. Validation and test each contain 12 authored originals plus their derived views for stability analysis. All checkpoints were fit by the included code. No third-party model weights are bundled.
+All fitted classifiers use 240 full-batch Adam updates, learning rate 0.012 and L2=0.0001. The public MLP positive views are identity copies, with corrected siblings as opposite-label negatives. The probe has no contrastive term or class weighting. The reference linear heads are zero-initialized and deterministic; repeating them across seeds does not provide independent evidence.
 
-Intended users are researchers and engineers evaluating pipeline design and inspecting classification behavior. Expected outputs are uncalibrated vulnerability scores and representations. A score near zero must not be interpreted as evidence that a program is secure. Unknown APIs, larger snippets, alternate syntax and different distributions can produce arbitrary failures.
+## Actual pretrained encoder
 
-Reported fixture results and detailed settings are in the README and `examples/fixture-run/report.json`. The security-weighted variant does not outperform the ordinary contrastive variant in the included test run. The primary report uses seed 17. A separate three-seed study is included; six test positives and repeated optimization on the same split still do not support a robust comparative claim.
+Model: `microsoft/codebert-base`, revision `3b0952feddeffad0063f274080e3c23d75e7eb39`, **124,645,632 parameters**. Weights are real pretrained weights from the official publisher, not a locally initialized test transformer. CPU PyTorch 2.8.0+cpu and Transformers 4.56.2 performed the frozen forward passes. Training affects the separate numeric head only.
 
-`patchlens predict` loads JSON numeric parameters with shape and finite-value checks. Hugging Face checkpoints use a separate optional adapter, must already contain a complete binary classifier, and require an explicit vulnerable-class index. Those external models are outside this model card and were not exercised in the reference run.
+Inputs have at most 512 tokens including special tokens. Equal head/tail truncation applies to long contexts. Mean pooling excludes padding and special tokens; row L2 normalization needs no corpus fitting. Dropout is disabled and encoder parameters are frozen. Source file pins, code-input token hashes, counts and execution metadata are retained. Saved embeddings support offline numerical replay.
 
-The next evaluation should use independently reviewed, licensed public data, repository-disjoint splits, repeated seeds, calibrated scores where appropriate and adjudicated model/scanner disagreements. See `METHODOLOGY.md` and `DATA_CARD.md` before interpreting results.
+The approximately 499 MB model download is outside the Git package. Loading uses local pinned files, `local_files_only=True` and `weights_only=True`; remote model code is not requested. Download scripts verify bytes against the released model lock. Classifier checkpoints contain validated numeric JSON parameters. Saved NPZ vectors are opened with `allow_pickle=False` and exact ID/order/fingerprint checks.
 
-## Optional neural path
+## Measured behavior
 
-This card describes the four bundled NumPy reference models. The optional Hugging Face/PEFT implementation was tested with tiny randomly initialized local transformers; those tests do not create a pretrained security model or support a model-quality claim. See INTEGRATIONS.md for training, checkpoint provenance and inference.
+Five-fold macro balanced accuracy is **56.04% for CodeBERT** versus **53.75% for the token baseline**. The paired difference interval includes zero (−5.42 to +9.58 percentage points). CodeBERT's macro ordering is 73.23%, while macro success on both members of a pair is 12.08%. It misses 40 before contexts and flags 15 after contexts out of 62 each. The small reference hold-out gives CodeBERT 41.67% balanced accuracy.
+
+These numbers describe the declared patch-context study. The outputs are uncalibrated scores. Fold-specific heads and thresholds are stored separately; pooled OOF decisions do not define a single model or common inference threshold. Context loss, literal normalization, truncation, language/API coverage, balanced sampling and possible encoder pretraining overlap constrain use. Independent label review and full-program vulnerability validation remain future work.
+
+## Preserved authored and optional paths
+
+The version-1 authored JavaScript experiment and its four numeric models remain inspectable as historical pipeline evidence. Its corrected labels and rename views rely on fixture assumptions. Small fixture F1 values are not promoted as public-code results.
+
+The optional Hugging Face/PEFT frozen/full/LoRA and causal-generation paths are tested with tiny local randomly initialized transformers. Those implementation tests are distinct from the actual pretrained CodeBERT study, which uses frozen representations only. The report provenance and [Reproducibility](REPRODUCIBILITY.md) distinguish these executions. A real CodeQL run remains pending; JavaScript Semgrep findings belong to the authored corpus.

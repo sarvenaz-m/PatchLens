@@ -1,73 +1,111 @@
-# Reproducibility and release validation
+# Reproduce PatchLens 2.0.0
 
-## Studio refresh — 2026-09-30
+Release date: **2026-10-04**. The public CPU experiments, source reconstruction, checkpoint replay and actual browser checks were executed in this release workflow. Version-1 fixture checkpoints and scanner findings remain separately attributed to their original executions.
 
-The package remains **1.0.0**. This refresh adds diagnostics, comparison, local review notes and a redesigned interface. It preserves the actual 2026-09-29 reference predictions, checkpoints and Semgrep findings. New analysis outputs were computed from those saved scores; the training results have not been relabelled as new executions.
+## What is included
 
-## Reference execution
+The repository contains 62 attributed Vul4J patch pairs, 124 extracted production Java contexts, the fixed 40-component split ledger, original patch/licence bytes, CodeBERT embedding arrays, six classifier checkpoints per run, raw predictions, three reference seeds and all five repository folds. The approximately 499 MB encoder weights are downloaded separately and ignored under `.cache/`.
 
-Version **1.0.0**, Python **3.12.14**, NumPy **2.3.5**, seed **17**, **240 epochs**. All four reference models were actually trained on the committed fixtures. Full scores, frozen validation thresholds, checkpoints and training-fitted PCA coordinates are retained. The experiment ID derives from dataset/configuration/package version; it is not a source-code signature or a globally unique run identifier.
+The tested environment used Python 3.12.14, NumPy 2.3.5, PyTorch 2.8.0+cpu, Transformers 4.56.2, safetensors 0.6.2 and four CPU inference threads. PEFT 0.17.1 was installed for the optional tiny-model integration tests. `requirements-benchmark-lock.txt` and `requirements-neural-lock.txt` record those environments. For other Python versions/platforms, use the supported bounds in `pyproject.toml`; a Python-3.12 CPU lock is not a cross-platform lock.
+
+## Verify existing artifacts without downloads
+
+Run from the repository root:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate
+# macOS/Linux: source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -r requirements-lock.txt
 python -m pip install --no-deps -e .
-OPENBLAS_NUM_THREADS=1 patchlens demo --seed 17 --epochs 240 --output runs/reproduced
-patchlens repeat --seeds 17 29 43 --epochs 240 --output runs/repeated
-```
-
-The core lock describes the tested Python 3.12 environment. Python 3.10 users should install the compatible bounds from `pyproject.toml` instead. Windows users can activate with `.venv\Scripts\Activate.ps1` and omit the POSIX environment prefix. Reports contain timestamps and timings that will differ; compare predictions and metrics separately with appropriate numeric tolerance.
-
-The three-seed study uses the same test set each time. Its sample standard deviation describes optimization variability, not uncertainty over new repositories. No repeated-seed result is selected as a replacement for the declared seed-17 reference.
-
-## Executed checks
-
-| Check | Result and scope |
-|---|---|
-| Python suite | 57 tests passed; 4 optional neural tests skipped because their dependencies were unavailable |
-| JavaScript suite | 18 tests passed, including Python/JavaScript diagnostic agreement, review validation and CSV escaping |
-| Fixture syntax | All 48 originals and 48 renamed views passed Node syntax checks without execution |
-| Four CPU objectives | Full 240-epoch runs completed; repeated on seeds 17, 29 and 43 |
-| Frozen / full / LoRA training | Executed in the prior reference package on 2026-09-29; unchanged neural implementation, not rerun for this refresh |
-| Causal generation | Tiny local GPT-2 execution retained from 2026-09-29; unchanged implementation, not rerun for this refresh |
-| Semgrep | Version 1.137.0 scanned all 48 exported examples; 3 findings, no reported errors |
-| SARIF and CodeQL orchestration | Parser, source mapping and timeout behavior tested; subprocess orchestration tested with test doubles |
-| Browser | Playwright 1.62.1 with Chromium 138.0.7204.0; all nine views, search, threshold reset, model/split changes, keyboard point selection, dark mode, matched report import, review-note persistence, command search, escaped imports and JSON/CSV downloads passed |
-| Mobile layout | All nine views checked for horizontal page overflow at 390 × 844; actual screenshots inspected |
-| Distribution | Wheel built, installed into an isolated target, CLI audit and packaged web/data presence checked |
-
-Current execution logs are in `docs/evidence/`. `neural-reference-tests.txt` preserves the complete 2026-09-29 suite log that included real neural tests. `validation.json` separates current checks from prior executions and records hashes of the unchanged neural files. UI images in `docs/assets/workbench-*.png` are actual browser captures. `workbench-tour.webm` records actual browser interactions. The banner remains an illustrative brand asset. Formal accessibility certification is not claimed.
-
-## What was not demonstrated
-
-The tiny transformer checks verify implementation and checkpoint plumbing. They are **randomly initialized local models**, not pretrained code models or evidence of useful vulnerability detection. No pretrained-model efficacy study, GPU/MPS experiment, real CodeQL executable run, independent public-data benchmark or third-party label review was performed. The CodeQL runner and import path exist, but no CodeQL findings are included. GitHub workflows are supplied and have not yet run in a published repository. Cross-platform validation beyond this Linux environment remains pending.
-
-## Reproduce optional checks
-
-```bash
-python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
-python -m pip install '.[train]'
+python scripts/verify_public_benchmark.py
 python -m unittest discover -s tests -v
 node --test tests/*.test.cjs
 node scripts/check-fixtures.cjs
+```
+
+The replay reconstructs retained snippets from raw patch bytes, verifies hashes and fold assignment, reloads numeric classifiers, reselects validation thresholds and recomputes example/pair/repository metrics and the OOF summary. It checks **5,952 original/view predictions** and **144 split metric/macro states**. This verifies the supplied numerical artifacts; it does not perform a new encoder forward pass or run the upstream vulnerability tests.
+
+Tests for the optional transformer adapters skip if their dependencies are absent. The release's **75-test Python run installed these dependencies and had no skips**. A core-only run must retain its actual skip count.
+
+## Refit classifiers from saved representations
+
+```bash
+patchlens benchmark --embedding-cache examples/public-benchmark/encoder --output runs/public-replay
+patchlens cross-validate --embedding-cache examples/public-benchmark/encoder --output runs/five-fold-replay
+```
+
+These commands fit all numerical heads anew, including vocabulary and IDF on each training partition only. Saved label-independent CodeBERT vectors are reused after order, dataset and byte-fingerprint checks. The public corpus has identity views; it does not test rename invariance. Three reference seeds share one split; the five-fold study uses seed 17.
+
+## Reconstruct the public corpus
+
+```bash
+python scripts/fetch_public_sources.py data --output .cache/vul4j
+patchlens prepare-public --cache .cache/vul4j \
+  --lock datasets/vul4j/source-lock.json --output runs/imported-vul4j
+```
+
+Downloads verify the release's source-byte pins and execute no upstream code. The source lock records unavailable/non-selected candidates as well as successful downloads. See [Public benchmark](PUBLIC_BENCHMARK.md) for selection rules and [Data card](DATA_CARD.md) for label scope. Existing source/licence files also allow offline verification without relying on continued upstream availability.
+
+## Run a fresh pretrained CPU inference
+
+```bash
+python -m pip install -r requirements-benchmark-lock.txt
+python -m pip install --no-deps -e .
+python scripts/fetch_public_sources.py model --output .cache/codebert-base
+patchlens benchmark --model-dir .cache/codebert-base --output runs/fresh-public
+patchlens cross-validate --embedding-cache runs/fresh-public/encoder --output runs/fresh-five-fold
+```
+
+The encoder is `microsoft/codebert-base` at revision `3b0952feddeffad0063f274080e3c23d75e7eb39`; tokenizer and weight hashes are in `configs/codebert-lock.json`. Loading is local-only, disables remote custom code and uses PyTorch's restricted weight loader. The encoder stays frozen in evaluation mode. The output is mean pooling over non-special/non-padding tokens followed by row L2 normalization. The fixed 512-token budget uses equal head/tail truncation, including two special tokens. A train-only linear head uses the declared full-batch Adam protocol.
+
+Actual release inference processed **124 contexts in 40.72 seconds** on this CPU environment; timings vary by host. It recorded **32 truncations** and no pair with identical visible tokens after truncation. Preserve these diagnostics in a fresh run. This is a frozen representation comparison, not fine-tuning or a causal ablation of pretraining.
+
+JSON timestamps, elapsed times and experiment IDs can differ on a fresh run. Compare source fingerprints, protocol, predictions and metrics with numerical tolerance, rather than asserting byte-identical reports. CodeBERT's zero-initialized probe is deterministic; repeated seeds yield identical predictions in this environment.
+
+## Executed validation
+
+| Check | Release result |
+|---|---|
+| Python | 75 passed; no skips, including genuine tiny BERT/GPT-2 and PEFT adapter executions |
+| JavaScript | 23 passed; includes independent agreement on 144 Python/JS metric states and hostile metadata/import cases |
+| Source/record replay | 62 raw patches reconstructed, 40 repositories separated, all retained source/licence hashes checked |
+| Numerical replay | 5,952 checkpoint predictions, validation thresholds, 144 metric/macro states, 124 OOF originals per model |
+| Pretrained encoder | Actual pinned CodeBERT CPU forward pass on all 124 originals |
+| Model fitting | Six models, reference seeds 17/29/43, plus five separate repository folds at seed 17 |
+| Authored fixture syntax | All 48 originals and 48 renamed views checked without executing snippets |
+| Browser | Playwright 1.62.1; actual Chrome 154.0.8037.92, ten public-study views, seven corpora, every fold, source links, imports and exports |
+| Mobile | Ten views at 390 × 844; no horizontal page overflow; actual light/dark captures |
+| Offline behavior | No external HTTP request or page error during public browser checks |
+| Distribution | Wheel installed into an isolated target; CLI, fixtures and packaged web resources checked |
+
+Detailed current logs and counts are in `docs/evidence/*-v2.*` and `validation-v2.json`. Older files without the `-v2` suffix preserve historical version-1 evidence; they are not new v2 execution logs.
+
+## Browser, figures and the single-file demo
+
+```bash
 npm install --no-save --package-lock=false playwright@1.62.1
-npx playwright install --with-deps chromium
+npx playwright install --with-deps chromium ffmpeg
+node scripts/browser-public.cjs
 node scripts/browser-smoke.cjs
 node scripts/capture-ui.cjs
 node scripts/record-tour.cjs
+python scripts/make_preview.py
 ```
 
-If using an existing browser, `PATCHLENS_CHROMIUM_PATH` can select its executable. The release checks used Chromium 138. PyTorch and PEFT tests are skipped when their optional dependencies are absent; a core-only run must not be described as a neural validation run.
-
-## Regenerate reports and graphics
+Set `PATCHLENS_CHROMIUM_PATH` to use an existing executable. In a container requiring it, `PATCHLENS_NO_SANDBOX=1` selects the relevant Chromium launch flag; this is not needed for ordinary local use. FFmpeg on the system PATH is required to convert the actual video to GIF.
 
 ```bash
-patchlens scan --rules integrations/semgrep/review-signals.yml --output runs/semgrep.json
-patchlens attach-scan --report examples/fixture-run/report.json --scan runs/semgrep.json --output runs/with-scan.json
-patchlens export runs/with-scan.json --output runs/scanned-workbench
+python -m pip install matplotlib==3.10.8
+python scripts/make_banner.py
+python scripts/make_public_figures.py
+python scripts/build_single_file.py
 ```
 
-To update the checked-in single-file demo, first promote the intended validated report to `examples/fixture-run/report.json`, regenerate its `workbench/` with `patchlens export`, then run `python scripts/build_single_file.py`. It recomputes the inline-script CSP hashes. The browser validates structure and coverage; it does not authenticate reports or adjudicate labels.
+The builder uses `examples/public-benchmark/report.json`, adds the authored report and all five folds, escapes embedded JSON and recomputes CSP script hashes. `--report` and `--output` can select an alternate main report/output. To update separately exported workbenches, use `patchlens export REPORT --output DESTINATION`. Figures and the banner read actual checked-in summary values; captures require the rebuilt demo.
 
-`python scripts/make_banner.py` regenerates the vector repository banner from the report. `python scripts/make_figures.py` regenerates the static data figure with Matplotlib. Before changing the reference run, check dataset provenance and split hygiene, inspect errors and update the model/data cards. See [Integrations](INTEGRATIONS.md) for model, scanner and generation commands.
+## Preserved integrations and remaining work
+
+The original authored four-model/three-seed experiment and Semgrep 1.137.0 findings remain in their version-1 directories. Semgrep was not re-run on the public Java corpus. The current optional neural tests execute small, randomly initialized local models to verify adapter behavior; they do not establish pretrained efficacy. The separate real pretrained comparison is the frozen CodeBERT study above.
+
+No upstream Vul4J PoV execution, independent local-label adjudication, real CodeQL executable run, GPU/MPS benchmark or cross-platform execution was added. GitHub workflow files are supplied; their remote runs have not been observed in this preparation. The study's repository intervals are exploratory and cannot rule out overlap with encoder pretraining. See [Public benchmark](PUBLIC_BENCHMARK.md) and [Integrations](INTEGRATIONS.md).

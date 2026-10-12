@@ -1,0 +1,59 @@
+{
+  "protocol_version": "vul4j-context-v1",
+  "dataset": "datasets/vul4j/dataset.jsonl",
+  "cohort_manifest": "datasets/vul4j/cohort-manifest.json",
+  "training_seeds": [
+    17
+  ],
+  "split_seed": 17,
+  "epochs": 240,
+  "max_validation_fpr": 0.2,
+  "encoder": {
+    "model_id": "microsoft/codebert-base",
+    "revision": "3b0952feddeffad0063f274080e3c23d75e7eb39",
+    "max_length": 512,
+    "truncation": "head_tail_equal",
+    "pooling": "mean_non_special_tokens",
+    "normalization": "row_l2",
+    "fine_tuning": false,
+    "batch_size": 4,
+    "threads": 4
+  },
+  "probe": {
+    "kind": "linear",
+    "optimizer": "full_batch_Adam",
+    "learning_rate": 0.012,
+    "l2": 0.0001,
+    "epochs": 240,
+    "feature_fit": "none; row normalization only",
+    "positive_weight": 1
+  },
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 17,
+    "unit": "repository_component",
+    "confidence": 0.95
+  },
+  "selection_policy": "Use every eligible source pair before model evaluation. Keep all failures and truncations in the report. Do not tune protocol from test results.",
+  "cross_validation": {
+    "fold": 3,
+    "protocol": {
+      "protocol_version": "vul4j-repository-oof-v1",
+      "folds": 5,
+      "assignment": "Index modulo 5 in the cohort's fixed seed-17 SHA256-ranked repository-component ledger",
+      "test_component_rule": "component_index % 5 == fold",
+      "validation_component_rule": "component_index % 5 == (fold + 1) % 5",
+      "train_component_rule": "remaining three component buckets",
+      "training_seed": 17,
+      "base_protocol": "configs/public-benchmark.json",
+      "encoder": "Reuse the frozen, label-independent CodeBERT vectors on identical original code; refit every classifier and lexical vocabulary within each fold",
+      "threshold": "Select separately on each fold's validation repositories; never on that fold's test repositories",
+      "primary_measure": "Mean balanced accuracy across all 40 out-of-fold repository components",
+      "bootstrap_draws": 2000,
+      "bootstrap_seed": 17,
+      "pooling_rule": "Pool fold-specific decisions, not classification thresholds or cross-fold ranking scores",
+      "selection_policy": "No fold, data source or model is selected by test performance. Publish all five folds, all six models and one held-out prediction per original example."
+    },
+    "protocol_sha256": "29050fda014dfedbb71decde582b9d6ff957105bdf9c7016a0d8da6e98367b5d"
+  }
+}

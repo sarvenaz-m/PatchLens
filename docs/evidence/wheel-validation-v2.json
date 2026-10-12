@@ -1,0 +1,7 @@
+{
+  "wheel": "patchlens_workbench-2.0.0-py3-none-any.whl",
+  "version": "2.0.0",
+  "isolated_install": true,
+  "cli_audit": "passed",
+  "packaged_fixtures_and_web": "passed"
+}

@@ -1,0 +1,746 @@
+[
+  {
+    "id": "VUL4J-1-before",
+    "pair_id": "VUL4J-1",
+    "group_id": "repo-d75481843d718a0c",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-1-after",
+    "pair_id": "VUL4J-1",
+    "group_id": "repo-d75481843d718a0c",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-2-before",
+    "pair_id": "VUL4J-2",
+    "group_id": "repo-255b7689555d93c5",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-2-after",
+    "pair_id": "VUL4J-2",
+    "group_id": "repo-255b7689555d93c5",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-3-before",
+    "pair_id": "VUL4J-3",
+    "group_id": "repo-76f290fc24a72dcf",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-3-after",
+    "pair_id": "VUL4J-3",
+    "group_id": "repo-76f290fc24a72dcf",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-4-before",
+    "pair_id": "VUL4J-4",
+    "group_id": "repo-76f290fc24a72dcf",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-4-after",
+    "pair_id": "VUL4J-4",
+    "group_id": "repo-76f290fc24a72dcf",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-6-before",
+    "pair_id": "VUL4J-6",
+    "group_id": "repo-2ad081926821ec9a",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-6-after",
+    "pair_id": "VUL4J-6",
+    "group_id": "repo-2ad081926821ec9a",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-7-before",
+    "pair_id": "VUL4J-7",
+    "group_id": "repo-2ad081926821ec9a",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-7-after",
+    "pair_id": "VUL4J-7",
+    "group_id": "repo-2ad081926821ec9a",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-8-before",
+    "pair_id": "VUL4J-8",
+    "group_id": "repo-2ad081926821ec9a",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-8-after",
+    "pair_id": "VUL4J-8",
+    "group_id": "repo-2ad081926821ec9a",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-9-before",
+    "pair_id": "VUL4J-9",
+    "group_id": "repo-ccf86cc9970652fa",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-9-after",
+    "pair_id": "VUL4J-9",
+    "group_id": "repo-ccf86cc9970652fa",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-10-before",
+    "pair_id": "VUL4J-10",
+    "group_id": "repo-0311d4bd25fab45d",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-10-after",
+    "pair_id": "VUL4J-10",
+    "group_id": "repo-0311d4bd25fab45d",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-11-before",
+    "pair_id": "VUL4J-11",
+    "group_id": "repo-0311d4bd25fab45d",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-11-after",
+    "pair_id": "VUL4J-11",
+    "group_id": "repo-0311d4bd25fab45d",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-12-before",
+    "pair_id": "VUL4J-12",
+    "group_id": "repo-c6254f2367cb9e51",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-12-after",
+    "pair_id": "VUL4J-12",
+    "group_id": "repo-c6254f2367cb9e51",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-13-before",
+    "pair_id": "VUL4J-13",
+    "group_id": "repo-c6254f2367cb9e51",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-13-after",
+    "pair_id": "VUL4J-13",
+    "group_id": "repo-c6254f2367cb9e51",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-14-before",
+    "pair_id": "VUL4J-14",
+    "group_id": "repo-ac7c592be90adf96",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-14-after",
+    "pair_id": "VUL4J-14",
+    "group_id": "repo-ac7c592be90adf96",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-15-before",
+    "pair_id": "VUL4J-15",
+    "group_id": "repo-d6ce0d430453dc95",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-15-after",
+    "pair_id": "VUL4J-15",
+    "group_id": "repo-d6ce0d430453dc95",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-16-before",
+    "pair_id": "VUL4J-16",
+    "group_id": "repo-d6ce0d430453dc95",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-16-after",
+    "pair_id": "VUL4J-16",
+    "group_id": "repo-d6ce0d430453dc95",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-18-before",
+    "pair_id": "VUL4J-18",
+    "group_id": "repo-c1e806d49e3b0f5f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-18-after",
+    "pair_id": "VUL4J-18",
+    "group_id": "repo-c1e806d49e3b0f5f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-20-before",
+    "pair_id": "VUL4J-20",
+    "group_id": "repo-ecebfe911530694e",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-20-after",
+    "pair_id": "VUL4J-20",
+    "group_id": "repo-ecebfe911530694e",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-21-before",
+    "pair_id": "VUL4J-21",
+    "group_id": "repo-233766b58a9ba146",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-21-after",
+    "pair_id": "VUL4J-21",
+    "group_id": "repo-233766b58a9ba146",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-22-before",
+    "pair_id": "VUL4J-22",
+    "group_id": "repo-6847137a5d6ddb81",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-22-after",
+    "pair_id": "VUL4J-22",
+    "group_id": "repo-6847137a5d6ddb81",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-24-before",
+    "pair_id": "VUL4J-24",
+    "group_id": "repo-fdb8bf2d19ba88a2",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-24-after",
+    "pair_id": "VUL4J-24",
+    "group_id": "repo-fdb8bf2d19ba88a2",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-25-before",
+    "pair_id": "VUL4J-25",
+    "group_id": "repo-7be3db0784e7bd14",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-25-after",
+    "pair_id": "VUL4J-25",
+    "group_id": "repo-7be3db0784e7bd14",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-26-before",
+    "pair_id": "VUL4J-26",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-26-after",
+    "pair_id": "VUL4J-26",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-29-before",
+    "pair_id": "VUL4J-29",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-29-after",
+    "pair_id": "VUL4J-29",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-30-before",
+    "pair_id": "VUL4J-30",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-30-after",
+    "pair_id": "VUL4J-30",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-31-before",
+    "pair_id": "VUL4J-31",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-31-after",
+    "pair_id": "VUL4J-31",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-32-before",
+    "pair_id": "VUL4J-32",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-32-after",
+    "pair_id": "VUL4J-32",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-33-before",
+    "pair_id": "VUL4J-33",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-33-after",
+    "pair_id": "VUL4J-33",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-34-before",
+    "pair_id": "VUL4J-34",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-34-after",
+    "pair_id": "VUL4J-34",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-35-before",
+    "pair_id": "VUL4J-35",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-35-after",
+    "pair_id": "VUL4J-35",
+    "group_id": "repo-ac1706f0c1f99c2f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-36-before",
+    "pair_id": "VUL4J-36",
+    "group_id": "repo-620657d3c23d8060",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-36-after",
+    "pair_id": "VUL4J-36",
+    "group_id": "repo-620657d3c23d8060",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-37-before",
+    "pair_id": "VUL4J-37",
+    "group_id": "repo-53a7094987ea4eec",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-37-after",
+    "pair_id": "VUL4J-37",
+    "group_id": "repo-53a7094987ea4eec",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-38-before",
+    "pair_id": "VUL4J-38",
+    "group_id": "repo-b463145e82f77edf",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-38-after",
+    "pair_id": "VUL4J-38",
+    "group_id": "repo-b463145e82f77edf",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-39-before",
+    "pair_id": "VUL4J-39",
+    "group_id": "repo-2d7d2435e64b6a78",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-39-after",
+    "pair_id": "VUL4J-39",
+    "group_id": "repo-2d7d2435e64b6a78",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-40-before",
+    "pair_id": "VUL4J-40",
+    "group_id": "repo-2d7d2435e64b6a78",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-40-after",
+    "pair_id": "VUL4J-40",
+    "group_id": "repo-2d7d2435e64b6a78",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-41-before",
+    "pair_id": "VUL4J-41",
+    "group_id": "repo-4f6304d6c3baaee3",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-41-after",
+    "pair_id": "VUL4J-41",
+    "group_id": "repo-4f6304d6c3baaee3",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-42-before",
+    "pair_id": "VUL4J-42",
+    "group_id": "repo-6caaf4812e4d803d",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-42-after",
+    "pair_id": "VUL4J-42",
+    "group_id": "repo-6caaf4812e4d803d",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-44-before",
+    "pair_id": "VUL4J-44",
+    "group_id": "repo-839b401d10233aea",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-44-after",
+    "pair_id": "VUL4J-44",
+    "group_id": "repo-839b401d10233aea",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-48-before",
+    "pair_id": "VUL4J-48",
+    "group_id": "repo-3696d77d46d7f88b",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-48-after",
+    "pair_id": "VUL4J-48",
+    "group_id": "repo-3696d77d46d7f88b",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-49-before",
+    "pair_id": "VUL4J-49",
+    "group_id": "repo-3696d77d46d7f88b",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-49-after",
+    "pair_id": "VUL4J-49",
+    "group_id": "repo-3696d77d46d7f88b",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-52-before",
+    "pair_id": "VUL4J-52",
+    "group_id": "repo-5e3eb39efdb5b4ba",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-52-after",
+    "pair_id": "VUL4J-52",
+    "group_id": "repo-5e3eb39efdb5b4ba",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-53-before",
+    "pair_id": "VUL4J-53",
+    "group_id": "repo-b009fbc9968d3e69",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-53-after",
+    "pair_id": "VUL4J-53",
+    "group_id": "repo-b009fbc9968d3e69",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-54-before",
+    "pair_id": "VUL4J-54",
+    "group_id": "repo-b009fbc9968d3e69",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-54-after",
+    "pair_id": "VUL4J-54",
+    "group_id": "repo-b009fbc9968d3e69",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-55-before",
+    "pair_id": "VUL4J-55",
+    "group_id": "repo-b009fbc9968d3e69",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-55-after",
+    "pair_id": "VUL4J-55",
+    "group_id": "repo-b009fbc9968d3e69",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-59-before",
+    "pair_id": "VUL4J-59",
+    "group_id": "repo-55893f9dcb9d211f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-59-after",
+    "pair_id": "VUL4J-59",
+    "group_id": "repo-55893f9dcb9d211f",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-61-before",
+    "pair_id": "VUL4J-61",
+    "group_id": "repo-182960fb93e995d6",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-61-after",
+    "pair_id": "VUL4J-61",
+    "group_id": "repo-182960fb93e995d6",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-63-before",
+    "pair_id": "VUL4J-63",
+    "group_id": "repo-a1a41452faf4d0a9",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-63-after",
+    "pair_id": "VUL4J-63",
+    "group_id": "repo-a1a41452faf4d0a9",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-64-before",
+    "pair_id": "VUL4J-64",
+    "group_id": "repo-477d2512137d0fbc",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-64-after",
+    "pair_id": "VUL4J-64",
+    "group_id": "repo-477d2512137d0fbc",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-65-before",
+    "pair_id": "VUL4J-65",
+    "group_id": "repo-477d2512137d0fbc",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-65-after",
+    "pair_id": "VUL4J-65",
+    "group_id": "repo-477d2512137d0fbc",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-66-before",
+    "pair_id": "VUL4J-66",
+    "group_id": "repo-bcb55cfa6ada3073",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-66-after",
+    "pair_id": "VUL4J-66",
+    "group_id": "repo-bcb55cfa6ada3073",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-67-before",
+    "pair_id": "VUL4J-67",
+    "group_id": "repo-d3925f77f32cc7b1",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-67-after",
+    "pair_id": "VUL4J-67",
+    "group_id": "repo-d3925f77f32cc7b1",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-68-before",
+    "pair_id": "VUL4J-68",
+    "group_id": "repo-05b0c225137ec314",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-68-after",
+    "pair_id": "VUL4J-68",
+    "group_id": "repo-05b0c225137ec314",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-69-before",
+    "pair_id": "VUL4J-69",
+    "group_id": "repo-60b36f96fb73b992",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-69-after",
+    "pair_id": "VUL4J-69",
+    "group_id": "repo-60b36f96fb73b992",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-70-before",
+    "pair_id": "VUL4J-70",
+    "group_id": "repo-60b36f96fb73b992",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-70-after",
+    "pair_id": "VUL4J-70",
+    "group_id": "repo-60b36f96fb73b992",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-71-before",
+    "pair_id": "VUL4J-71",
+    "group_id": "repo-60b36f96fb73b992",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-71-after",
+    "pair_id": "VUL4J-71",
+    "group_id": "repo-60b36f96fb73b992",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-72-before",
+    "pair_id": "VUL4J-72",
+    "group_id": "repo-acd50d54119df1fc",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-72-after",
+    "pair_id": "VUL4J-72",
+    "group_id": "repo-acd50d54119df1fc",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-73-before",
+    "pair_id": "VUL4J-73",
+    "group_id": "repo-acd50d54119df1fc",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-73-after",
+    "pair_id": "VUL4J-73",
+    "group_id": "repo-acd50d54119df1fc",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-74-before",
+    "pair_id": "VUL4J-74",
+    "group_id": "repo-acd50d54119df1fc",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-74-after",
+    "pair_id": "VUL4J-74",
+    "group_id": "repo-acd50d54119df1fc",
+    "split": "test"
+  },
+  {
+    "id": "VUL4J-75-before",
+    "pair_id": "VUL4J-75",
+    "group_id": "repo-ceb6d6554a77496e",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-75-after",
+    "pair_id": "VUL4J-75",
+    "group_id": "repo-ceb6d6554a77496e",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-76-before",
+    "pair_id": "VUL4J-76",
+    "group_id": "repo-7c9d2bd099cfe1bd",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-76-after",
+    "pair_id": "VUL4J-76",
+    "group_id": "repo-7c9d2bd099cfe1bd",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-77-before",
+    "pair_id": "VUL4J-77",
+    "group_id": "repo-ddcbcc44154a3965",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-77-after",
+    "pair_id": "VUL4J-77",
+    "group_id": "repo-ddcbcc44154a3965",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-78-before",
+    "pair_id": "VUL4J-78",
+    "group_id": "repo-f3c1d47381800d4e",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-78-after",
+    "pair_id": "VUL4J-78",
+    "group_id": "repo-f3c1d47381800d4e",
+    "split": "validation"
+  },
+  {
+    "id": "VUL4J-79-before",
+    "pair_id": "VUL4J-79",
+    "group_id": "repo-c5bbddd0599b0c26",
+    "split": "train"
+  },
+  {
+    "id": "VUL4J-79-after",
+    "pair_id": "VUL4J-79",
+    "group_id": "repo-c5bbddd0599b0c26",
+    "split": "train"
+  }
+]

@@ -1,0 +1,39 @@
+From e5046911c57e60a1d6d8aca9b21bd9093b0f3763 Mon Sep 17 00:00:00 2001
+From: Daniel Beck <daniel-beck@users.noreply.github.com>
+Date: Wed, 1 Aug 2018 00:56:12 +0200
+Subject: [PATCH] [SECURITY-790]
+
+---
+ core/src/main/java/hudson/scheduler/CronTab.java     | 2 +-
+ core/src/test/java/hudson/scheduler/CronTabTest.java | 7 +++++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/core/src/main/java/hudson/scheduler/CronTab.java b/core/src/main/java/hudson/scheduler/CronTab.java
+index 14c67b903432..120b8bc2a16b 100644
+--- a/core/src/main/java/hudson/scheduler/CronTab.java
++++ b/core/src/main/java/hudson/scheduler/CronTab.java
+@@ -204,7 +204,7 @@ void addTo(Calendar c, int i) {
+         }
+ 
+         void setTo(Calendar c, int i) {
+-            c.set(field,i-offset);
++            c.set(field,Math.min(i-offset, c.getActualMaximum(field)));
+         }
+ 
+         void clear(Calendar c) {
+diff --git a/core/src/test/java/hudson/scheduler/CronTabTest.java b/core/src/test/java/hudson/scheduler/CronTabTest.java
+index e2acaf53ba33..cae0fdc7eda7 100644
+--- a/core/src/test/java/hudson/scheduler/CronTabTest.java
++++ b/core/src/test/java/hudson/scheduler/CronTabTest.java
+@@ -314,4 +314,11 @@ public int next(int n) {
+         assertEquals("[35, 56]", times.toString());
+     }
+ 
++    @Issue("SECURITY-790")
++    @Test(timeout = 1000L) public void testLongMonths() throws Exception {
++        Calendar cal = Calendar.getInstance();
++        cal.set(Calendar.MONTH, Calendar.JULY);
++        new CronTab("0 0 31 7 *").floor(cal); // would infinite loop
++    }
++
+ }

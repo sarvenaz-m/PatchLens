@@ -1,0 +1,30 @@
+From 660ef628d637af636ea113243fe73f170ac43958 Mon Sep 17 00:00:00 2001
+From: Simon Steiner <ssteiner@apache.org>
+Date: Wed, 11 May 2016 08:45:03 +0000
+Subject: [PATCH] BATIK-1139: DTD resolution validation
+
+git-svn-id: https://svn.apache.org/repos/asf/xmlgraphics/batik/trunk@1743326 13f79535-47bb-0310-9956-ffa450edef68
+---
+ .../main/java/org/apache/batik/dom/util/SAXDocumentFactory.java | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java b/batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java
+index f70b31ad8a..a2977715ea 100644
+--- a/batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java
++++ b/batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java
+@@ -402,6 +402,7 @@ protected Document createDocument(String ns, String root, String uri,
+         try {
+             saxFactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+             saxFactory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
++			saxFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+         } catch (SAXNotRecognizedException e) {
+             e.printStackTrace();
+         } catch (SAXNotSupportedException e) {
+@@ -446,6 +447,7 @@ protected Document createDocument(InputSource is)
+                               isValidating);
+             parser.setFeature("http://xml.org/sax/features/external-general-entities", false);
+             parser.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
++			parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+             parser.setProperty("http://xml.org/sax/properties/lexical-handler",
+                                this);
+             parser.parse(is);

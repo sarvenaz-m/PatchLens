@@ -1,0 +1,104 @@
+From 6a79d35d6654d895d0a4b73b3a9282ec9aaeeb06 Mon Sep 17 00:00:00 2001
+From: "Bruno P. Kinoshita" <kinow@apache.org>
+Date: Wed, 2 Jan 2019 21:00:32 +1300
+Subject: [PATCH] IMAGING-220: replace while by if in the JPEG decoder extend
+ method
+
+---
+ .../formats/jpeg/decoder/JpegDecoder.java     |   2 +-
+ .../formats/jpeg/decoder/JpegDecoderTest.java |  47 ++++++++++++++++++
+ ...t-48eb4251935b4ca8b26d1859ea525c1b42ae0c78 | Bin 0 -> 932 bytes
+ 3 files changed, 48 insertions(+), 1 deletion(-)
+ create mode 100644 src/test/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderTest.java
+ create mode 100644 src/test/resources/IMAGING-220/timeout-48eb4251935b4ca8b26d1859ea525c1b42ae0c78
+
+diff --git a/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java b/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
+index 3561fcbcf6..2b21da2c21 100644
+--- a/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
++++ b/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
+@@ -400,7 +400,7 @@ private static int fastRound(final float x) {
+     private int extend(int v, final int t) {
+         // "EXTEND", section F.2.2.1, figure F.12, page 105 of T.81
+         int vt = (1 << (t - 1));
+-        while (v < vt) {
++        if (v < vt) {
+             vt = (-1 << t) + 1;
+             v += vt;
+         }
+diff --git a/src/test/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderTest.java b/src/test/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderTest.java
+new file mode 100644
+index 0000000000..20459a257a
+--- /dev/null
++++ b/src/test/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderTest.java
+@@ -0,0 +1,47 @@
++/*
++ * Licensed to the Apache Software Foundation (ASF) under one or more
++ * contributor license agreements.  See the NOTICE file distributed with
++ * this work for additional information regarding copyright ownership.
++ * The ASF licenses this file to You under the Apache License, Version 2.0
++ * (the "License"); you may not use this file except in compliance with
++ * the License.  You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package org.apache.commons.imaging.formats.jpeg.decoder;
++
++import java.io.File;
++import java.io.IOException;
++
++import org.apache.commons.imaging.ImageReadException;
++import org.apache.commons.imaging.common.bytesource.ByteSourceFile;
++import org.junit.Test;
++
++/**
++ * Tests for the JpegDecoder.
++ */
++public class JpegDecoderTest {
++
++    /**
++     * Test that a bad file does not hang or take too long to be processed.
++     *
++     * @throws IOException
++     * @throws ImageReadException
++     */
++    @Test(expected = ImageReadException.class, timeout = 2000)
++    public void testDecodeBadFile() throws ImageReadException, IOException {
++        // From IMAGING-220
++        File inputFile = new File(
++                JpegDecoderTest.class.getResource("/IMAGING-220/timeout-48eb4251935b4ca8b26d1859ea525c1b42ae0c78")
++                        .getFile());
++        ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
++        new JpegDecoder().decode(byteSourceFile);
++    }
++}
+diff --git a/src/test/resources/IMAGING-220/timeout-48eb4251935b4ca8b26d1859ea525c1b42ae0c78 b/src/test/resources/IMAGING-220/timeout-48eb4251935b4ca8b26d1859ea525c1b42ae0c78
+new file mode 100644
+index 0000000000000000000000000000000000000000..30925893631d572b1fe9212c3831c0a0e4b9ba20
+GIT binary patch
+literal 932
+zcmex=<NpH&0WUXCHwH#VCI%TGWcYuZ!I?pTn}?5wOMs7;Pe@QeSVBWeLQG7;P+3)0
+z!^+s!#?sir+`%Kp&%q_!)!ZT=H!wUtDLo_I&bP3#Af+NEH9Z+*2&15okc6m&zLb=H
+zvXg~VGRffo0R}-1hIEE$%#2D5OoEKef{g!<Fvv47FtRd&0Rt2;Dl)UMvaxe;a&ZF{
+zY!zT&Vq|7!Vqs=wWnlrTu4QCmW?&Iy6;d>EWD^cdWLGK_F>0K+kVDyN<3Z7&iyu^s
+zlZu)+xx~aJB&Af<)HO7<OiazpEiA2^U0mJVJv_aFLqfyCBO;@cQ&Q8?GcvP^OG?Yi
+zD=Mp+TUy)NJ36~2O`bA!+VmMSXDwR1Wa+ZyD^{-Bw0X<cZQFP3+;!;ik)y|spE!By
+z(&Z~xuU)@!^VY*hkDok!_WZ@mS06up{_^$P_a8rhf&9hDzzp#gkc4;)=x$_x2?G7a
+z#KOYN!VdBmBU3pLGYhh?DjKp0IR>&P778mFHFAhJO<cI~Ag8i%&<D|^qKjN&DkcwA
+zKZ3jl_8D;=Ya+{MaE}4~WexGyEe0NDMquPI3o_U<JUy_O`O+L?FYT`9TZ|=ag5KCI
+znt#mlnC5bZukv2uT90xcO?A_}@o2i-mzZ$L%UkvCT;6zAWF51^w<X-oXD#^GS_36G
+zPW{!gY!K}K-u`*z?<?W*ua3(fv7Z|fx5WQpN=s3Oa#!&8UPZ~3x*XP@-T10Py4snW
+zKg;l0Uwu(>-r#Cj5;xD2<?`oE%+ytSZdp}@cJKDgd1mOt_V9%Agu_=tBpz=yT<i8$
+za?u>SDS?G;ny;m;SFJd0$iQEeSs3K@FJ`5pj53?@i>$o#TE6@4mvq)V44U@R<n;Ha
+zg_Gy!JBH^gZ{Ovw_egY_@j;f*?8=_H&|MAv>I&OyN*|lVn7na28R+ihB=euaTqEuN
+uQnh<GSDIbi*4=vIV_;1GoiFwk^;Vm^n%>ks_|LEh<f9dxe{?4F`2qmu%Wqcz
+
+literal 0
+HcmV?d00001
+

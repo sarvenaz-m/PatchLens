@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "examples": 48,
+  "pairs": 24,
+  "groups": 24,
+  "splits": {
+    "test": 12,
+    "train": 24,
+    "validation": 12
+  },
+  "categories": {
+    "CWE-1321": 8,
+    "CWE-22": 8,
+    "CWE-78": 8,
+    "CWE-79": 8,
+    "CWE-89": 8,
+    "CWE-95": 8
+  },
+  "fingerprint": "fa73f60b92dd6f82f9c38e027fb64bf32a63946806f6ae250eed488e2c4a1439",
+  "checks": [
+    "unique_ids",
+    "binary_labels",
+    "complete_pairs",
+    "group_disjoint_splits",
+    "whitespace_duplicate_leakage"
+  ],
+  "limitations": [
+    "No semantic or general near-duplicate detection",
+    "Labels and source licences require human verification"
+  ]
+}

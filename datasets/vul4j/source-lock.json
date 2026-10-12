@@ -1,0 +1,1246 @@
+{
+  "schema_version": "1.0",
+  "source_url": "https://github.com/tuhh-softsec/Vul4J",
+  "source_revision": "376411da11fa705019f731404de1d0679fe73537",
+  "dataset_csv": {
+    "url": "https://raw.githubusercontent.com/tuhh-softsec/Vul4J/376411da11fa705019f731404de1d0679fe73537/dataset/vul4j_dataset.csv",
+    "sha256": "5c272508bfc6dccdc52569667457463dbe4e9d2d32bf4a7e821f4622054f51eb"
+  },
+  "patches": [
+    {
+      "id": "VUL4J-1",
+      "url": "https://github.com/alibaba/fastjson/commit/f5903fa56497c00ed0703ac875b511f9bd5f1d8e.patch",
+      "sha256": "2415bef5a9f6098ddb852bf90aabb51207319d609db0ead689fd9d7b822d989c",
+      "bytes": 2526,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-2",
+      "url": "https://github.com/apache/xmlgraphics-batik/commit/660ef628d637af636ea113243fe73f170ac43958.patch",
+      "sha256": "3ec75154936af75975edafd92a9402a89ce8bcc2b28d3aaa204326b8caf36c1a",
+      "bytes": 1885,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-3",
+      "url": "https://github.com/apache/camel/commit/7d19340bcdb42f7aae584d9c5003ac4f7ddaee36.patch",
+      "sha256": "272c81d495c8f42b6c1933bd15df927bf2c3e5c21330e55ac6d3def68cfdb30c",
+      "bytes": 3238,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-4",
+      "url": "https://github.com/apache/camel/commit/1df559649a96a1ca0368373387e542f46e4820da.patch",
+      "sha256": "521568e57be54441a0b7eb24d0ffdfabe7c445144b332e3548e0b5cc3c25cfcd",
+      "bytes": 9242,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-5",
+      "url": "https://github.com/apache/commons-compress/commit/a080293da69f3fe3d11d5214432e1469ee195870.patch",
+      "sha256": "5700af117bdf334df82842119c32f2e2055a57acad9698e8ac0287affca02625",
+      "bytes": 3954,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-6",
+      "url": "https://github.com/apache/commons-compress/commit/2a2f1dc48e22a34ddb72321a4db211da91aa933b.patch",
+      "sha256": "9531f16b9b14a2092898a8311d8ff7b69bb818a5805d582d128ff61e4205e078",
+      "bytes": 1384,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-7",
+      "url": "https://github.com/apache/commons-compress/commit/a41ce6892cb0590b2e658704434ac0dbcb6834c8.patch",
+      "sha256": "05e425d48d7b0079fa0d4f3839414ec1fae075c38b421293cd8ec449acccc7b0",
+      "bytes": 6439,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-8",
+      "url": "https://github.com/apache/commons-compress/commit/4ad5d80a6272e007f64a6ac66829ca189a8093b9.patch",
+      "sha256": "419c1bb4f1a770442f84dcf597a9704bead089bbd4dedb026cb2154e2808dc28",
+      "bytes": 5735,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-9",
+      "url": "https://github.com/apache/commons-configuration/commit/add7375cf37fd316d4838c6c56b054fc293b4641.patch",
+      "sha256": "c45542205af4ae6e4d13fc732a579346be4aaac324e900189bfa60a28a1b285d",
+      "bytes": 7053,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-10",
+      "url": "https://github.com/apache/commons-fileupload/commit/163a6061fbc077d4b6e4787d26857c2baba495d1.patch",
+      "sha256": "a8fc65a439c4c15e6bf1fd1cc5817905b8d6f6dfc323e73590886d5f0da31c41",
+      "bytes": 10577,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-11",
+      "url": "https://github.com/apache/commons-fileupload/commit/c61ff05b3241cb14d989b67209e57aa71540417a.patch",
+      "sha256": "b41b875e1cae9f1af24facb3b751cdd5c0c77692f976bd81fd615c2c07fe45f0",
+      "bytes": 8718,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-12",
+      "url": "https://github.com/apache/commons-imaging/commit/6a79d35d6654d895d0a4b73b3a9282ec9aaeeb06.patch",
+      "sha256": "12603b90c3d67731c5226c7249e64f951eae285307b22dbd845821511b8d3203",
+      "bytes": 4911,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-13",
+      "url": "https://github.com/apache/commons-imaging/commit/f5574bfe285edd79207fe8c30f53cb0af06e26bb.patch",
+      "sha256": "eb5a69a65174a85839af9e457275352955d314bd846c7cf750d5936aee29732b",
+      "bytes": 3890,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-14",
+      "url": "https://github.com/apache/commons-io/commit/2736b6fe0b3fa22ec8e2b4184897ecadb021fc78.patch",
+      "sha256": "e5f442d0937dcb85469a9d0e27fa714db814a959b6c0519fa161d548ce9ba01d",
+      "bytes": 9418,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-15",
+      "url": "https://github.com/apache/cxf/commit/d9e2a6e7.patch",
+      "sha256": "9f694fc8ca64dc9453cc6912790faa3863b3bf381ee0f6ef20ec7845ae3b0107",
+      "bytes": 5200,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-16",
+      "url": "https://github.com/apache/cxf/commit/845eccb6484b43ba02875c71e824db23ae4f20c0.patch",
+      "sha256": "289300a3570150bcb6f29f4b4195d542ae908a4631ac6b00e2387e6d52097bc2",
+      "bytes": 14698,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-17",
+      "url": "https://github.com/apache/httpcomponents-client/commit/0554271750599756d4946c0d7ba43d04b1a7b22.patch",
+      "sha256": "aee0c4be25f0b76808e8694e1f8e7a239a48b5fda8305ccec9e2b1577b7ebf73",
+      "bytes": 2177,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-18",
+      "url": "https://github.com/apache/jspwiki/commit/88d89d6523802c044cfcb7930cba40d8eeb21da2.patch",
+      "sha256": "02c59561d07b61cfed0ed128d91be58d47876962bb7518ac3b8a1c877a92eaf3",
+      "bytes": 3927,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-19",
+      "url": "https://github.com/bqcuong/vul4j/commit/c90825da4d28d7b1ae9b1484b9a010206be3dec5.patch",
+      "sha256": "236a9848133ca898763f1d2ea02772d21729e1d2a729bce38ae5fb4addb28ef9",
+      "bytes": 1266,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-20",
+      "url": "https://github.com/apache/pdfbox/commit/0e14d6a42cc965e23bb1b40f04b4c002dc173b88.patch",
+      "sha256": "248337675bd6c74be8a29c5f76f93ba45eaca4959daa09f77d53f13c50b61064",
+      "bytes": 1231,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-21",
+      "url": "https://github.com/apache/santuario-java/commit/e50488044121cf01ffbc235ca53b9562031d69c5.patch",
+      "sha256": "502c4b102bc01d8da8169e032c53264a04431a24c434a30dbeef1208c6f0843e",
+      "bytes": 19043,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-22",
+      "url": "https://github.com/apache/shiro/commit/b15ab927709ca18ea4a02538be01919a19ab65af.patch",
+      "sha256": "52422ffa2c0b7616096a710f2af6fde8d56b884a5c5f3bf4fdeb7f082884143a",
+      "bytes": 9186,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-23",
+      "url": "https://github.com/apache/sling/commit/7d2365a248943071a44d8495655186e4f14ea294.patch",
+      "status": "failed",
+      "reason": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "VUL4J-24",
+      "url": "https://github.com/tuhh-softsec/Vul4J/commit/fb2719e8299fadddae62245482de112052a0e08c.patch",
+      "sha256": "bb2f63b0577985cf4b9783de2f7546139d6788e2624030177134a2895c7e12f7",
+      "bytes": 2920,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-25",
+      "url": "https://github.com/apache/sling-org-apache-sling-xss/commit/ec6764d165abc4df8cffd8439761bb2228887db9.patch",
+      "sha256": "7a48eab38dd87757489c949bd31e0b82d5a89e2c82b33e5facad69394d386679",
+      "bytes": 5681,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-26",
+      "url": "https://github.com/apache/struts/commit/a0fdca138feec2c2e94eb75ca1f8b76678b4d152.patch",
+      "sha256": "dc82dbb2f92dd350d6447eaf17abb237118925e57cdd9a1176d3370e36318e73",
+      "bytes": 2316,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-27",
+      "url": "https://github.com/bqcuong/vul4j/compare/a2d0ecdcd3594c87265f483ecb3c202fec18937c..6315241719be167542962da436b38782ed730c62.patch",
+      "sha256": "1b16ce0a5cf46fdcd38174e3420628aba050b858d5264a6dffc0f17537f91957",
+      "bytes": 12270,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-28",
+      "url": "https://github.com/bqcuong/vul4j/compare/a2d0ecdcd3594c87265f483ecb3c202fec18937c..6315241719be167542962da436b38782ed730c62.patch",
+      "sha256": "1b16ce0a5cf46fdcd38174e3420628aba050b858d5264a6dffc0f17537f91957",
+      "bytes": 12270,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-29",
+      "url": "https://github.com/bqcuong/vul4j/commit/1a668af7f1ffccea4a3b46d8d8c1fe1c7331ff02.patch",
+      "sha256": "81cb4dfda2544486aed942799e1f2f9a59ddc885991864e2a6ce06b4492c698c",
+      "bytes": 7023,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-30",
+      "url": "https://github.com/apache/struts/commit/554b9dddb0fbd1e581ef577dd62a7c22955ad0f6.patch",
+      "sha256": "7856a31dc23dee2b1a1ece884ea1b16ef32611d99771a2285f20b63b71cfd055",
+      "bytes": 1213,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-31",
+      "url": "https://github.com/apache/struts/commit/237432512df0e27013f7c7b9ab59fdce44ca34a5.patch",
+      "sha256": "1bb9dfdb3bd51e24ff107eb4d3d485f4fce4dc1d27436dbb89cd91aab2374df9",
+      "bytes": 4662,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-32",
+      "url": "https://github.com/apache/struts/commit/d832747d647df343ed07a58b1b5e540a05a4d51b.patch",
+      "sha256": "2401d1de7eaaeb4114f856010522b51532ab61c411073ebb15b616b87386027b",
+      "bytes": 8421,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-33",
+      "url": "https://github.com/apache/struts/commit/f238cf4f1091be19fbcfd086b042c86a1bcaa7fc.patch",
+      "sha256": "cc945c4d24196587abe265fe39cb82f804310759c46fa8865e2109ad4888356d",
+      "bytes": 3399,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-34",
+      "url": "https://github.com/apache/struts/commit/fc2179cf1ac9fbfb61e3430fa88b641d87253327.patch",
+      "sha256": "bb36c29c46c522390c28b02604fbb02d45c94d156352a7315631d680d617ff63",
+      "bytes": 7000,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-35",
+      "url": "https://github.com/apache/struts/commit/1f301038a751bf16e525607c3db513db835b2999.patch",
+      "sha256": "f43a05f40e2ee898a89cbd35b334f7532604b7d10afa4f8036c76ced1080daaa",
+      "bytes": 1164,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-36",
+      "url": "https://github.com/apache/tika/commit/8a6a9e1344f5b10ebfa1a189dc3c30d0da2b9d4.patch",
+      "sha256": "11986f30df3beac063c3ad889d69a46528521e4b1f101dcfa122740a5eac7707",
+      "bytes": 4595,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-37",
+      "url": "https://github.com/apache/tomee/commit/58cdbbef9c77ab2b44870f9d606593b49cde76d9.patch",
+      "sha256": "002c6aff5b2881c3d6231eeb5d690126e8270fd7bf4985fedf772d0132b8dd71",
+      "bytes": 8852,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-38",
+      "url": "https://github.com/apereo/java-cas-client/commit/ab6cbdc3daa451b4fef89c0bd0f4e6568f3aa9ef.patch",
+      "sha256": "af5e2da428bb22e01042d7beebda261bd076a80af0d31f6ba664d0d39c829c24",
+      "bytes": 4305,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-39",
+      "url": "https://github.com/cloudfoundry/uaa/commit/a61bfabbad22f646ecf1f00016b448b26a60daf.patch",
+      "sha256": "40032e5541eb8cddfe5591ad344a19f4e30a83cd30036725e148785932806a94",
+      "bytes": 4719,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-40",
+      "url": "https://github.com/cloudfoundry/uaa/commit/daeedbe499453b06856556f5e9f7e80d2d1ceb03.patch",
+      "sha256": "730e55e9299bee2a2fc10a7bee4f6705d85509f1691b10ce0ea05b22c1857065",
+      "bytes": 8466,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-41",
+      "url": "https://github.com/codehaus-plexus/plexus-archiver/commit/58bc24e465c0842981692adbf6d75680298989de.patch",
+      "sha256": "dd9c38a202d8e5f89e4a407e328eda10dab56669c08e3e2a583224c2e40264b6",
+      "bytes": 3542,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-42",
+      "url": "https://github.com/codehaus-plexus/plexus-utils/commit/b38a1b3a4352303e4312b2bb601a0d7ec6e28f41.patch",
+      "sha256": "411a5cfedb770fa70a412d394cc437bfc8f7930ef34feeeaeef144c45924763d",
+      "bytes": 20679,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-43",
+      "url": "https://github.com/eclipse/rdf4j/commit/df15a4d7a8f2789c043b27c9eafe1b30316cfa79.patch",
+      "sha256": "8bee00f853c918a98dd6eeaa0a9a265ab0aa2b35cf563e17abd56a46a97c6ce9",
+      "bytes": 5792,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-44",
+      "url": "https://github.com/ESAPI/esapi-java-legacy/commit/b7cbc53f9cc967cf1a5a9463d8c6fef9ed6ef4f7.patch",
+      "sha256": "f70f00391681c13c376a0a48b678a9b15729082bba43c80a3a0a5c0cea7e6be8",
+      "bytes": 8510,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-45",
+      "url": "https://github.com/esigate/esigate/commit/30cad23a8f282600c9b045e1af09f6f8a65357b1.patch",
+      "sha256": "cf1af48bc352beb58a0bcea030c52acb21ceb114bcb9a7346fd2767e2ed40258",
+      "bytes": 6442,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-46",
+      "url": "https://github.com/FasterXML/jackson-dataformat-xml/commit/f0f19a4c924d9db9a1e2830434061c8640092cc0.patch",
+      "sha256": "03b52ae364e1b838e231925fa198e4d563f5c24b565f18bfbb50eedd0ab15962",
+      "bytes": 1672,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-47",
+      "url": "https://github.com/FasterXML/jackson-dataformat-xml/commit/eeff2c312e9d4caa8c9f27b8f740c7529d00524a.patch",
+      "sha256": "4d4accd97110e85767e3598adf93d9ae25eac4b3d82653fec1e27c1503fa178f",
+      "bytes": 3030,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-48",
+      "url": "https://github.com/inversoft/prime-jwt/commit/abb0d479389a2509f939452a6767dc424bb5e6ba.patch",
+      "sha256": "d2eb4b9e0c9eefde30b62a180334d5180c38bd7be685f8205db111d8d496f639",
+      "bytes": 4673,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-49",
+      "url": "https://github.com/inversoft/prime-jwt/commit/0d94dcef0133d699f21d217e922564adbb83a227.patch",
+      "sha256": "20764c3de4dc10fd009883cdb386282ed5708422754faff228ab02c9b39bdbad",
+      "bytes": 7851,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-50",
+      "url": "https://github.com/javamelody/javamelody/commit/aacbc46151ff4ac1ca34ce0899c2a6113071c66e.patch",
+      "sha256": "acc8a3a88c263d18a96c0ab4bb36167eb6ccad21ade2724bca1ca58aadf89613",
+      "bytes": 1052,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-51",
+      "url": "https://github.com/jenkinsci/ccm-plugin/commit/066cb43b4413b3490d822ec8b8a32072ebd213ca.patch",
+      "sha256": "dd75e21e8d8b31c26892e4c6a07f70d877f3b3eefb4afb05126b24f7b5ddec0a",
+      "bytes": 8747,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-52",
+      "url": "https://github.com/jenkinsci/groovy-sandbox/commit/0cd7ec12b7c56cfa3167d99c5f43147ce05449d3.patch",
+      "sha256": "2042b4f3fb2608283a61b0ada7a169f7d1aa898cb78a1b0f6b704cfeb42cd6ff",
+      "bytes": 9905,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-53",
+      "url": "https://github.com/jenkinsci/jenkins/commit/e5046911c57e60a1d6d8aca9b21bd9093b0f3763.patch",
+      "sha256": "5086d59b67e83024aac1ab5330b6fe132338c3c5902c6d743395d578d1afa5fa",
+      "bytes": 1574,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-54",
+      "url": "https://github.com/jenkinsci/jenkins/commit/701ea95a52afe53bee28f76a3f96eb0e578852e9.patch",
+      "sha256": "9bcc1985109cec3976b9ead79775a1ba92650ad114f065c9a661d12d213be875",
+      "bytes": 2382,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-55",
+      "url": "https://github.com/jenkinsci/jenkins/commit/73afa0ca786a87f05b5433e2e38f863826fcad17.patch",
+      "sha256": "65b14dc144a115176d91d2b5195e387f8abc5f0e57af92cdd0ef9161269a1c7d",
+      "bytes": 2115,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-56",
+      "url": "https://github.com/jenkinsci/junit-plugin/commit/15f39fc49d9f25bca872badb48e708a8bb815ea7.patch",
+      "sha256": "ac8309aac9b7c5880b2c7485838a02a76cb8a762530b395ee7d98d5b77073e0f",
+      "bytes": 9095,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-57",
+      "url": "https://github.com/jenkinsci/pipeline-build-step-plugin/commit/3dfefdec1f7b2a4ee0ef8902afdea720b1572cb3.patch",
+      "sha256": "20427b39606dab3706901d14b0c625a3a27302efca12e97153281e2c392ad5d3",
+      "bytes": 5870,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-58",
+      "url": "https://github.com/jenkinsci/subversion-plugin/commit/25f6afbb02a5863f363b0a2f664ac717ace743b4.patch",
+      "sha256": "20b89469942ab6abf6e0ac441a0851c096f7507d1e06e62798b296092be50322",
+      "bytes": 7367,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-59",
+      "url": "https://github.com/jhy/jsoup/commit/4edb78991f8d0bf87dafde5e01ccd8922065c9b2.patch",
+      "sha256": "3285d5a25fbbedd032c15ef689a52fe32f820ff07b20419dfd567a9cc6939e5c",
+      "bytes": 1746,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-60",
+      "url": "https://github.com/nahsra/antisamy/commit/7313931dc3c0d1377b010f07faef2063dd359a36.patch",
+      "sha256": "44b071d5233f31711c8289577b7de0c4b181e98ed35c3da11f1d354d5a8f6d17",
+      "bytes": 1808,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-61",
+      "url": "https://github.com/neo4j-contrib/neo4j-apoc-procedures/commit/45bc09c8bd7f17283e2a7e85ce3f02cb4be4fd1a.patch",
+      "sha256": "0f04fc30c6acb2f034bf9a6d48861fc19952de2ec56029fb05a271ee9a775123",
+      "bytes": 3544,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-62",
+      "url": "https://github.com/neo4j/neo4j/commit/46de5d01ae2741ffe04c36270fc62c6d490f65c9.patch",
+      "sha256": "61b2b5cb8540d62f5676143dc983b8311908a3a633484a624253e86f98061077",
+      "bytes": 3954,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-63",
+      "url": "https://github.com/opennetworkinglab/onos/commit/1a783729a1d7e0cd59d59a8dd3a73cdd6ac0f30d.patch",
+      "sha256": "961b6ddcb43e0032e807989c5b614abe3456b1c39fac1bc3d60375203c31e9b1",
+      "bytes": 4952,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-64",
+      "url": "https://github.com/OpenRefine/OpenRefine/commit/6a0d7d56e4ffb420316ce7849fde881344fbf881.patch",
+      "sha256": "8640a24a6249e53a581c18c25f5a5fdd61b6057f10cbdd12177d0e46ab813916",
+      "bytes": 2955,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-65",
+      "url": "https://github.com/OpenRefine/OpenRefine/commit/e243e73e4064de87a913946bd320fbbe246da656.patch",
+      "sha256": "e1e3145ebd0b1003cc19e393b8c6e566b99e4f4a686da66ba483216619df5c72",
+      "bytes": 2299,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-66",
+      "url": "https://github.com/resteasy/Resteasy/commit/acf15f2a8067f7e4cf5838342cecfa0b78a174fb.patch",
+      "sha256": "0fbdffdc9f4a647ac79e243e40678df3fa37dea766638ef952a8f3ec5bc0092f",
+      "bytes": 2030,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-67",
+      "url": "https://github.com/spring-projects/spring-data-commons/commit/371f6590c509c72f8e600f3d05e110941607fba.patch",
+      "sha256": "9bd249bfe510e3b31989f583f9966808aff9ff7408d6e5a1926f374dfbd6e808",
+      "bytes": 3026,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-68",
+      "url": "https://github.com/spring-projects/spring-data-rest/commit/8f269e28fe8038a6c60f31a1c36cfda04795ab45.patch",
+      "sha256": "7f0083895782878ad64663c38ad6d16442dba65e596d748be282fd08764a1891",
+      "bytes": 6896,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-69",
+      "url": "https://github.com/spring-projects/spring-framework/commit/e2d6e709c3c65a4951eb096843ee75d5200cfcad.patch",
+      "sha256": "bddcdae578f64c955a7b689b82e94d51cc2ccfdd3502d0013c681e65b1b997ac",
+      "bytes": 4489,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-70",
+      "url": "https://github.com/spring-projects/spring-framework/commit/423aa28ed584b4ff6e5bad218c09beef5e91951.patch",
+      "sha256": "02a1ce4c056ac13fcb0036b4be1e36c52da8ee418608af0a5ff1882d12428d2f",
+      "bytes": 6766,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-71",
+      "url": "https://github.com/spring-projects/spring-framework/commit/e02ff3a0da50744b0980d5d665fd242eedea767.patch",
+      "sha256": "3f9766addffdc16abf8bce5cbcb678a98da88532c93953e72d8f8d7e1c381c56",
+      "bytes": 1888,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-72",
+      "url": "https://github.com/spring-projects/spring-security/commit/c70b65c5df0e170a2d34d812b83db0b7bc71ea25.patch",
+      "sha256": "afcc821d08703892aa4f4f991d3e0c4163f5ae786689478f0ac620026f036e5c",
+      "bytes": 3698,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-73",
+      "url": "https://github.com/spring-projects/spring-security/commit/b2d4fec3617c497c5a8eb9c7e5270e0c7db293ee.patch",
+      "sha256": "a1a3b29839e5f49c3dca3b436407e548d7ab77813535484c8731b1b42d312cb4",
+      "bytes": 2027,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-74",
+      "url": "https://github.com/spring-projects/spring-security/commit/1304c958bf9c38940082f3ad1558d413ed82f2b.patch",
+      "sha256": "4990e34d3ddaa530bb89735440987785d7197fdf2b7523da5a20002666714859",
+      "bytes": 3595,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-75",
+      "url": "https://github.com/spring-projects/spring-security-oauth/commit/fff77d3fea477b566bcacfbfc95f85821a2bdc2d.patch",
+      "sha256": "a9cb6693d4fcbdf45183e1d7f7a7d4344f7e760ac3d43a6b828fd3bdb6d1b376",
+      "bytes": 5924,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-76",
+      "url": "https://github.com/square/retrofit/commit/b9a7f6ad72073ddd40254c0058710e87a073047d.patch",
+      "sha256": "19670055db4e4697e75fe244fda009ff2dd1e29af494e2013413d0fbe2ee84de",
+      "bytes": 7317,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-77",
+      "url": "https://github.com/swagger-api/swagger-parser/commit/4c6584306b40de9b2dfa9065c3a438cd918534af.patch",
+      "sha256": "0bc7d3c44aa852b78bb8463f261ace4d93bac6ab434594184ee7394922c34a1c",
+      "bytes": 1647,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-78",
+      "url": "https://github.com/x-stream/xstream/commit/f38a1da3ae9491930c2067c12cd2506738b21dab.patch",
+      "sha256": "0e4485e507190f3c5ebb8a670a1efffb5c73ad19492439d699a574a464f997e3",
+      "bytes": 5942,
+      "status": "downloaded"
+    },
+    {
+      "id": "VUL4J-79",
+      "url": "https://github.com/zeroturnaround/zt-zip/commit/759b72f33bc8f4d69f84f09fcb7f010ad45d6fff.patch",
+      "sha256": "9c8a6e905737bbb10558256f6e34f2f04beb171bc3d05886ed880c6246f5818b",
+      "bytes": 7920,
+      "status": "downloaded"
+    }
+  ],
+  "licences": [
+    {
+      "repository": "ESAPI/esapi-java-legacy",
+      "revision": "b7cbc53f9cc967cf1a5a9463d8c6fef9ed6ef4f7",
+      "files": [
+        {
+          "path": "ESAPI--esapi-java-legacy--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/ESAPI/esapi-java-legacy/b7cbc53f9cc967cf1a5a9463d8c6fef9ed6ef4f7/LICENSE",
+          "sha256": "b56382b0a1366dc9998e0b737e58eec58ebe0ad984ac1da357782da6584a1df2"
+        }
+      ]
+    },
+    {
+      "repository": "FasterXML/jackson-dataformat-xml",
+      "revision": "eeff2c312e9d4caa8c9f27b8f740c7529d00524a",
+      "files": []
+    },
+    {
+      "repository": "OpenRefine/OpenRefine",
+      "revision": "e243e73e4064de87a913946bd320fbbe246da656",
+      "files": [
+        {
+          "path": "OpenRefine--OpenRefine--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/OpenRefine/OpenRefine/e243e73e4064de87a913946bd320fbbe246da656/LICENSE.txt",
+          "sha256": "36c14ab764eb7f17fec8a6d33cd2b9ecf88a41afb0e653704039db549f2401bb"
+        }
+      ]
+    },
+    {
+      "repository": "alibaba/fastjson",
+      "revision": "f5903fa56497c00ed0703ac875b511f9bd5f1d8e",
+      "files": [
+        {
+          "path": "alibaba--fastjson--license.txt",
+          "source_path": "license.txt",
+          "url": "https://raw.githubusercontent.com/alibaba/fastjson/f5903fa56497c00ed0703ac875b511f9bd5f1d8e/license.txt",
+          "sha256": "2d3146e5b4d237598fcf4b0b8bef173c57a1845467fbe0807dc6da421732e643"
+        }
+      ]
+    },
+    {
+      "repository": "apache/batik",
+      "revision": "660ef628d637af636ea113243fe73f170ac43958",
+      "files": [
+        {
+          "path": "apache--batik--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/apache/batik/660ef628d637af636ea113243fe73f170ac43958/LICENSE",
+          "sha256": "d92a946963232d6d81e81b4617cb9754b0acfaf3f8d24d2357bba9bdb90a825d"
+        },
+        {
+          "path": "apache--batik--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/apache/batik/660ef628d637af636ea113243fe73f170ac43958/NOTICE",
+          "sha256": "f76866f8d4cdc230e16ced6b7afe4fb9698607470b5a5a9621a13e5b3b58f377"
+        }
+      ]
+    },
+    {
+      "repository": "apache/camel",
+      "revision": "1df559649a96a1ca0368373387e542f46e4820da",
+      "files": [
+        {
+          "path": "apache--camel--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/camel/1df559649a96a1ca0368373387e542f46e4820da/LICENSE.txt",
+          "sha256": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac"
+        },
+        {
+          "path": "apache--camel--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/camel/1df559649a96a1ca0368373387e542f46e4820da/NOTICE.txt",
+          "sha256": "43af28693b143cb76ed17a909ffcf42e03634083e2cf98812a5a2055d0c5e693"
+        }
+      ]
+    },
+    {
+      "repository": "apache/commons-compress",
+      "revision": "4ad5d80a6272e007f64a6ac66829ca189a8093b9",
+      "files": [
+        {
+          "path": "apache--commons-compress--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-compress/4ad5d80a6272e007f64a6ac66829ca189a8093b9/LICENSE.txt",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "apache--commons-compress--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-compress/4ad5d80a6272e007f64a6ac66829ca189a8093b9/NOTICE.txt",
+          "sha256": "5167eccd45c6feeb95dc3011e394e622c5f77cc4609f8b0f3d651479746b4510"
+        }
+      ]
+    },
+    {
+      "repository": "apache/commons-configuration",
+      "revision": "add7375cf37fd316d4838c6c56b054fc293b4641",
+      "files": [
+        {
+          "path": "apache--commons-configuration--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-configuration/add7375cf37fd316d4838c6c56b054fc293b4641/LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "apache--commons-configuration--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-configuration/add7375cf37fd316d4838c6c56b054fc293b4641/NOTICE.txt",
+          "sha256": "352161ff2be0cda7c174cdcff5eb7057cf3967154bbaeddd1918303d9a546066"
+        }
+      ]
+    },
+    {
+      "repository": "apache/commons-fileupload",
+      "revision": "c61ff05b3241cb14d989b67209e57aa71540417a",
+      "files": [
+        {
+          "path": "apache--commons-fileupload--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-fileupload/c61ff05b3241cb14d989b67209e57aa71540417a/LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "apache--commons-fileupload--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-fileupload/c61ff05b3241cb14d989b67209e57aa71540417a/NOTICE.txt",
+          "sha256": "5273f2d5e34f25ac0806240040d0924a45e85f79ed5402965a1f5c5eef3c1322"
+        }
+      ]
+    },
+    {
+      "repository": "apache/commons-imaging",
+      "revision": "f5574bfe285edd79207fe8c30f53cb0af06e26bb",
+      "files": [
+        {
+          "path": "apache--commons-imaging--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-imaging/f5574bfe285edd79207fe8c30f53cb0af06e26bb/LICENSE.txt",
+          "sha256": "c1074fe69e98408aaa9d2483662743b8c7783c5b1099c5e3f52e758f42fce97c"
+        },
+        {
+          "path": "apache--commons-imaging--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-imaging/f5574bfe285edd79207fe8c30f53cb0af06e26bb/NOTICE.txt",
+          "sha256": "9272174e662caadb9c4fc2ff75b3a6ebecb062c1761b73e4b4782afe3bfb062e"
+        }
+      ]
+    },
+    {
+      "repository": "apache/commons-io",
+      "revision": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "files": [
+        {
+          "path": "apache--commons-io--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-io/2736b6fe0b3fa22ec8e2b4184897ecadb021fc78/LICENSE.txt",
+          "sha256": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac"
+        },
+        {
+          "path": "apache--commons-io--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/commons-io/2736b6fe0b3fa22ec8e2b4184897ecadb021fc78/NOTICE.txt",
+          "sha256": "f738390135295a249c4fb7118469ff881ae0bd11401b410f7564a52b7e54c4d2"
+        }
+      ]
+    },
+    {
+      "repository": "apache/cxf",
+      "revision": "845eccb6484b43ba02875c71e824db23ae4f20c0",
+      "files": [
+        {
+          "path": "apache--cxf--distribution--src--main--appended-resources--META-INF--LICENSE.vm",
+          "source_path": "distribution/src/main/appended-resources/META-INF/LICENSE.vm",
+          "url": "https://raw.githubusercontent.com/apache/cxf/845eccb6484b43ba02875c71e824db23ae4f20c0/distribution/src/main/appended-resources/META-INF/LICENSE.vm",
+          "sha256": "66468c658bc0934a9f5407b2f7ea8f09f4a2137675ea1228afc62821768234bb"
+        },
+        {
+          "path": "apache--cxf--distribution--src--main--appended-resources--META-INF--NOTICE",
+          "source_path": "distribution/src/main/appended-resources/META-INF/NOTICE",
+          "url": "https://raw.githubusercontent.com/apache/cxf/845eccb6484b43ba02875c71e824db23ae4f20c0/distribution/src/main/appended-resources/META-INF/NOTICE",
+          "sha256": "68a51708a6707ba6be2c6c6973b68d908be60c6d5771d250e2175c415b75f5a0"
+        }
+      ]
+    },
+    {
+      "repository": "apache/httpcomponents-client",
+      "revision": "0554271750599756d4946c0d7ba43d04b1a7b22",
+      "files": [
+        {
+          "path": "apache--httpcomponents-client--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/httpcomponents-client/0554271750599756d4946c0d7ba43d04b1a7b22/LICENSE.txt",
+          "sha256": "b091ada23a8b30a53acba0fb67cc3359b4b0de373094bcfe21ec9ce95d850b65"
+        },
+        {
+          "path": "apache--httpcomponents-client--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/httpcomponents-client/0554271750599756d4946c0d7ba43d04b1a7b22/NOTICE.txt",
+          "sha256": "e0f32d7d5084c165d9519f567d492bd7969f7448872f8c62483e8aba47f9befb"
+        }
+      ]
+    },
+    {
+      "repository": "apache/jspwiki",
+      "revision": "88d89d6523802c044cfcb7930cba40d8eeb21da2",
+      "files": [
+        {
+          "path": "apache--jspwiki--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/apache/jspwiki/88d89d6523802c044cfcb7930cba40d8eeb21da2/LICENSE",
+          "sha256": "96d968e38324356741b6c7fb7ba029232bf1b47fa1084feb84432d9a60caa0bd"
+        },
+        {
+          "path": "apache--jspwiki--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/apache/jspwiki/88d89d6523802c044cfcb7930cba40d8eeb21da2/NOTICE",
+          "sha256": "a345855912de7e31dffa704d03a17df853457d9a3e732854ea422d4f282d7f53"
+        }
+      ]
+    },
+    {
+      "repository": "apache/pdfbox",
+      "revision": "0e14d6a42cc965e23bb1b40f04b4c002dc173b88",
+      "files": [
+        {
+          "path": "apache--pdfbox--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/pdfbox/0e14d6a42cc965e23bb1b40f04b4c002dc173b88/LICENSE.txt",
+          "sha256": "1301d8415a4868d82aeeec594849cf7679f1ead4636a9603dc46875f5713157e"
+        },
+        {
+          "path": "apache--pdfbox--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/pdfbox/0e14d6a42cc965e23bb1b40f04b4c002dc173b88/NOTICE.txt",
+          "sha256": "40741b4ab76d77ba4fbc5e8759277169fb0ce281859d273075de6fd3a3588458"
+        }
+      ]
+    },
+    {
+      "repository": "apache/santuario-java",
+      "revision": "e50488044121cf01ffbc235ca53b9562031d69c5",
+      "files": [
+        {
+          "path": "apache--santuario-java--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/apache/santuario-java/e50488044121cf01ffbc235ca53b9562031d69c5/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "apache--santuario-java--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/apache/santuario-java/e50488044121cf01ffbc235ca53b9562031d69c5/NOTICE",
+          "sha256": "96e4279c48a3bdabbb8d63cea17dd15ae1384a5ea627b1eef6fc06f81ec0ed0e"
+        }
+      ]
+    },
+    {
+      "repository": "apache/shiro",
+      "revision": "b15ab927709ca18ea4a02538be01919a19ab65af",
+      "files": [
+        {
+          "path": "apache--shiro--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/apache/shiro/b15ab927709ca18ea4a02538be01919a19ab65af/LICENSE",
+          "sha256": "5ad8c213095c573921d7388edf93f6a9f54490b8ebf3b165ae8ef1947cf70846"
+        },
+        {
+          "path": "apache--shiro--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/apache/shiro/b15ab927709ca18ea4a02538be01919a19ab65af/NOTICE",
+          "sha256": "992a24d9ac05c9203771142567e829b6c62901b0739bfde39a7453155bef3e7a"
+        }
+      ]
+    },
+    {
+      "repository": "apache/sling",
+      "revision": "fb2719e8299fadddae62245482de112052a0e08c",
+      "files": [
+        {
+          "path": "apache--sling--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/tuhh-softsec/Vul4J/fb2719e8299fadddae62245482de112052a0e08c/LICENSE",
+          "sha256": "193f4cdbbcedc2898187ab87e073609f38523b14049abb2ae55da9f936bcd367"
+        },
+        {
+          "path": "apache--sling--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/tuhh-softsec/Vul4J/fb2719e8299fadddae62245482de112052a0e08c/NOTICE",
+          "sha256": "eb1598386284a2e012b18ee71afc7af07a715dc77bb7a970383d55f58909fb01"
+        }
+      ]
+    },
+    {
+      "repository": "apache/sling-org-apache-sling-xss",
+      "revision": "ec6764d165abc4df8cffd8439761bb2228887db9",
+      "files": [
+        {
+          "path": "apache--sling-org-apache-sling-xss--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/apache/sling-org-apache-sling-xss/ec6764d165abc4df8cffd8439761bb2228887db9/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    {
+      "repository": "apache/struts",
+      "revision": "1f301038a751bf16e525607c3db513db835b2999",
+      "files": [
+        {
+          "path": "apache--struts--core--src--main--resources--LICENSE.txt",
+          "source_path": "core/src/main/resources/LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/struts/1f301038a751bf16e525607c3db513db835b2999/core/src/main/resources/LICENSE.txt",
+          "sha256": "cc4d4de0920b0d3912203b5d9aa76728ac4a11087f55da9ea00576db7d1e34e2"
+        },
+        {
+          "path": "apache--struts--core--src--main--resources--NOTICE.txt",
+          "source_path": "core/src/main/resources/NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/struts/1f301038a751bf16e525607c3db513db835b2999/core/src/main/resources/NOTICE.txt",
+          "sha256": "a1d72f7c91d988ebb81a1cbeadb5be9e8856875f5cee9513123d976d0d2975c6"
+        }
+      ]
+    },
+    {
+      "repository": "apache/tika",
+      "revision": "8a6a9e1344f5b10ebfa1a189dc3c30d0da2b9d4",
+      "files": [
+        {
+          "path": "apache--tika--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/apache/tika/8a6a9e1344f5b10ebfa1a189dc3c30d0da2b9d4/LICENSE.txt",
+          "sha256": "27f8e8b17236a33da76a09c871312eb9737016ff276b38a31deeaa518c69a0f8"
+        },
+        {
+          "path": "apache--tika--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/apache/tika/8a6a9e1344f5b10ebfa1a189dc3c30d0da2b9d4/NOTICE.txt",
+          "sha256": "56d0c75d13ac6ae2444417468f4532f7f9b30fad375c1197349818a248bee8be"
+        }
+      ]
+    },
+    {
+      "repository": "apache/tomee",
+      "revision": "58cdbbef9c77ab2b44870f9d606593b49cde76d9",
+      "files": [
+        {
+          "path": "apache--tomee--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/apache/tomee/58cdbbef9c77ab2b44870f9d606593b49cde76d9/LICENSE",
+          "sha256": "8af48b219a2b1bb9e2fe8158d4bb5d6ba5b455ce05b854cebfbe4efe07aa310e"
+        },
+        {
+          "path": "apache--tomee--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/apache/tomee/58cdbbef9c77ab2b44870f9d606593b49cde76d9/NOTICE",
+          "sha256": "17d2bccbe4d5f5361bafe59ce106c408534306301cd07aaaee6883279bd7dad9"
+        }
+      ]
+    },
+    {
+      "repository": "apereo/java-cas-client",
+      "revision": "ab6cbdc3daa451b4fef89c0bd0f4e6568f3aa9ef",
+      "files": [
+        {
+          "path": "apereo--java-cas-client--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/apereo/java-cas-client/ab6cbdc3daa451b4fef89c0bd0f4e6568f3aa9ef/LICENSE",
+          "sha256": "b1a3e87ce562a392ba6fa9e082020644f6cfb746000e9b793bd9cd5f76dc82eb"
+        },
+        {
+          "path": "apereo--java-cas-client--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/apereo/java-cas-client/ab6cbdc3daa451b4fef89c0bd0f4e6568f3aa9ef/NOTICE",
+          "sha256": "206f18d3e743afc781939c58ce6f009e2c67a3ddd1efa29d86e38095c9284257"
+        }
+      ]
+    },
+    {
+      "repository": "cloudfoundry/uaa",
+      "revision": "daeedbe499453b06856556f5e9f7e80d2d1ceb03",
+      "files": [
+        {
+          "path": "cloudfoundry--uaa--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/cloudfoundry/uaa/daeedbe499453b06856556f5e9f7e80d2d1ceb03/LICENSE",
+          "sha256": "57ee5213aed02d240dd82fe049d13996266ed5ddb9a7fc671684a95ed7761e9b"
+        },
+        {
+          "path": "cloudfoundry--uaa--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/cloudfoundry/uaa/daeedbe499453b06856556f5e9f7e80d2d1ceb03/NOTICE",
+          "sha256": "823d7572e15e89b6af04050e1dd97956586dd90e26c20b3c1efbbdfa7d780db9"
+        }
+      ]
+    },
+    {
+      "repository": "codehaus-plexus/plexus-archiver",
+      "revision": "58bc24e465c0842981692adbf6d75680298989de",
+      "files": [
+        {
+          "path": "codehaus-plexus--plexus-archiver--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/codehaus-plexus/plexus-archiver/58bc24e465c0842981692adbf6d75680298989de/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    {
+      "repository": "codehaus-plexus/plexus-utils",
+      "revision": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "files": [
+        {
+          "path": "codehaus-plexus--plexus-utils--src--main--resources--META-INF--LICENSE",
+          "source_path": "src/main/resources/META-INF/LICENSE",
+          "url": "https://raw.githubusercontent.com/codehaus-plexus/plexus-utils/b38a1b3a4352303e4312b2bb601a0d7ec6e28f41/src/main/resources/META-INF/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "codehaus-plexus--plexus-utils--NOTICE.txt",
+          "source_path": "NOTICE.txt",
+          "url": "https://raw.githubusercontent.com/codehaus-plexus/plexus-utils/b38a1b3a4352303e4312b2bb601a0d7ec6e28f41/NOTICE.txt",
+          "sha256": "c53634c960163f00ba0b0147cc3dee5caf0e6a47bc9909a2fe94b7adcf5d983e"
+        }
+      ]
+    },
+    {
+      "repository": "eclipse/rdf4j",
+      "revision": "df15a4d7a8f2789c043b27c9eafe1b30316cfa79",
+      "files": []
+    },
+    {
+      "repository": "esigate/esigate",
+      "revision": "30cad23a8f282600c9b045e1af09f6f8a65357b1",
+      "files": [
+        {
+          "path": "esigate--esigate--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/esigate/esigate/30cad23a8f282600c9b045e1af09f6f8a65357b1/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ]
+    },
+    {
+      "repository": "inversoft/prime-jwt",
+      "revision": "0d94dcef0133d699f21d217e922564adbb83a227",
+      "files": [
+        {
+          "path": "inversoft--prime-jwt--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/inversoft/prime-jwt/0d94dcef0133d699f21d217e922564adbb83a227/LICENSE",
+          "sha256": "6dc0e068dcf3a5bc8e054205b85b7720e1d49265bbc64bf515d2cf79197df69a"
+        }
+      ]
+    },
+    {
+      "repository": "javamelody/javamelody",
+      "revision": "aacbc46151ff4ac1ca34ce0899c2a6113071c66e",
+      "files": []
+    },
+    {
+      "repository": "jenkinsci/ccm-plugin",
+      "revision": "066cb43b4413b3490d822ec8b8a32072ebd213ca",
+      "files": []
+    },
+    {
+      "repository": "jenkinsci/groovy-sandbox",
+      "revision": "0cd7ec12b7c56cfa3167d99c5f43147ce05449d3",
+      "files": [
+        {
+          "path": "jenkinsci--groovy-sandbox--LICENSE.md",
+          "source_path": "LICENSE.md",
+          "url": "https://raw.githubusercontent.com/jenkinsci/groovy-sandbox/0cd7ec12b7c56cfa3167d99c5f43147ce05449d3/LICENSE.md",
+          "sha256": "f19729c5f1552ad56b870f792f12abcea8a79d154edefe3d1fd87e485cb03750"
+        }
+      ]
+    },
+    {
+      "repository": "jenkinsci/jenkins",
+      "revision": "73afa0ca786a87f05b5433e2e38f863826fcad17",
+      "files": [
+        {
+          "path": "jenkinsci--jenkins--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/jenkinsci/jenkins/73afa0ca786a87f05b5433e2e38f863826fcad17/LICENSE.txt",
+          "sha256": "0599d996b7b64a61ff60fabb4b69dc807b6d396abbc6d2ddb43c3dc36204b89d"
+        }
+      ]
+    },
+    {
+      "repository": "jenkinsci/junit-plugin",
+      "revision": "15f39fc49d9f25bca872badb48e708a8bb815ea7",
+      "files": []
+    },
+    {
+      "repository": "jenkinsci/pipeline-build-step-plugin",
+      "revision": "3dfefdec1f7b2a4ee0ef8902afdea720b1572cb3",
+      "files": []
+    },
+    {
+      "repository": "jenkinsci/subversion-plugin",
+      "revision": "25f6afbb02a5863f363b0a2f664ac717ace743b4",
+      "files": []
+    },
+    {
+      "repository": "jhy/jsoup",
+      "revision": "4edb78991f8d0bf87dafde5e01ccd8922065c9b2",
+      "files": [
+        {
+          "path": "jhy--jsoup--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/jhy/jsoup/4edb78991f8d0bf87dafde5e01ccd8922065c9b2/LICENSE",
+          "sha256": "04983402c349784ceea42c5ea196da4cabafeeb1dede5dde6b99c7a3b7da5630"
+        }
+      ]
+    },
+    {
+      "repository": "nahsra/antisamy",
+      "revision": "7313931dc3c0d1377b010f07faef2063dd359a36",
+      "files": []
+    },
+    {
+      "repository": "neo4j-contrib/neo4j-apoc-procedures",
+      "revision": "45bc09c8bd7f17283e2a7e85ce3f02cb4be4fd1a",
+      "files": [
+        {
+          "path": "neo4j-contrib--neo4j-apoc-procedures--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/45bc09c8bd7f17283e2a7e85ce3f02cb4be4fd1a/LICENSE",
+          "sha256": "5549f4c9cb9ec67e7cd9bfc6dad47c98ca9c765b7b1d4c3afe3752a332172b7a"
+        }
+      ]
+    },
+    {
+      "repository": "neo4j/neo4j",
+      "revision": "46de5d01ae2741ffe04c36270fc62c6d490f65c9",
+      "files": []
+    },
+    {
+      "repository": "opennetworkinglab/onos",
+      "revision": "1a783729a1d7e0cd59d59a8dd3a73cdd6ac0f30d",
+      "files": [
+        {
+          "path": "opennetworkinglab--onos--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/opennetworkinglab/onos/1a783729a1d7e0cd59d59a8dd3a73cdd6ac0f30d/LICENSE.txt",
+          "sha256": "43ec661fc5aeb55abf8e37bb8261685db1e35f842ffbc19e4174646f1a726416"
+        }
+      ]
+    },
+    {
+      "repository": "resteasy/Resteasy",
+      "revision": "acf15f2a8067f7e4cf5838342cecfa0b78a174fb",
+      "files": [
+        {
+          "path": "resteasy--Resteasy--License.html",
+          "source_path": "License.html",
+          "url": "https://raw.githubusercontent.com/resteasy/Resteasy/acf15f2a8067f7e4cf5838342cecfa0b78a174fb/License.html",
+          "sha256": "95f57f2ee6daebb041895ff1d2a2fd176f59986b53d7fb2fc8e5daa1ab013305"
+        }
+      ]
+    },
+    {
+      "repository": "spring-projects/spring-data-commons",
+      "revision": "371f6590c509c72f8e600f3d05e110941607fbad",
+      "files": [
+        {
+          "path": "spring-projects--spring-data-commons--src--main--resources--notice.txt",
+          "source_path": "src/main/resources/notice.txt",
+          "url": "https://raw.githubusercontent.com/spring-projects/spring-data-commons/371f6590c509c72f8e600f3d05e110941607fbad/src/main/resources/notice.txt",
+          "sha256": "77a9840d42840b50965a5dd777bd03b496fef1c1e4eff094e8f08168498807e1"
+        }
+      ]
+    },
+    {
+      "repository": "spring-projects/spring-data-rest",
+      "revision": "8f269e28fe8038a6c60f31a1c36cfda04795ab45",
+      "files": [
+        {
+          "path": "spring-projects--spring-data-rest--src--main--resources--notice.txt",
+          "source_path": "src/main/resources/notice.txt",
+          "url": "https://raw.githubusercontent.com/spring-projects/spring-data-rest/8f269e28fe8038a6c60f31a1c36cfda04795ab45/src/main/resources/notice.txt",
+          "sha256": "fad34b0e32fcbc90cc256bffa3422cda2fb27ec65a0fe351acccda5c4f0a58a3"
+        }
+      ]
+    },
+    {
+      "repository": "spring-projects/spring-framework",
+      "revision": "e02ff3a0da50744b0980d5d665fd242eedea767",
+      "files": [
+        {
+          "path": "spring-projects--spring-framework--src--dist--license.txt",
+          "source_path": "src/dist/license.txt",
+          "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/e02ff3a0da50744b0980d5d665fd242eedea767/src/dist/license.txt",
+          "sha256": "22af2e3afbae7db28ab57177640734a2769d8c4bfcac623e4f720862aa598670"
+        }
+      ]
+    },
+    {
+      "repository": "spring-projects/spring-security",
+      "revision": "1304c958bf9c38940082f3ad1558d413ed82f2b",
+      "files": [
+        {
+          "path": "spring-projects--spring-security--license.txt",
+          "source_path": "license.txt",
+          "url": "https://raw.githubusercontent.com/spring-projects/spring-security/1304c958bf9c38940082f3ad1558d413ed82f2b/license.txt",
+          "sha256": "c1b9df1275e769f3dbab000d1e457a2d4b0f28eb5da6c77e48dc37eeba202ed7"
+        }
+      ]
+    },
+    {
+      "repository": "spring-projects/spring-security-oauth",
+      "revision": "fff77d3fea477b566bcacfbfc95f85821a2bdc2d",
+      "files": [
+        {
+          "path": "spring-projects--spring-security-oauth--license.txt",
+          "source_path": "license.txt",
+          "url": "https://raw.githubusercontent.com/spring-projects/spring-security-oauth/fff77d3fea477b566bcacfbfc95f85821a2bdc2d/license.txt",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ]
+    },
+    {
+      "repository": "square/retrofit",
+      "revision": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+      "files": [
+        {
+          "path": "square--retrofit--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/square/retrofit/b9a7f6ad72073ddd40254c0058710e87a073047d/LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    {
+      "repository": "swagger-api/swagger-parser",
+      "revision": "4c6584306b40de9b2dfa9065c3a438cd918534af",
+      "files": [
+        {
+          "path": "swagger-api--swagger-parser--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/swagger-api/swagger-parser/4c6584306b40de9b2dfa9065c3a438cd918534af/LICENSE",
+          "sha256": "f3bafbe10a72b3d49c57ec1b7128abd1868d4c2fa0995858d909cb60898a7746"
+        }
+      ]
+    },
+    {
+      "repository": "x-stream/xstream",
+      "revision": "f38a1da3ae9491930c2067c12cd2506738b21dab",
+      "files": [
+        {
+          "path": "x-stream--xstream--LICENSE.txt",
+          "source_path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/x-stream/xstream/f38a1da3ae9491930c2067c12cd2506738b21dab/LICENSE.txt",
+          "sha256": "8aac8da049c7fb9076dd07aa7e0456a66d1550274e3728b6c77f2f6df008ac52"
+        }
+      ]
+    },
+    {
+      "repository": "zeroturnaround/zt-zip",
+      "revision": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "files": [
+        {
+          "path": "zeroturnaround--zt-zip--LICENSE",
+          "source_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/zeroturnaround/zt-zip/759b72f33bc8f4d69f84f09fcb7f010ad45d6fff/LICENSE",
+          "sha256": "27b1a545791fea517acf864ee16ee8fca643199a6afaf08fb8d3e6f750778b2f"
+        },
+        {
+          "path": "zeroturnaround--zt-zip--NOTICE",
+          "source_path": "NOTICE",
+          "url": "https://raw.githubusercontent.com/zeroturnaround/zt-zip/759b72f33bc8f4d69f84f09fcb7f010ad45d6fff/NOTICE",
+          "sha256": "256b6f2306c9667237a195b6c96e4c7649380b908aee4e2a07fee8277c226b7a"
+        }
+      ]
+    }
+  ],
+  "pin_meaning": "Release-computed SHA-256 of downloaded public bytes; not checksums supplied by Vul4J",
+  "missing_source_policy": "Keep unavailable entries excluded; never silently replace their content",
+  "dataset_licence": {
+    "url": "https://raw.githubusercontent.com/tuhh-softsec/Vul4J/376411da11fa705019f731404de1d0679fe73537/DATA_LICENSE",
+    "sha256": "f5b745ef98087f531e719ee8ca6a96809444573ecc7173c6fa68eaad39b3cc3f"
+  }
+}

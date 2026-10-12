@@ -1,0 +1,11 @@
+Completed public benchmark seed 17
+Completed repository fold 1/5
+Completed public benchmark seed 17
+Completed repository fold 2/5
+Completed public benchmark seed 17
+Completed repository fold 3/5
+Completed public benchmark seed 17
+Completed repository fold 4/5
+Completed public benchmark seed 17
+Completed repository fold 5/5
+/workspace/scratch/0423a16a5263/PatchLens/examples/repository-cross-validation/cross-validation-summary.json

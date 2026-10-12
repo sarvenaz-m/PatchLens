@@ -1,55 +1,29 @@
-# Dataset card · authored-fixtures-v1
+# Data card · version 2.0.0
 
-| Property | Value |
-|---|---|
-| Origin | Newly authored educational JavaScript examples |
-| Size | 48 examples / 24 vulnerable–corrected pairs / 24 scenario groups |
-| Split | 24 training, 12 validation, 12 test examples |
-| Classes | Balanced within each split; vulnerable is positive |
-| Views | One local-parameter rename per example |
-| Sources | `authored:patchlens-fixtures-v1` |
-| Licence | CC0-1.0 dedication for the fixture dataset |
-| Label review | Author-labelled; independent review pending |
-| Intended use | Pipeline verification, method illustration and error inspection |
-| Excluded claims | Representative prevalence, production accuracy, exploit validation |
+## Public corpus
 
-## Coverage
+**Name:** Vul4J public Java patch contexts. **Size:** 62 corrections, 124 before/after originals, 40 source repositories, 40 split components. **Categories:** 22 upstream CWE numbers plus `CWE-unknown`. Nine pairs lack a mapped CWE; their 18 contexts keep that explicit value rather than receiving an invented category.
 
-| CWE | Scenarios | Correction mechanisms and assumptions |
-|---|---:|---|
-| CWE-79 · cross-site scripting | 4 pairs | Text-node APIs for text content; appropriate DOM context |
-| CWE-89 · SQL injection | 4 pairs | Parameter binding or explicit sort-direction allowlist; PostgreSQL-style API assumptions |
-| CWE-78 · OS command injection | 4 pairs | Argument-array process APIs, option delimiters or constrained inputs; named utility behavior |
-| CWE-22 · path traversal | 4 pairs | Canonical containment or fixed allowlists; filesystem/symlink/TOCTOU assumptions stated per example |
-| CWE-1321 · prototype pollution | 4 pairs | Fixed property paths, own-property allowlists or null-prototype dictionary boundaries |
-| CWE-95 · dynamic-code evaluation | 4 pairs | Data parsing or explicit operation dispatch replacing attacker-controlled evaluation |
+**Source:** [Vul4J](https://github.com/tuhh-softsec/Vul4J), revision `376411da11fa705019f731404de1d0679fe73537`, original entries 1–79 of the committed dataset CSV. Bui, Scandariato and Díaz Ferreyra, MSR 2022, [DOI](https://doi.org/10.1145/3524842.3528482). Dataset metadata is CC-BY-4.0. Original code excerpts and patches retain their upstream terms; retained licence texts and notices are in `datasets/vul4j/licences/` and [Third-party notices](../THIRD_PARTY_NOTICES.md).
 
-For each category, the first two authored scenarios train the model, the third is validation and the fourth is test. This split is deliberate and inspectable, not a randomized population sample. The same authoring style and related APIs cross splits. Groups prevent scenario leakage but do not establish repository-level independence.
+A sample is concatenated production Java Git diff hunk context for one documented security correction. `label=1` is the before context and `label=0` the after context, specific to its CVE and original surrounding program. These labels were inherited, not independently adjudicated for the extracted snippets. No source code, build command, patch or vulnerability test is executed by the importer. Other vulnerabilities can remain in an after version.
 
-## Schema
+Tests and examples are removed from classifier input using documented path heuristics. Empty/unchanged contexts, missing CVEs, multi-commit renderings, inaccessible sources and insufficient licence retrieval are explicit eligibility exclusions. The complete source lock and 17-entry exclusion ledger are committed. Eligibility does not depend on model performance. Raw patch files retain their original content, including upstream authorship and changed tests.
 
-Each UTF-8 JSONL line contains exactly these keys:
+The reference split contains 47 / 9 / 6 pairs across 28 / 6 / 6 repositories. Five additional repository folds test every pair once, fitting vocabulary/heads and selecting thresholds independently within each fold. Shared-CVE and code-copy grouping precedes assignment. The cohort is a small permissive/retrievable subset, balanced by construction, with several corrections per repository. It is not representative of deployed vulnerability prevalence.
 
-| Key | Meaning |
-|---|---|
-| `id` | Unique example identifier; safe alphanumeric/dot/hyphen/underscore string |
-| `pair_id`, `group_id` | Pair and split-group identity |
-| `split` | `train`, `validation` or `test` |
-| `label` | Integer 1 for vulnerable; 0 for corrected in context |
-| `cwe`, `title` | Weakness family and scenario title |
-| `code`, `view_code` | Original source and reviewed label-preserving view |
-| `rationale`, `assumptions` | Why the label applies and when the correction is valid |
-| `source`, `licence` | Traceable origin and reuse terms |
-| `review_status` | Explicit label-review status |
+`view_code` is identical to `code` for all public samples. View scores are the same inference input; rename or augmentation stability is not measured. Patch-hunk extraction can omit definitions, callers and control/data flow. CodeBERT truncates 32 contexts using a fixed head/tail rule. Exact lexical checks and 5gram overlap do not establish semantic independence, and pretraining overlap remains unknown.
 
-The generator is `scripts/build_fixtures.py`; the source of truth for a run is the audited JSONL file and its SHA-256. Code strings are never executed by the pipeline or browser. `scripts/check-fixtures.cjs` checks JavaScript syntax without running the snippets. Syntax checks do not verify security semantics or API behavior.
+## Authored corpus, preserved from version 1
 
-## Restrictions and known weaknesses
+`src/patchlens/data/fixtures.jsonl` contains 24 authored JavaScript vulnerable/corrected pairs, 48 originals, across six CWE categories. Source markers begin with `authored:` and the fixtures are CC0-1.0. A documented local parameter rename supplies their label-preserving view. Scenario groups keep siblings together, using 24/12/12 originals in train/validation/test.
 
-The examples are short and lack real repository history, dependencies, tests, complex control flow and business logic. Corrections cover a specific weakness; authorization, resource limits and other concerns may be outside scope. Some filesystem corrections depend on a trusted, stable directory tree. Scanner silence must not upgrade a contextual label into a safety guarantee.
+These examples support numerical, syntax and pipeline checks. Their stylistic consistency and small test set limit model-quality claims. The original reference report, four numeric models, three-seed study and Semgrep findings remain labelled as that corpus's prior executions. They are separate from the public Java reports.
 
-No employer repositories, confidential snippets, private datasets or personal records were used. Do not add such material. Add third-party patches only after reviewing licence, provenance, confidentiality, split lineage and label evidence.
+## Contract and provenance
 
-## Dataset dedication
+Both corpora use the existing strict Example schema: IDs, pair/group/split, binary label, CWE, title, original/view code, rationale, assumptions, source, licence and review status. Pairs have one member of each class and share split/group/CWE. The audit rejects duplicate IDs, cross-split groups, contradictory identical code and whitespace-normalized code leakage.
 
-To the extent permitted by law, the fixture author dedicates these newly authored dataset records to the public domain under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/). The full licence text is linked there. Code and documentation outside the fixture dataset are under the repository MIT licence unless otherwise noted.
+Public provenance adds a companion cohort ledger: original CVE/repository, correction URL, raw patch SHA-256, extracted files/hunk windows, before/after code hashes, upstream failing-test names, licence source/revision and exclusion reason. Dataset fingerprints cover actual code, labels and split assignments. Fold fingerprints change when split metadata changes; original input codes and frozen vectors are verified to remain identical.
+
+Reports do not authenticate the provider or establish independent ground truth. Pins make the released bytes reproducible. Model/scanner findings never rewrite labels. Contribution guidance is in [CONTRIBUTING.md](../CONTRIBUTING.md).

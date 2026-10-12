@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0",
+  "kind": "paired_comparison",
+  "dataset_sha256": "9dcb7476caa993c175c5539f6a0deed09b7a0f945da43872fd8ebb9433c3d319",
+  "split": "test",
+  "n": 12,
+  "groups": 6,
+  "baseline": {
+    "experiment_id": "d53da94fcaf6bce7",
+    "run_id": "linear",
+    "metrics": {
+      "n": 12,
+      "tp": 2,
+      "tn": 4,
+      "fp": 2,
+      "fn": 4,
+      "threshold": 0.7102801455883361,
+      "accuracy": 0.5,
+      "precision": 0.5,
+      "recall": 0.3333333333333333,
+      "f1": 0.4,
+      "fnr": 0.6666666666666666,
+      "fpr": 0.3333333333333333,
+      "brier": 0.3328881408637204,
+      "average_precision": 0.5259259259259259,
+      "roc_auc": 0.48611111111111116,
+      "fnr_wilson_95": [
+        0.299993315138392,
+        0.9032285888942195
+      ],
+      "fpr_wilson_95": [
+        0.09677141110578041,
+        0.700006684861608
+      ],
+      "mcc": 0.0,
+      "balanced_accuracy": 0.5
+    }
+  },
+  "candidate": {
+    "experiment_id": "d53da94fcaf6bce7",
+    "run_id": "codebert",
+    "metrics": {
+      "n": 12,
+      "tp": 3,
+      "tn": 2,
+      "fp": 4,
+      "fn": 3,
+      "threshold": 0.5604226423824729,
+      "accuracy": 0.4166666666666667,
+      "precision": 0.42857142857142855,
+      "recall": 0.5,
+      "f1": 0.46153846153846156,
+      "fnr": 0.5,
+      "fpr": 0.6666666666666666,
+      "brier": 0.2561589774045083,
+      "average_precision": 0.5703703703703703,
+      "roc_auc": 0.5555555555555556,
+      "fnr_wilson_95": [
+        0.1876163064826506,
+        0.8123836935173494
+      ],
+      "fpr_wilson_95": [
+        0.299993315138392,
+        0.9032285888942195
+      ],
+      "mcc": -0.1690308509457033,
+      "balanced_accuracy": 0.41666666666666663
+    }
+  },
+  "outcomes": {
+    "improved": 1,
+    "regressed": 2,
+    "both_correct": 4,
+    "both_wrong": 5
+  },
+  "accuracy_delta": -0.08333333333333331,
+  "bootstrap": {
+    "unit": "group_id",
+    "draws": 2000,
+    "seed": 17,
+    "accuracy_delta_percentile_95": [
+      -0.25,
+      0.0
+    ],
+    "interpretation": "Exploratory paired group bootstrap on the same split; few groups and authored data limit generalization"
+  },
+  "changes": [
+    {
+      "id": "VUL4J-1-before",
+      "pair_id": "VUL4J-1",
+      "group_id": "repo-d75481843d718a0c",
+      "title": "CVE-2017-18349 · alibaba/fastjson",
+      "cwe": "CWE-20",
+      "label": 1,
+      "baseline_score": 0.9650051668854455,
+      "candidate_score": 0.6950110979586188,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "VUL4J-1-after",
+      "pair_id": "VUL4J-1",
+      "group_id": "repo-d75481843d718a0c",
+      "title": "CVE-2017-18349 · alibaba/fastjson",
+      "cwe": "CWE-20",
+      "label": 0,
+      "baseline_score": 0.9650051668854455,
+      "candidate_score": 0.695562661911397,
+      "baseline_correct": false,
+      "candidate_correct": false,
+      "outcome": "both_wrong"
+    },
+    {
+      "id": "VUL4J-20-before",
+      "pair_id": "VUL4J-20",
+      "group_id": "repo-ecebfe911530694e",
+      "title": "CVE-2018-11797 · apache/pdfbox",
+      "cwe": "CWE-unknown",
+      "label": 1,
+      "baseline_score": 0.7294058052952912,
+      "candidate_score": 0.6127384264074011,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "VUL4J-20-after",
+      "pair_id": "VUL4J-20",
+      "group_id": "repo-ecebfe911530694e",
+      "title": "CVE-2018-11797 · apache/pdfbox",
+      "cwe": "CWE-unknown",
+      "label": 0,
+      "baseline_score": 0.8449314459812228,
+      "candidate_score": 0.6118159411830054,
+      "baseline_correct": false,
+      "candidate_correct": false,
+      "outcome": "both_wrong"
+    },
+    {
+      "id": "VUL4J-22-before",
+      "pair_id": "VUL4J-22",
+      "group_id": "repo-6847137a5d6ddb81",
+      "title": "CVE-2016-6802 · apache/shiro",
+      "cwe": "CWE-284",
+      "label": 1,
+      "baseline_score": 0.43835943065133365,
+      "candidate_score": 0.5573677528263234,
+      "baseline_correct": false,
+      "candidate_correct": false,
+      "outcome": "both_wrong"
+    },
+    {
+      "id": "VUL4J-22-after",
+      "pair_id": "VUL4J-22",
+      "group_id": "repo-6847137a5d6ddb81",
+      "title": "CVE-2016-6802 · apache/shiro",
+      "cwe": "CWE-284",
+      "label": 0,
+      "baseline_score": 0.43114825754968394,
+      "candidate_score": 0.5691950710954001,
+      "baseline_correct": true,
+      "candidate_correct": false,
+      "outcome": "regressed"
+    },
+    {
+      "id": "VUL4J-66-before",
+      "pair_id": "VUL4J-66",
+      "group_id": "repo-bcb55cfa6ada3073",
+      "title": "CVE-2020-1695 · resteasy/Resteasy",
+      "cwe": "CWE-20",
+      "label": 1,
+      "baseline_score": 0.3453273516683524,
+      "candidate_score": 0.5894456173334444,
+      "baseline_correct": false,
+      "candidate_correct": true,
+      "outcome": "improved"
+    },
+    {
+      "id": "VUL4J-66-after",
+      "pair_id": "VUL4J-66",
+      "group_id": "repo-bcb55cfa6ada3073",
+      "title": "CVE-2020-1695 · resteasy/Resteasy",
+      "cwe": "CWE-20",
+      "label": 0,
+      "baseline_score": 0.382663305941602,
+      "candidate_score": 0.5669305818705451,
+      "baseline_correct": true,
+      "candidate_correct": false,
+      "outcome": "regressed"
+    },
+    {
+      "id": "VUL4J-68-before",
+      "pair_id": "VUL4J-68",
+      "group_id": "repo-05b0c225137ec314",
+      "title": "CVE-2017-8046 · spring-projects/spring-data-rest",
+      "cwe": "CWE-20",
+      "label": 1,
+      "baseline_score": 0.37498399209815675,
+      "candidate_score": 0.4205974400480298,
+      "baseline_correct": false,
+      "candidate_correct": false,
+      "outcome": "both_wrong"
+    },
+    {
+      "id": "VUL4J-68-after",
+      "pair_id": "VUL4J-68",
+      "group_id": "repo-05b0c225137ec314",
+      "title": "CVE-2017-8046 · spring-projects/spring-data-rest",
+      "cwe": "CWE-20",
+      "label": 0,
+      "baseline_score": 0.27711099700700553,
+      "candidate_score": 0.39173644040539013,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    },
+    {
+      "id": "VUL4J-75-before",
+      "pair_id": "VUL4J-75",
+      "group_id": "repo-ceb6d6554a77496e",
+      "title": "CVE-2016-4977 · spring-projects/spring-security-oauth",
+      "cwe": "CWE-19",
+      "label": 1,
+      "baseline_score": 0.16186409478344918,
+      "candidate_score": 0.4358353944739117,
+      "baseline_correct": false,
+      "candidate_correct": false,
+      "outcome": "both_wrong"
+    },
+    {
+      "id": "VUL4J-75-after",
+      "pair_id": "VUL4J-75",
+      "group_id": "repo-ceb6d6554a77496e",
+      "title": "CVE-2016-4977 · spring-projects/spring-security-oauth",
+      "cwe": "CWE-19",
+      "label": 0,
+      "baseline_score": 0.16971732841822687,
+      "candidate_score": 0.3943016881024791,
+      "baseline_correct": true,
+      "candidate_correct": true,
+      "outcome": "both_correct"
+    }
+  ]
+}

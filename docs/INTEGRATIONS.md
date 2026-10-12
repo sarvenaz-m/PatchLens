@@ -1,3 +1,7 @@
+# Version 2 pretrained study and integration scope
+
+The executed public-code comparison is the frozen CodeBERT linear probe in [PUBLIC_BENCHMARK.md](PUBLIC_BENCHMARK.md). Use `patchlens benchmark` and `patchlens cross-validate` to replay it. It is separate from the optional general training/generation/scanner paths below. The existing scanner exporter and CodeQL runner target JavaScript fixtures; the extracted Java contexts are fragments and no Java scanner or full-project CodeQL execution was performed in this release.
+
 # Models, scanners and generation
 
 PatchLens 0.2 includes runnable optional integrations. The core demo still runs with NumPy alone. All commands below run locally; model downloads require the explicit `--allow-download` switch. The browser only displays saved results.

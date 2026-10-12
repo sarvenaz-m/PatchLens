@@ -1,176 +1,82 @@
-<p align="center"><img src="docs/assets/github-banner.svg" alt="PatchLens — Code security, made inspectable." width="100%"></p>
+<p align="center"><img src="docs/assets/github-banner.svg" alt="PatchLens — real security corrections, traceable decisions" width="100%"></p>
 
-<p align="center">
-  <strong>Code pairs. Controlled experiments. Inspectable evidence.</strong><br>
-  A local security research studio for comparing models, inspecting code and keeping review evidence.
-</p>
+<p align="center"><strong>Real code. Repository splits. Inspectable evidence.</strong><br>A local studio for comparing security models and tracing each decision to its source correction.</p>
 
-<p align="center">
-  <a href="https://sarvenaz-m.github.io/PatchLens/"><strong>Open the interactive demo →</strong></a> ·
-  <a href="docs/assets/workbench-overview.png">Static preview</a> ·
-  <a href="docs/assets/workbench-tour.webm">Watch the full recording</a>
-</p>
+<p align="center"><a href="https://sarvenaz-m.github.io/PatchLens/"><strong>Open the interactive demo →</strong></a> · <a href="docs/assets/workbench-overview.png">Actual interface</a> · <a href="docs/assets/workbench-tour.webm">Browser walkthrough</a></p>
 
-<p align="center">
-  <a href="https://sarvenaz-m.github.io/PatchLens/">
-    <img src="docs/assets/workbench-preview.gif" alt="Recorded PatchLens interface: overview, code pairs, diagnostics, comparison and review. Click to open the interactive demo." width="100%">
-  </a>
-</p>
+<p align="center"><a href="https://sarvenaz-m.github.io/PatchLens/"><img src="docs/assets/workbench-preview.gif" alt="Actual PatchLens v2 browser recording: public benchmark, Java corrections, diagnostics and model comparison" width="100%"></a></p>
 
-<p align="center"><sub>Actual interface recording. Open the demo to explore all nine workspaces, compare models and inspect the included results.</sub></p>
+<p align="center"><a href="#start-in-two-minutes">Quick start</a> · <a href="docs/PUBLIC_BENCHMARK.md">Public study</a> · <a href="docs/DATA_CARD.md">Data card</a> · <a href="docs/MODEL_CARD.md">Models</a> · <a href="docs/REPRODUCIBILITY.md">Reproduce</a> · <a href="THIRD_PARTY_NOTICES.md">Source licences</a></p>
 
-<p align="center">
-  <a href="#start-in-two-minutes">Quick start</a> ·
-  <a href="docs/METHODOLOGY.md">Methodology</a> ·
-  <a href="docs/DATA_CARD.md">Data card</a> ·
-  <a href="docs/REPRODUCIBILITY.md">Reproduce</a> ·
-  <a href="docs/INTEGRATIONS.md">Integrations</a> ·
-  <a href="docs/ANALYSIS.md">Diagnostics & review</a> ·
-  <a href="docs/DEMO_WALKTHROUGH.md">Walkthrough</a>
-</p>
+PatchLens connects a security score to the code, its documented correction, split assignment and experiment. Version **2.0.0** adds **62 real Vul4J security corrections from 40 repositories**, a genuine **pretrained CodeBERT** comparison, five repository-disjoint evaluation folds, source-byte verification and a workbench that exposes the failures as well as the scores.
 
----
+**The experiment is deliberately scoped:** inputs are concatenated production Java patch hunks, with the surrounding Git diff context. Labels are inherited from the documented before/after correction for a particular CVE. The original upstream vulnerability tests were not re-executed here, and a corrected context can contain other flaws. This study evaluates patch-context classification rather than complete-program security.
 
-PatchLens connects a model's security score to the exact code, correction, label assumptions and experiment that produced it. It includes a working CPU research pipeline, four controlled baselines, a curated fixture collection and a polished, dependency-free web interface.
+## Version 2.0.0
 
-**The bundled results are real executions on 48 authored examples.** They validate the pipeline and support inspection; they are not evidence of production vulnerability-detection performance. The included models are compact lexical and MLP baselines, not pretrained language models. Corrected examples are labelled only under their documented assumptions.
+- Real, attributed Java changes with original patch files, source URLs, upstream licences, notices and release-computed SHA-256 pins.
+- Repository separation, shared-CVE grouping and conservative lexical/near-copy checks before model fitting.
+- A 70/15/15 component reference split repeated across seeds **17, 29 and 43**.
+- Five outer repository folds: train on three buckets, choose a threshold on a fourth, and test on the remaining bucket. Every one of the **124 originals** is tested once.
+- Four controlled lexical/MLP baselines, a **124.6M-parameter frozen CodeBERT encoder with a train-only linear head**, and a constant-score control.
+- Numeric checkpoints, saved embeddings, raw predictions, validation thresholds and repository bootstrap intervals.
+- Ten offline workspaces with seven report choices: reference study, all five folds and the original authored fixtures.
+- Actual CPU executions, numerical replay, browser checks and desktop/mobile captures. No API key or GPU is required.
 
-## Version 1.0.0
+## The result that matters
 
-- A redesigned studio with a decision map, nine workspaces, command search and responsive light/dark layouts.
-- Reliability diagrams, per-CWE uncertainty intervals, pair score margins, balanced accuracy and Matthews correlation.
-- Paired model comparison across matching reports, with improved decisions, regressions and CSV export.
-- A local review notebook with dataset-scoped notes, status filters and portable JSON backups.
-- Python analysis commands with source fingerprint verification and a paired bootstrap over complete groups.
-- Actual local transformer tests for frozen training, full fine-tuning, weighted contrastive LoRA, saved-adapter inference and causal generation.
-- A real Semgrep scan, a findings ledger and a model/scanner disagreement queue.
-- CodeQL CLI orchestration and SARIF import with explicit failed and incomplete states.
-- Three-seed reference runs, browser-verified desktop/mobile layouts and a recorded UI walkthrough.
+The five-fold study uses one declared training seed, **17**. All three percentage columns give each test repository component equal weight; error counts pool the 124 contexts. The intervals resample complete components using 2,000 draws. They are exploratory: the corpus is small and fold training sets overlap.
 
-## What you can inspect
+| Model | Macro balanced accuracy · 95% interval | Pair ordering | Both versions classified correctly | Misses | False alarms |
+|---|---:|---:|---:|---:|---:|
+| Token baseline | 53.8% (47.5–60.2%) | 62.4% | 14.1% | 40 / 62 | 16 / 62 |
+| Supervised encoder | 53.5% (46.9–60.0%) | 57.1% | 14.6% | 41 / 62 | 15 / 62 |
+| Contrastive encoder | 54.3% (49.4–59.7%) | 59.8% | 11.1% | 43 / 62 | 13 / 62 |
+| Security-weighted encoder | 54.8% (50.8–60.0%) | 61.1% | 10.5% | 40 / 62 | 15 / 62 |
+| CodeBERT · frozen linear probe | 56.0% (51.9–61.0%) | 73.2% | 12.1% | 40 / 62 | 15 / 62 |
+| Constant 0.5 control | 50.0% (50.0–50.0%) | 0.0% | 0.0% | 62 / 62 | 0 / 62 |
 
-| Surface | What it shows |
-|---|---|
-| **Overview** | Actual training traces, ablation results, confusion counts and an error inspection queue |
-| **Code pairs** | Vulnerable and corrected JavaScript, highlighted line differences, model scores and contextual assumptions |
-| **Experiments** | Precision–recall and ROC curves, classification stability and an exploratory threshold control |
-| **Model comparison** | Matched reports or models, improved decisions, regressions, shared errors and CSV export |
-| **Diagnostics** | Reliability, score distributions, CWE slices with uncertainty intervals and correction score margins |
-| **Embedding atlas** | Actual model representations projected with a PCA basis fitted on training data |
-| **Tool findings** | Scanner findings linked to code pairs, reported coverage and disagreements with the selected model |
-| **Review notebook** | Browser-local review status and observations, with validated import and backup export |
-| **Provenance** | Split assignments, dataset fingerprints, run configuration, environment and explicit limits |
+**CodeBERT minus the token baseline: +2.29 percentage points, paired repository 95% interval −5.42 to +9.58 points.** The interval includes zero. The study does not establish comparative superiority. Ranking the before version above its sibling is easier than correctly classifying both at a validation-selected operating point; the low complete-pair success rate makes that distinction visible.
 
-The interface supports light and dark appearance, keyboard navigation, local JSON import and report export. Press **Ctrl+K / ⌘K** to find a page or code pair. Review notes are stored separately from experiment reports; export a backup before moving to another browser or clearing browser storage. Snippets are displayed as text. The workbench does not execute code or make network requests.
+The separate reference hold-out has only six pairs from six repositories. CodeBERT achieves **41.7%** balanced accuracy there, compared with **50.0%** for the token baseline. Those results remain published in full. Repeating that split across seeds measures optimization variation on the same twelve contexts; it does not create new independent test data. The zero-initialized linear head is deterministic, so its repeated predictions are identical.
+
+<p><img src="docs/assets/public-results.png" alt="Actual five-fold repository macro balanced accuracy with exploratory bootstrap intervals; constant classifier at 50 percent" width="100%"></p>
 
 ## Start in two minutes
 
-**Explore the included run:** download and extract this repository, then open **`index.html`** in a browser. The report is already bundled; no installation or server is needed. If your browser blocks local scripts, serve the folder with `python -m http.server 8000 --bind 127.0.0.1` and open `http://127.0.0.1:8000`.
+**Explore:** extract the repository and open **`index.html`**. All reports are bundled; the workbench executes no snippets and makes no network requests. If local scripts are blocked, run `python -m http.server 8000 --bind 127.0.0.1` and open `http://127.0.0.1:8000`.
 
-**Run a new experiment:** use Python 3.10 or newer.
+Use **Dataset** to select the reference experiment, a repository fold, or the authored JavaScript examples. **Public benchmark** shows the complete five-fold results and source split ledger. **Code pairs** links to the original correction. Model comparison, diagnostics, review notes, JSON/CSV export, keyboard search, light/dark appearance and training-fitted PCA remain available. Press **Ctrl+K / ⌘K** to search. Export browser-local review notes before clearing storage.
+
+**Replay the public study without downloading the encoder:**
 
 ```bash
 python -m venv .venv
-# macOS / Linux:
-source .venv/bin/activate
+# macOS / Linux: source .venv/bin/activate
 # Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -e .
-patchlens audit
-patchlens demo --output runs/my-experiment
+python scripts/verify_public_benchmark.py
+patchlens benchmark --embedding-cache examples/public-benchmark/encoder --output runs/public-replay
+patchlens cross-validate --embedding-cache examples/public-benchmark/encoder --output runs/five-fold-replay
 ```
 
-Open `runs/my-experiment/workbench/index.html`. NumPy is the only core runtime dependency. Installation may need internet access; the core experiment itself needs no network, GPU, API key or external model.
+Saved embeddings let you refit and verify the numeric models with NumPy alone. This replay does not perform a new encoder forward pass. For a fresh pretrained inference run, follow [Reproducibility](docs/REPRODUCIBILITY.md); the pinned encoder download is approximately **499 MB**, outside the Git repository.
 
-Watch the [recorded browser walkthrough](docs/assets/workbench-tour.webm) or follow the [five-minute demo guide](docs/DEMO_WALKTHROUGH.md).
-
-## A small, honest experiment
-
-The fixture collection has **24 pairs across six weakness categories**, split by scenario into 24 training, 12 validation and 12 test examples. Original code and its corrected sibling always stay in the same split. A local parameter rename supplies a label-preserving view. Vocabulary and IDF use training data only.
-
-| Model | Training objective | Test F1 | Missed / vulnerable | False alarms / corrected |
-|---|---|---:|---:|---:|
-| Token baseline | TF-IDF + logistic classification | 0.800 | 2 / 6 | 0 / 6 |
-| Supervised encoder | Small MLP + binary classification | 0.800 | 2 / 6 | 0 / 6 |
-| Contrastive encoder | Classification + masked paired contrastive loss | 0.909 | 1 / 6 | 0 / 6 |
-| Security-weighted encoder | Contrastive objective + weighted positive-class loss | 0.909 | 1 / 6 | 0 / 6 |
-
-Reference: seed **17**, **240** epochs, Python **3.12.14**, NumPy **2.3.5**. Each threshold is selected on validation by maximizing recall under an FPR ceiling of 0.20, then frozen for test. The ceiling is not a test-set guarantee. Raw scores, checkpoint weights and configuration are included in [`examples/fixture-run`](examples/fixture-run).
-
-**One example changes test recall by 16.7 percentage points.** Zero false alarms among six corrected examples has a 95% Wilson interval of approximately 0–39%. The security-weighted objective ties the ordinary contrastive model here; there is no evidence from this run that weighting improves it. Report-level metrics include interval bounds.
-
-<p><img src="docs/assets/reference-results.png" alt="Actual fixture-run error counts and 95 percent Wilson intervals; six examples per class." width="100%"></p>
-
-## The distinction that drives the experiment
-
-A vulnerable snippet and its security-changing correction must not be treated as interchangeable positive views. PatchLens uses the authored **label-preserving rename** as the contrastive positive. Opposite-label examples, including the correction, are negatives; other same-label examples are masked out. An explicit classification head supplies the security score.
-
-The NumPy implementation exposes every loss term and gradient. Finite-difference tests check the complete weighted contrastive objective, including representation normalization. See the equations and limitations in [Methodology](docs/METHODOLOGY.md).
+## Trace a result
 
 ```mermaid
 flowchart TD
-    A["Authored code pairs + assumptions"] --> B["Split and leakage audit"]
-    B --> C["Training-only token features"]
-    C --> D["Four controlled objectives"]
-    D --> E["Validation threshold"]
-    E --> F["Frozen test predictions"]
-    F --> G["Local inspection workbench"]
+    A["Pinned Vul4J patches and licences"] --> B["Production Java contexts and QC"]
+    B --> C["Repository and copy components"]
+    C --> D["Train-only vocabulary and classifier heads"]
+    D --> E["Validation-selected thresholds"]
+    E --> F["Held-out repository decisions"]
+    F --> G["Source inspection and raw artifacts"]
 ```
 
-## Commands
+The frozen encoder processes code without fitting to this corpus. Its revision, tokenizer/weight hashes, pooling, token lengths and truncation counts are recorded. **32 of 124 contexts exceed the 512-token input budget**; a fixed equal head/tail rule applies, and no test example is removed because of its prediction. None of the retained pairs becomes identical after this tokenization and truncation. One real pair, **VUL4J-26**, becomes lexically identical under the original tokenizer's literal normalization; it remains in the study.
 
-```bash
-# Inspect a dataset contract.
-patchlens audit path/to/dataset.jsonl
-
-# Train the four reference models with a fixed seed.
-patchlens demo --dataset path/to/dataset.jsonl --seed 17 --epochs 240 --output runs/custom
-
-# Reuse numeric JSON weights; no pickle deserialization.
-patchlens predict --checkpoint examples/fixture-run/model-weighted.json --output runs/scores.jsonl
-
-# Evaluate exactly matched example IDs at an explicitly supplied threshold.
-patchlens evaluate --predictions runs/scores.jsonl --threshold 0.5 --split test --output runs/evaluation.json
-
-# Regenerate the portable interface for an existing report.
-patchlens export examples/fixture-run/report.json --output runs/exported-workbench
-```
-
-The `evaluate` threshold above is illustrative. To reproduce a run's operating point, use the exact value saved in its report; do not round it. Output directories that contain unrelated files are protected from experiment overwrite.
-
-## Optional integrations
-
-The [integration guide](docs/INTEGRATIONS.md) includes complete commands for:
-
-- Training an encoder with frozen representations, ordinary fine-tuning or PEFT/LoRA, with optional paired contrastive and weighted-classification terms.
-- Saving and reloading full classifiers or adapters, then adding actual predictions, embeddings and history to the workbench.
-- Scanning with Semgrep or an independently installed CodeQL CLI; importing SARIF and attaching findings without altering labels.
-- Generating code as text with a local causal model, recording prompts and settings, and summarizing independently obtained scanner findings.
-
-**Executed here:** real Semgrep 1.137.0 scan, and real training/inference/generation tests using tiny locally initialized transformers. **Not claimed:** pretrained code-model efficacy, a real CodeQL execution, GPU validation or a public-code benchmark. Implementation tests and research evidence are different deliverables.
-
-## Analyze and compare saved reports
-
-```bash
-# Recompute diagnostics after verifying the report's actual source fingerprint.
-patchlens analyze examples/fixture-run/report.json --run weighted --split test --output runs/diagnostics.json
-
-# Compare models on identical examples, preserving each stored validation threshold.
-patchlens compare examples/fixture-run/report.json examples/fixture-run/report.json \
-  --baseline-run linear --candidate-run weighted --draws 1000 --seed 17 \
-  --output runs/comparison.json
-```
-
-The second report can come from another seed or an externally trained model. Its actual code, labels, groups and split assignments must match. The CLI resamples whole groups together for an exploratory 95% percentile interval on the accuracy difference. It does not treat two members of a code pair as independent. See [Analysis and review](docs/ANALYSIS.md) for assumptions and formulas. Actual generated outputs are included in [`examples/analysis`](examples/analysis).
-
-<p><img src="docs/assets/workbench-diagnostics.png" alt="Actual diagnostics showing calibration, weakness slices and pair score margins" width="100%"></p>
-
-## Repeat across seeds
-
-```bash
-patchlens repeat --seeds 17 29 43 --epochs 240 --output runs/repeated
-```
-
-The included [three-seed study](examples/repeated-study/summary.json) retains every report, prediction and checkpoint. Import any report into the workbench or use `patchlens export` to inspect it. The weighted model misses 1, 0 and 1 vulnerable examples and raises 0, 1 and 0 false alarms across these seeds. The ordinary contrastive model misses 1 and raises 0 false alarms in each run. These are the same twelve test examples every time, not three independent datasets; the study does not establish a general superiority claim.
+The public corpus uses **identity views**, with no invented rename or augmentation claims. Contrastive positives in the MLP comparison are identity copies; before/after siblings remain opposite-label negatives. The authored corpus retains its original label-preserving parameter renames and numerical gradient checks. See [Methodology](docs/METHODOLOGY.md).
 
 ## Verify
 
@@ -178,30 +84,48 @@ The included [three-seed study](examples/repeated-study/summary.json) retains ev
 python -m unittest discover -s tests -v
 node --test tests/*.test.cjs
 node scripts/check-fixtures.cjs
+python scripts/verify_public_benchmark.py
 ```
 
-The suite covers metric edge cases and score ties, finite-difference gradients, group leakage, training-only vocabulary, threshold provenance, deterministic training, saved-model round trips, report import validation, group bootstrap behavior and Python/JavaScript diagnostic agreement. Browser checks cover all nine workspaces, comparison import, CSV download, note persistence, command search and mobile layout. A GitHub Actions workflow is included; see [Reproducibility](docs/REPRODUCIBILITY.md) for the exact validation status of this release.
+Optional browser validation uses Playwright 1.62.1:
+
+```bash
+npm install --no-save --package-lock=false playwright@1.62.1
+npx playwright install --with-deps chromium
+node scripts/browser-public.cjs
+node scripts/browser-smoke.cjs
+```
+
+The release evidence distinguishes CPU encoder execution, numeric replay, core tests, optional tiny transformer tests and actual browser checks. See [Reproducibility](docs/REPRODUCIBILITY.md) and `docs/evidence/validation-v2.json` for counts and scope. GitHub workflows are supplied; their remote execution occurs after publication.
+
+## Research and engineering skills
+
+The project demonstrates controlled neural objectives, transfer learning, repository-aware evaluation and error analysis. Its Java security contexts complement Java/Android experience, while the Python experiments make model behavior and provenance reviewable. The browser interface connects those experiments to a practical review workflow.
 
 ## Repository guide
 
-```text
-src/patchlens/          Python library, CLI and portable web assets
-src/patchlens/data/     Authored, auditable JavaScript pairs
-examples/fixture-run/  Actual reference report, scores and JSON checkpoints
-tests/                 Independent numerical and data-contract tests
-scripts/               Fixture generation, figures and validation helpers
-integrations/          Optional scanner rules
-docs/                  Methodology, cards, reproduction and visual assets
-```
+| Path | Contents |
+|---|---|
+| `src/patchlens/` | Python CLI, numerical models, public importer, pretrained encoder and fold evaluation |
+| `src/patchlens/web/` | Dependency-free inspection studio |
+| `datasets/vul4j/` | Real contexts, original source patches, cohort ledger and upstream licences |
+| `configs/` | Declared protocols and pinned CodeBERT source files |
+| `examples/public-benchmark/` | Three-seed reference split, saved embeddings and every checkpoint |
+| `examples/repository-cross-validation/` | All five folds and one held-out prediction per original per model |
+| `examples/fixture-run/` | Preserved version-1 authored reference experiment |
+| `tests/`, `scripts/` | Numerical, source, browser and artifact verification |
+| `docs/` | Study details, cards, validation evidence and actual captures |
 
-## Limits and next experiments
+## Scope and next experiments
 
-This is a research prototype release. The authored corpus is small, balanced and stylistically related across scenarios. Scenario separation does not establish repository-level generalization. Lexical normalization loses information, renaming is only one transformation, labels await independent review, and three training seeds on one tiny test set cannot establish an efficacy claim. Scores are uncalibrated model outputs. This software is not a security audit or a remediation guarantee.
+Repository separation applies to classifier fitting within this study. Overlap with CodeBERT's pretraining cannot be ruled out. Patch hunks omit surrounding definitions and flow; correction labels are contextual rather than independently adjudicated local vulnerability labels. The permissive, retrievable subset and balanced pair sampling constrain generalization. Scores are uncalibrated and the validation FPR ceiling is not a guarantee on a new repository.
 
-A useful next study would add independently reviewed, appropriately licensed public patches with repository-disjoint splits, a pretrained encoder, repeated seeds, clustered uncertainty estimates and adjudicated static-tool disagreements. These are future experiments, not capabilities already demonstrated by the reference run.
+A next study can reconstruct complete methods/files from parent and fixed snapshots, rerun the upstream vulnerability tests, review labels independently, add forward chronological evaluation and compare fine-tuning with the frozen probe. The CodeQL orchestration remains available for the JavaScript integration path; a real CodeQL execution is still pending. Version-1 Semgrep findings belong to the authored JavaScript corpus and are kept separate from the public Java study.
 
-## Contributing and licence
+## Attribution and licences
 
-See [Contributing](CONTRIBUTING.md), [Security](SECURITY.md), [Data card](docs/DATA_CARD.md) and [Asset provenance](docs/ASSET_PROVENANCE.md). Code is MIT-licensed. The newly authored fixtures are dedicated under CC0-1.0. Do not contribute proprietary, confidential or unlicensed code.
+Vul4J: Bui, Scandariato and Díaz Ferreyra, *A Dataset of Reproducible Java Vulnerabilities Geared Towards the Study of Program Repair Techniques*, MSR 2022, [DOI: 10.1145/3524842.3528482](https://doi.org/10.1145/3524842.3528482). Data/metadata: CC-BY-4.0. Original code fragments and patches retain their upstream terms; see [Third-party notices](THIRD_PARTY_NOTICES.md).
 
-Maintainer: **Sarvenaz Mahmoudzadeh Khameneh**.
+CodeBERT: Feng et al., *A Pre-Trained Model for Programming and Natural Languages*, [paper](https://arxiv.org/abs/2002.08155), [official model card](https://huggingface.co/microsoft/codebert-base), [official project](https://github.com/microsoft/CodeBERT). Downloaded weights are not bundled.
+
+PatchLens code is MIT-licensed; authored fixtures are CC0-1.0. See [Contributing](CONTRIBUTING.md) and [Security](SECURITY.md).

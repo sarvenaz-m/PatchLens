@@ -1,0 +1,37 @@
+Token indices sequence length is longer than the specified maximum sequence length for this model (720 > 512). Running this sequence through the model will result in indexing errors
+You're using a RobertaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+CodeBERT encoded 4/124 originals
+CodeBERT encoded 8/124 originals
+CodeBERT encoded 12/124 originals
+CodeBERT encoded 16/124 originals
+CodeBERT encoded 20/124 originals
+CodeBERT encoded 24/124 originals
+CodeBERT encoded 28/124 originals
+CodeBERT encoded 32/124 originals
+CodeBERT encoded 36/124 originals
+CodeBERT encoded 40/124 originals
+CodeBERT encoded 44/124 originals
+CodeBERT encoded 48/124 originals
+CodeBERT encoded 52/124 originals
+CodeBERT encoded 56/124 originals
+CodeBERT encoded 60/124 originals
+CodeBERT encoded 64/124 originals
+CodeBERT encoded 68/124 originals
+CodeBERT encoded 72/124 originals
+CodeBERT encoded 76/124 originals
+CodeBERT encoded 80/124 originals
+CodeBERT encoded 84/124 originals
+CodeBERT encoded 88/124 originals
+CodeBERT encoded 92/124 originals
+CodeBERT encoded 96/124 originals
+CodeBERT encoded 100/124 originals
+CodeBERT encoded 104/124 originals
+CodeBERT encoded 108/124 originals
+CodeBERT encoded 112/124 originals
+CodeBERT encoded 116/124 originals
+CodeBERT encoded 120/124 originals
+CodeBERT encoded 124/124 originals
+Completed public benchmark seed 17
+Completed public benchmark seed 29
+Completed public benchmark seed 43
+/workspace/scratch/0423a16a5263/PatchLens/examples/public-benchmark/benchmark-summary.json

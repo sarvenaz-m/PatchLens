@@ -1,0 +1,40 @@
+From b2d4fec3617c497c5a8eb9c7e5270e0c7db293ee Mon Sep 17 00:00:00 2001
+From: Rob Winch <rwinch@users.noreply.github.com>
+Date: Wed, 12 Jun 2019 09:21:38 -0500
+Subject: [PATCH] PlaintextPasswordEncoder ignores null encoded passwords
+
+Fixes gh-7023
+---
+ .../authentication/encoding/PlaintextPasswordEncoder.java   | 3 +++
+ .../encoding/PlaintextPasswordEncoderTests.java             | 6 ++++++
+ 2 files changed, 9 insertions(+)
+
+diff --git a/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java b/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java
+index b1e546a138e..0e6d8389bd6 100644
+--- a/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java
++++ b/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java
+@@ -51,6 +51,9 @@ public boolean isIgnorePasswordCase() {
+ 	}
+ 
+ 	public boolean isPasswordValid(String encPass, String rawPass, Object salt) {
++		if (encPass == null) {
++			return false;
++		}
+ 		String pass1 = encPass + "";
+ 
+ 		// Strict delimiters is false because pass2 never persisted anywhere
+diff --git a/core/src/test/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoderTests.java b/core/src/test/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoderTests.java
+index a546fde4737..864da766077 100644
+--- a/core/src/test/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoderTests.java
++++ b/core/src/test/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoderTests.java
+@@ -70,4 +70,10 @@ public void testMergeDemerge() {
+ 		assertThat(demerged[0]).isEqualTo("password");
+ 		assertThat(demerged[1]).isEqualTo("foo");
+ 	}
++
++	@Test
++	public void testNull() {
++		PlaintextPasswordEncoder encoder = new PlaintextPasswordEncoder();
++		assertThat(encoder.isPasswordValid(null, "null", null)).isFalse();
++	}
+ }

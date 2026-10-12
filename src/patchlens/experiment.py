@@ -57,7 +57,7 @@ def split_summaries(samples: list[Example], predictions: list[dict], threshold: 
     return result
 
 
-def run_experiment(samples: list[Example], output: Path, *, seed: int = 17, epochs: int = 240, max_fpr: float = .2) -> dict:
+def run_experiment(samples: list[Example], output: Path, *, seed: int = 17, epochs: int = 240, max_fpr: float = .2, publish_report: bool = True) -> dict:
     audit_result = audit(samples)
     if sum(s.split == "train" for s in samples) > 512:
         raise ValueError("The full-batch CPU reference supports at most 512 training originals; use a minibatch backend for larger research datasets")
@@ -108,15 +108,20 @@ def run_experiment(samples: list[Example], output: Path, *, seed: int = 17, epoc
         write_json(output/f"model-{variant['id']}.json", {"schema_version": "1.0", "model": model.to_dict(), "vectorizer": vectorizer.to_dict(),
                                                        "threshold": run["threshold"], "dataset_sha256": audit_result["fingerprint"], "config": {**config, "variant": variant}})
         write_jsonl(output/f"predictions-{variant['id']}.jsonl", predictions)
-    write_json(output/"report.json", result)
     write_json(output/"split-manifest.json", [{"id": s.id, "pair_id": s.pair_id, "group_id": s.group_id, "split": s.split} for s in samples])
-    export_workbench(result, output/"workbench")
+    if publish_report:
+        write_json(output/"report.json", result)
+        export_workbench(result, output/"workbench")
     return result
 
 
-def export_workbench(report: dict, destination: Path) -> None:
+def export_workbench(report: dict, destination: Path, additional_reports: dict | None = None) -> None:
     import json
     source = Path(__file__).parent / "web"
     shutil.copytree(source, destination, dirs_exist_ok=True)
     payload = json.dumps(report, ensure_ascii=False, allow_nan=False).replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
-    (destination/"report-data.js").write_text("window.PATCHLENS_REPORT = "+payload+";\n", encoding="utf-8")
+    extra = ""
+    if additional_reports:
+        more = json.dumps(additional_reports, ensure_ascii=False, allow_nan=False).replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+        extra = "window.PATCHLENS_EXTRA_REPORTS = " + more + ";\n"
+    (destination/"report-data.js").write_text("window.PATCHLENS_REPORT = "+payload+";\n"+extra, encoding="utf-8", newline="\n")

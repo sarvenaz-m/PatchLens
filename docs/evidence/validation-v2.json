@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "release_date": "2026-10-04",
+  "base_commit": "0af5da5a117635754c70341466583adde2eea4a4",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "torch": "2.8.0+cpu",
+  "transformers": "4.56.2",
+  "peft": "0.17.1",
+  "python_tests": {
+    "passed": 75,
+    "skipped": 0
+  },
+  "javascript_tests": {
+    "passed": 23,
+    "skipped": 0
+  },
+  "fixture_syntax": {
+    "originals": 48,
+    "renamed_views": 48,
+    "executed_snippets": 0
+  },
+  "numeric_replay": {
+    "status": "passed",
+    "pairs_reconstructed_from_raw_patches": 62,
+    "repository_disjoint_sources": 40,
+    "checkpoint_prediction_checks": 5952,
+    "split_metric_and_macro_checks": 144,
+    "training_seeds": [
+      17,
+      29,
+      43
+    ],
+    "repository_test_folds": 5,
+    "oof_originals_verified_per_model": 124,
+    "embedding_fingerprint_verified": true,
+    "thresholds_reselected_on_validation": true,
+    "scope": "Bundled numeric replay and source reconstruction; no upstream PoV or encoder forward pass is repeated by this check"
+  },
+  "browser_public": {
+    "status": "passed",
+    "chromium": "154.0.8037.92",
+    "viewports": [
+      [
+        1440,
+        1000
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "routes": 10,
+    "repository_folds": 5,
+    "corpora": 7,
+    "page_errors": 0,
+    "external_requests": 0,
+    "page_overflow": false,
+    "scope": "Public study, all fold reports, identity-view status, original correction links, input validation and actual desktop/mobile layout"
+  },
+  "browser_fixture": {
+    "status": "passed",
+    "scope": "Historical authored workflow, persisted review notes, search, threshold, imports, escaped hostile strings, JSON/CSV downloads"
+  },
+  "distribution": {
+    "wheel": "patchlens_workbench-2.0.0-py3-none-any.whl",
+    "version": "2.0.0",
+    "isolated_install": true,
+    "cli_audit": "passed",
+    "packaged_fixtures_and_web": "passed"
+  },
+  "current_neural_scope": "Actual frozen pretrained CodeBERT CPU inference on 124 originals plus separately executed randomly initialized tiny-transformer/PEFT integration tests",
+  "historical_scope": "Version-1 fixture model artifacts and Semgrep findings retained; they are not a new Java scan",
+  "not_executed": [
+    "upstream Vul4J PoV tests",
+    "independent label adjudication",
+    "real CodeQL executable",
+    "GPU/MPS",
+    "remote GitHub workflows",
+    "cross-platform checks"
+  ],
+  "release_source_hashes": {
+    "src/patchlens/benchmark.py": "f87b3ab405804528128a9ad293f4889c9d2c62a7c2da92d7838da77b86cc2a46",
+    "src/patchlens/cross_validation.py": "d739398508359458882dff7801c815a4c454d61f1ff4052a931852a666c531fc",
+    "src/patchlens/public_data.py": "14b350e2711860f4757508bf8daa506e96bcf3e90cf6df7c78b8e9ba6bff206d",
+    "configs/public-benchmark.json": "d4d2262798829491fd3ce047fafbefd837fb954e00dc9c89695d4dfef08b158d",
+    "configs/codebert-lock.json": "45f871d7cd47b3c8d16e8916f6397ec5446d40c5a86147a210b69346018d73f5",
+    "configs/repository-cross-validation.json": "53f608d6b969edb38a326a7269c45a7f6536f42b4bf0ca35e566b9ec43c1b102",
+    "index.html": "f6250cb509a189b90a8109d2cf8db8616b894d8cc64655e66df012578861a8c8"
+  },
+  "public_import_reconstruction": {
+    "status": "passed",
+    "dataset_cohort_source_lock": "byte-identical to committed files"
+  }
+}

@@ -12,6 +12,8 @@ const {pathToFileURL}=require('node:url');
   try {
     await page.goto(pathToFileURL(path.join(__dirname,'../index.html')).href);
     await page.locator('#view-overview .stats-grid').waitFor();
+    assert.equal(await page.locator('#version').textContent(),'2.0.0');
+    await page.locator('#corpus-select').selectOption('fixtures');
     assert.match(await page.locator('#experiment-id').textContent(),/^[a-z0-9]{16}$/);
     for(const route of ['overview','pairs','experiments','compare','diagnostics','embeddings','tools','review','provenance']) {
       await page.locator(`nav [data-route="${route}"]`).click();
